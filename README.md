@@ -1,4 +1,4 @@
-# board
+# Conference Toolkit
 
 ## Project setup
 ```
