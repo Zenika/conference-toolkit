@@ -34,6 +34,10 @@
           <span>{{ slide.sublineFirstLine }} /</span>
           <span>{{ slide.sublineSecondLine }}</span>
         </h2>
+        <div class="slide-custom" v-if="slide.content">
+          <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
+          <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
+        </div>
       </div>
     </div>
 
@@ -57,61 +61,75 @@
       ></span>
     </div>
 
+    <c-logo></c-logo>
+
   </div>
 </template>
 
 <script>
+import Twitter from './../components/Twitter.vue';
+import Youtube from './../components/Youtube.vue';
+import Logo from './../components/Logo.vue';
+
 export default {
   name: 'Home',
+  components: {
+    'c-twitter': Twitter,
+    'c-youtube': Youtube,
+    'c-logo': Logo,
+  },
   data: function() {
-    return {
-      currentSlide: 0,
-      isPreviousSlide: false,
-      isFirstLoad: true,
-      slides: [
-      {
-          headlineFirstLine: "C0d1ng",
-          headlineSecondLine: "Th3 St4rs",
-          sublineFirstLine: "Lead by passion",
-          sublineSecondLine: "Zenika",
-          bgImg: "./img/sw2.png",
-          rectImg: "./img/sw2.png"
-      },
-      {
-          headlineFirstLine: "Zenika",
-          headlineSecondLine: "Twitter",
-          sublineFirstLine: "Il n'y a rien de neuf sous",
-          sublineSecondLine: "le soleil",
-          bgImg: "./img/sw4.jpg",
-          rectImg: "./img/sw4.jpg"
-      },
-      {
-          headlineFirstLine: "Contest",
-          headlineSecondLine: "Zenikanard",
-          sublineFirstLine: "Il n'y a rien de neuf sous",
-          sublineSecondLine: "le soleil",
-          bgImg: "./img/sw3.jpg",
-          rectImg: "./img/sw3-1.jpg"
-      },
-      {
-          headlineFirstLine: "Zenika",
-          headlineSecondLine: "Speakers",
-          sublineFirstLine: "Aurelien Loyer",
-          sublineSecondLine: "Anna Filina",
-          bgImg: "./img/sw1.jpg",
-          rectImg: "./img/sw1.jpg"
-      },
-      {
-          headlineFirstLine: "zLife",
-          headlineSecondLine: "",
-          sublineFirstLine: "Enter in the",
-          sublineSecondLine: "zLife",
-          bgImg: "./img/sw6.jpg",
-          rectImg: "./img/sw6.jpg"
-      },
-    ]
-  };
-},
+      return {
+        currentSlide: 0,
+        isLoopUp: true,
+        isPreviousSlide: false,
+        isFirstLoad: true,
+        slides: [
+        {
+            headlineFirstLine: "C0d1ng",
+            headlineSecondLine: "Th3 St4rs",
+            sublineFirstLine: "Lead by passion",
+            sublineSecondLine: "Zenika",
+            bgImg: "./img/sw2.png",
+            rectImg: "./img/sw2.png",
+        },
+        {
+            headlineFirstLine: "Zenika",
+            headlineSecondLine: "Twitter",
+            sublineFirstLine: "Il n'y a rien de neuf sous",
+            sublineSecondLine: "le soleil",
+            bgImg: "./img/sw4.jpg",
+            rectImg: "./img/sw4.jpg",
+            content: "twitter",
+        },
+        {
+            headlineFirstLine: "Contest",
+            headlineSecondLine: "Zenika",
+            sublineFirstLine: "Il n'y a rien de neuf sous",
+            sublineSecondLine: "le soleil",
+            bgImg: "./img/sw3.jpg",
+            rectImg: "./img/sw3-1.jpg",
+        },
+        {
+            headlineFirstLine: "Zenika",
+            headlineSecondLine: "Speakers",
+            sublineFirstLine: "Aurelien Loyer",
+            sublineSecondLine: "Anna Filina",
+            bgImg: "./img/sw1.jpg",
+            rectImg: "./img/sw1.jpg",
+        },
+        {
+            headlineFirstLine: "zLife",
+            headlineSecondLine: "",
+            sublineFirstLine: "Enter in the",
+            sublineSecondLine: "zLife",
+            bgImg: "./img/sw6.jpg",
+            rectImg: "./img/sw6.jpg",
+            content: "youtube",
+        },
+      ]
+    };
+  },
   mounted: function () {
     var productRotatorSlide = document.getElementById("home");
     var startX = 0;
@@ -121,16 +139,26 @@ export default {
 
     productRotatorSlide.addEventListener("touchmove", (event) => endX = event.touches[0].pageX);
 
-    productRotatorSlide.addEventListener("touchend", function() {
+    productRotatorSlide.addEventListener("touchend", () => {
         var threshold = startX - endX;
 
         if (threshold < 150 && 0 < this.currentSlide) {
             this.currentSlide--;
         }
         if (threshold > -150 && this.currentSlide < this.slides.length - 1) {
-            this.currentSlide++;
+          this.currentSlide++;
         }
-    }.bind(this));
+    });
+
+    setInterval(() => {
+      this.currentSlide++;
+      if(this.currentSlide === this.slides.length) {
+        this.currentSlide = 0;
+      }
+    },20000)
+
+    // this.currentSlide = 4;
+    
   },
   methods: {
       updateSlide(index) {
@@ -175,7 +203,7 @@ body {
 }
 
 // ------------- VARIABLES ------------- //
-$whitespace-height: 50px;
+$whitespace-height: 5px;
 $left-offset: 13vw;
 $rect-width: 48vh;
 $rect-height: 62vh;
@@ -294,7 +322,7 @@ body {
     margin-top: 5rem;
     position: absolute;
     top: 60%;
-    left: calc(#{$left-offset} + (0.4) * #{$rect-width});
+    left: calc(#{$left-offset} + (0.2) * #{$rect-width});
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
