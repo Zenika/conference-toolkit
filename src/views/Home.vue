@@ -30,7 +30,7 @@
             <p>{{ slide.headlineFirstLine }}</p>
             <p>{{ slide.headlineSecondLine }}</p>
           </h1>
-          <a class="slide-content-cta">Call To Action</a>
+          <a v-if="0" class="slide-content-cta">Call To Action</a>
         </div>
         <h2 class="slide-side-text">
           <span>{{ slide.sublineFirstLine }} /</span>
