@@ -1,5 +1,5 @@
 <template>
-    <img class="logo" src="/img/znk2.png" alt="">
+    <img class="logo" src="img/znk2.png" alt="">
 </template>
 
 <script>
@@ -13,13 +13,11 @@ export default {
 
 <style scoped lang="scss">
 .logo {
-    height: 20vh;
+    width: 78%;
     overflow: hidden;
     position: absolute;
-    // left: 50px;
-    // bottom: 20px;
-    top: 35px;
-    left: 220px;
+    top: 32%;
+    left: 10%;
     z-index: 1000;
     opacity: 0.6;
 }

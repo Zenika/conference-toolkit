@@ -21,7 +21,9 @@
           <div
             class="slide-rect"
             v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
-          ></div>
+          >
+            <c-logo></c-logo>
+          </div>
         </div>
         <div class="slide-content">
           <h1 class="slide-content-text">
@@ -60,9 +62,6 @@
         v-on:click="updateSlide(index)"
       ></span>
     </div>
-
-    <c-logo></c-logo>
-
   </div>
 </template>
 
