@@ -9,8 +9,8 @@ export default {
   name: 'Twitter',
   data: function() {
       return {
-          // twittername: 'ZenikaMontreal',
-          twittername: 'AurelienLoyer'
+        twittername: 'ZenikaMontreal',
+        // twittername: 'AurelienLoyer'
       }
   },
 }
@@ -23,6 +23,7 @@ export default {
     overflow: hidden;
     position: absolute;
     right: 200px;
-    top: 20px;
+    top: 40px;
+    border-radius: 5px;
 }
 </style>
