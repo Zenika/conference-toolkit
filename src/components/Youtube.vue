@@ -1,6 +1,6 @@
 <template>
   <div class="youtube">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/b_Gh5YIzs9o?&autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </template>
 
@@ -15,14 +15,16 @@ export default {
 
 <style scoped lang="scss">
 .youtube {
-    width: 30vw;
-    height: calc(100vh - 150px);
-    overflow: hidden;
-    position: absolute;
-    right: 200px;
-    top: 20px;
+    width: 50vw; 
+    height: calc(50vw / 1.60); 
+    overflow: hidden; 
+    position: absolute; 
+    right: 100px; 
+    top: 10vh;
+
     iframe {
       width: 100%;
+      height: 100%;
     }
 }
 </style>

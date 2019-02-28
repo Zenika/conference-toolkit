@@ -39,6 +39,7 @@
         <div class="slide-custom" v-if="slide.content">
           <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
           <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
+          <c-image v-if="slide.content === 'image'"></c-image>
         </div>
       </div>
     </div>
@@ -62,6 +63,7 @@
         v-on:click="updateSlide(index)"
       ></span>
     </div>
+    <c-loader :progress="counter" :timer="timer"></c-loader>
   </div>
 </template>
 
@@ -69,6 +71,8 @@
 import Twitter from './../components/Twitter.vue';
 import Youtube from './../components/Youtube.vue';
 import Logo from './../components/Logo.vue';
+import Image from './../components/Image.vue';
+import Loader from './../components/Loader.vue';
 
 export default {
   name: 'Home',
@@ -76,6 +80,8 @@ export default {
     'c-twitter': Twitter,
     'c-youtube': Youtube,
     'c-logo': Logo,
+    'c-image': Image,
+    'c-loader': Loader,
   },
   data: function() {
       return {
@@ -83,20 +89,24 @@ export default {
         isLoopUp: true,
         isPreviousSlide: false,
         isFirstLoad: true,
+        isPlaying: true,
+        counter: 0,
+        timer: parseInt(window.localStorage.getItem('timer')) || 30,
         slides: [
         {
             headlineFirstLine: "C0d1ng",
             headlineSecondLine: "Th3 St4rs",
             sublineFirstLine: "Lead by passion",
-            sublineSecondLine: "Zenika",
+            sublineSecondLine: " Zenika",
             bgImg: "./img/sw2.png",
             rectImg: "./img/sw2.png",
+            content: 'image'
         },
         {
             headlineFirstLine: "Zenika",
             headlineSecondLine: "Twitter",
             sublineFirstLine: "Il n'y a rien de neuf sous",
-            sublineSecondLine: "le soleil",
+            sublineSecondLine: " le soleil",
             bgImg: "./img/sw4.jpg",
             rectImg: "./img/sw4.jpg",
             content: "twitter",
@@ -121,7 +131,7 @@ export default {
             headlineFirstLine: "zLife",
             headlineSecondLine: "",
             sublineFirstLine: "Enter in the",
-            sublineSecondLine: "zLife",
+            sublineSecondLine: " zLife",
             bgImg: "./img/sw6.jpg",
             rectImg: "./img/sw6.jpg",
             content: "youtube",
@@ -149,14 +159,45 @@ export default {
         }
     });
 
-    setInterval(() => {
-      this.currentSlide++;
-      if(this.currentSlide === this.slides.length) {
-        this.currentSlide = 0;
+    window.addEventListener("keydown", (event) => {
+      if (event.code === 'Space') {
+        this.toggleIsPlaying();
       }
-    },20000)
+      else if (event.code === 'ArrowRight') {
+        if(this.currentSlide === this.slides.length - 1) {
+          this.currentSlide = 0;
+        } else {
+          this.currentSlide++;
+        }
+        this.counter = 0;
+      }
+      else if (event.code === 'ArrowLeft') {
+        if(this.currentSlide === 0) {
+          this.currentSlide = 4;
+        }else { 
+          this.currentSlide--;
+        }
+        this.counter = 0;
+      }
+    });
 
-    // this.currentSlide = 4;
+    this.counter = 0;
+
+    setInterval(() => {
+      if (!this.isPlaying) {
+        return;
+      }
+      if (this.counter === this.timer * 10) {
+        this.currentSlide++;
+        if(this.currentSlide === this.slides.length) {
+          this.currentSlide = 0;
+        }
+        this.counter = 0;
+      }
+      this.counter++;
+    },100);
+
+    this.currentSlide = 0;
     
   },
   methods: {
@@ -164,6 +205,10 @@ export default {
           index < this.currentSlide ? this.isPreviousSlide = true : this.isPreviousSlide = false;
           this.currentSlide = index;
           this.isFirstLoad = false;
+          this.counter = 0;
+      },
+      toggleIsPlaying() {
+        this.isPlaying = !this.isPlaying;
       }
   }
 }
@@ -175,6 +220,8 @@ body {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  height: 100%;
+  overflow: hidden;
 }
 
 *,
@@ -204,8 +251,8 @@ body {
 // ------------- VARIABLES ------------- //
 $whitespace-height: 5px;
 $left-offset: 13vw;
-$rect-width: 48vh;
-$rect-height: 62vh;
+$rect-width: 38vh;
+$rect-height: 52vh;
 $rect-border-width: 5vh;
 $control-btn-padding: 1.6rem;
 $control-active-btn-offset: 0.3rem;
@@ -389,8 +436,8 @@ body {
     width: $rect-width;
     border-image-slice: 10%;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40px;
+    transform: translateY(-30%);
     left: $left-offset;
     border-width: $rect-border-width;
     border-style: solid;
@@ -481,7 +528,7 @@ body {
     &.active {
       cursor: default;
       font-weight: 700;
-      background-color: #3b3e45;
+      background-color: #2d353a;
       padding-top: $control-btn-padding + $control-active-btn-offset;
       padding-bottom: $control-btn-padding + $control-active-btn-offset;
       margin-bottom: -$control-active-btn-offset;
@@ -610,14 +657,14 @@ $text-cut-up: 0.5s;
 
 @keyframes rectMovement {
   0% {
-    transform: translateX(0) rotate(0) translateY(-50%);
+    transform: translateX(0) rotate(0) translateY(-30%);
   }
   60% {
     opacity: 1;
   }
   100% {
     transform: translateX(calc(-#{$rect-width} + -#{$left-offset}))
-      rotate(12deg) translateY(-50%);
+      rotate(12deg) translateY(-30%);
     opacity: 0;
   }
 }
@@ -674,13 +721,13 @@ $text-cut-up: 0.5s;
 @keyframes rectMovementRight {
   0% {
     transform: translateX(calc(-#{$rect-width} + -#{$left-offset}))
-      rotate(12deg) translateY(-50%);
+      rotate(12deg) translateY(-30%);
   }
   40% {
     opacity: 1;
   }
   100% {
-    transform: translateX(0) rotate(0) translateY(-50%);
+    transform: translateX(0) rotate(0) translateY(-30%);
     opacity: 1;
     @include media-height(730px) {
       transform: translateX(0) rotate(0) translateY(-30%);
@@ -751,7 +798,7 @@ $text-cut-up: 0.5s;
     }
     .slide-rect {
       opacity: 0;
-      animation-name: rectMovementFromRight;
+      animation-name: rectMovementRight; // rectMovementFromRight
       animation-duration: $text-cut-up - 0.05s;
       animation-timing-function: ease;
       animation-fill-mode: forwards;
@@ -762,7 +809,7 @@ $text-cut-up: 0.5s;
     &:not(.active) {
       animation: none;
       .slide-rect {
-        animation: none;
+        // animation: none;
       }
     }
     &.active {
