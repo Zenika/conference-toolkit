@@ -1,37 +1,31 @@
 <template>
   <div>
     <div class="card top">
-      <div class="left">
-      </div>
+      <div class="left"></div>
       <div class="right">
-        <img
-          class="helmet"
-          src="img/teeshirt.png"
-          alt="helmet"
-        >
+        <img class="helmet" src="img/teeshirt.png" alt="helmet">
         <div class="productInfo">
-          <h1>
-            Tee-shirt 
-            <br>
-            C0ding the world
+          <h1>Tee-shirt
+            <br>C0d1ng Th3 W0rld
           </h1>
-          <h2>Tente ta chance et repars avec notre tee-shirt</h2>
+          <h2>Tentes ta chance et repars avec notre tee-shirt !</h2>
           <button>
-            <i class="fab fa-mobile"></i> Formulaire
+            <i class="fab fa-wpforms"></i> Formulaire
           </button>
         </div>
       </div>
     </div>
     <div class="card bottom">
       <div class="right">
-        <div class="content">
-          <h2></h2>
-          <button>
-            <i class="far fa-calendar-alt"></i> -
-          </button>
-          <button>
-            <i class="far fa-clock"></i> -
-          </button>
+        <div class="productInfo">
+          <h1>Cadeau Star Wars
+            <br>
+          </h1>
+          <h2>Un tirage tous les soirs (17h) parmis les tweets contenant:</h2>
+          <h2 class="redznk">@ZenikaMontreal #CodingTheWorld #CodingTheStars @confooca</h2>
+          <!-- <button>
+            <i class="fab fa-wpforms"></i> Formulaire
+          </button>-->
         </div>
       </div>
       <div class="left"></div>
@@ -56,7 +50,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:800");
 
@@ -89,7 +82,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all .5s
+  transition: all 0.5s;
 }
 
 ::-webkit-scrollbar {
@@ -102,6 +95,10 @@ button {
 }
 button:focus {
   outline: 0;
+}
+
+.redznk {
+  color: #de223d;
 }
 
 .card {
@@ -118,10 +115,16 @@ button:focus {
     height: 350px;
     flex-direction: row-reverse;
     .right {
-      left: -140px;
+      left: -180px;
+      width: 700px;
       display: flex;
       justify-content: center;
       align-items: center;
+      .productInfo {
+        width: 635px;
+        height: 300px;
+        margin: 70px 0 0 50px;
+      }
     }
 
     .content {
