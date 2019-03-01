@@ -1,6 +1,6 @@
 <template>
   <div class="twitter">
-      <a class="twitter-timeline" data-lang="fr" data-theme="dark" data-link-color="#E81C4F" :href="`https://twitter.com/${twittername}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
+      <a class="twitter-timeline" data-chrome="transparent nofooter noborders noheader noscrollbar" data-lang="fr" data-theme="dark" data-link-color="#cc3843" :href="`https://twitter.com/${twittername}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
     position: absolute;
     right: 200px;
     top: 40px;
-    border-radius: 5px;
+    background: #0c1f2c;
+    border-radius: 10px;
 }
 </style>

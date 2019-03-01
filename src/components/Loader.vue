@@ -6,8 +6,9 @@
 
 <script>
 export default {
-  name: 'Slide',
+  name: 'Loader',
   data: function() {
+    return {}
   },
   props: [
       'progress',
@@ -26,7 +27,7 @@ export default {
     z-index: 10;
     .progress {
         height: 20px;
-        background-color: #b1002d;
+        background-color: #cc3843;
         transition: all .1s;
     }
 }

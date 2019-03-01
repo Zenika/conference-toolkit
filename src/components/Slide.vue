@@ -6,6 +6,7 @@
 export default {
   name: 'Slide',
   data: function() {
+    return {}
   },
 }
 </script>

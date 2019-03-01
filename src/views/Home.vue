@@ -40,6 +40,8 @@
           <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
           <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
           <c-image v-if="slide.content === 'image'"></c-image>
+          <c-speakers :counter="counter" :timer="timer" v-if="slide.content === 'speakers'"></c-speakers>
+          <c-contest v-if="slide.content === 'contest'"></c-contest>
         </div>
       </div>
     </div>
@@ -63,6 +65,7 @@
         v-on:click="updateSlide(index)"
       ></span>
     </div>
+
     <c-loader :progress="counter" :timer="timer"></c-loader>
   </div>
 </template>
@@ -73,6 +76,8 @@ import Youtube from './../components/Youtube.vue';
 import Logo from './../components/Logo.vue';
 import Image from './../components/Image.vue';
 import Loader from './../components/Loader.vue';
+import Speakers from './../components/Speakers.vue';
+import Contest from './../components/Contest.vue';
 
 export default {
   name: 'Home',
@@ -82,14 +87,16 @@ export default {
     'c-logo': Logo,
     'c-image': Image,
     'c-loader': Loader,
+    'c-speakers': Speakers,
+    'c-contest': Contest,
   },
   data: function() {
       return {
-        currentSlide: 0,
+        currentSlide: JSON.parse(window.localStorage.getItem('currentSlide')) || 0,
         isLoopUp: true,
         isPreviousSlide: false,
         isFirstLoad: true,
-        isPlaying: true,
+        isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')) || 30,
         slides: [
@@ -118,14 +125,7 @@ export default {
             sublineSecondLine: "le soleil",
             bgImg: "./img/sw3.jpg",
             rectImg: "./img/sw3-1.jpg",
-        },
-        {
-            headlineFirstLine: "Zenika",
-            headlineSecondLine: "Speakers",
-            sublineFirstLine: "Aurelien Loyer",
-            sublineSecondLine: "Anna Filina",
-            bgImg: "./img/sw1.jpg",
-            rectImg: "./img/sw1.jpg",
+            content: "contest",
         },
         {
             headlineFirstLine: "zLife",
@@ -135,6 +135,15 @@ export default {
             bgImg: "./img/sw6.jpg",
             rectImg: "./img/sw6.jpg",
             content: "youtube",
+        },
+        {
+            headlineFirstLine: "Zenika",
+            headlineSecondLine: "Speakers",
+            sublineFirstLine: "Aurelien Loyer",
+            sublineSecondLine: "Anna Filina",
+            bgImg: "./img/sw1.jpg",
+            rectImg: "./img/sw1.jpg",
+            content: "speakers",
         },
       ]
     };
@@ -181,8 +190,6 @@ export default {
       }
     });
 
-    this.counter = 0;
-
     setInterval(() => {
       if (!this.isPlaying) {
         return;
@@ -196,8 +203,6 @@ export default {
       }
       this.counter++;
     },100);
-
-    this.currentSlide = 0;
     
   },
   methods: {
@@ -224,6 +229,10 @@ body {
   overflow: hidden;
 }
 
+
+.timeline-Widget {
+  background-color: yellow!important;
+}
 *,
 *:before,
 *:after {
@@ -349,6 +358,7 @@ body {
   }
   &-bg-text {
     font-family: "Playfair Display";
+    // font-family: "Open Sans";
     color: #000;
     font-size: 42vh;
     line-height: 0.8;
@@ -382,6 +392,7 @@ body {
     }
     &-text {
       font-family: "Playfair Display";
+      // font-family: "Open Sans";
       font-size: 7rem;
       letter-spacing: 0.2rem;
       line-height: 0.87;
@@ -528,7 +539,7 @@ body {
     &.active {
       cursor: default;
       font-weight: 700;
-      background-color: #2d353a;
+      background-color: #0c1f2c;
       padding-top: $control-btn-padding + $control-active-btn-offset;
       padding-bottom: $control-btn-padding + $control-active-btn-offset;
       margin-bottom: -$control-active-btn-offset;
