@@ -2,7 +2,7 @@
   <div>
     <div class="card speakers">
       <div class="left">
-        <div class="slider slider-left">
+        <div class="slider slider-left" v-on:click="prevSpeaker()">
           <i class="material-icons">arrow_back</i>
         </div>
         <img
@@ -26,10 +26,11 @@
           </h1>
           <h2>{{speakers[index].job}}</h2>
           <button>
-            <i class="fab fa-twitter"></i> {{speakers[index].twitter}}
+            <i class="fab fa-twitter"></i>
+            {{speakers[index].twitter}}
           </button>
 
-          <div class="slider">
+          <div class="slider" v-on:click="nextSpeaker()">
             <i class="material-icons">arrow_forward</i>
           </div>
         </div>
@@ -40,10 +41,12 @@
         <div class="content">
           <h2>{{speakers[index].talk}}</h2>
           <button>
-            <i class="far fa-calendar-alt"></i> {{speakers[index].talk_date}}
+            <i class="far fa-calendar-alt"></i>
+            {{speakers[index].talk_date}}
           </button>
           <button>
-            <i class="far fa-clock"></i> {{speakers[index].talk_time}}
+            <i class="far fa-clock"></i>
+            {{speakers[index].talk_time}}
           </button>
         </div>
       </div>
@@ -58,9 +61,11 @@ export default {
   props: [
     'timer',
     'counter',
+    'isPlaying',
   ],
   data: function() {
       return {
+        indexBase: 0,
         speakers: [
             {
                   firstname: 'Aurélien',
@@ -89,12 +94,16 @@ export default {
   },
   computed: {
     index() {
-      const pourcent = (this.counter * 10 )/ this.timer;
-      const value = Math.round(pourcent / ( 100 / this.speakers.length) - 0.49);
-      if (value === this.speakers.length ) {
-        return this.speakers.length - 1;
+      if(this.isPlaying) {
+        const pourcent = (this.counter * 10 )/ this.timer;
+        const value = Math.round(pourcent / ( 100 / this.speakers.length) - 0.49);
+        if (value === this.speakers.length ) {
+          return this.speakers.length - 1;
+        }
+        return value;
+      }else {
+        return this.indexBase;
       }
-      return value;
     },
   },
   mounted: function () {
@@ -109,18 +118,18 @@ export default {
   },
   methods: {
     nextSpeaker() {
-      if(this.index + 1 > this.speakers.length) {
-        this.index = 0
+      if(this.indexBase === this.speakers.length - 1) {
+        this.indexBase = 0
       }else {
-        this.index++;
+        this.indexBase++;
       }
     },
 
     prevSpeaker() {
-      if(this.index - 1 < 0) {
-        this.index =  this.speakers.length
+      if(this.indexBase - 1 < 0) {
+        this.indexBase = this.speakers.length - 1
       }else {
-        this.index--;
+        this.indexBase--;
       }
     }
   }
@@ -160,7 +169,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all .5s
+  transition: all 0.5s;
 }
 
 ::-webkit-scrollbar {

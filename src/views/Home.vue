@@ -40,7 +40,7 @@
           <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
           <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
           <c-image v-if="slide.content === 'image'"></c-image>
-          <c-speakers :counter="counter" :timer="timer" v-if="slide.content === 'speakers'"></c-speakers>
+          <c-speakers :isPlaying="isPlaying" :counter="counter" :timer="timer" v-if="slide.content === 'speakers'"></c-speakers>
           <c-contest v-if="slide.content === 'contest'"></c-contest>
         </div>
       </div>
@@ -96,13 +96,13 @@ export default {
         isLoopUp: true,
         isPreviousSlide: false,
         isFirstLoad: true,
-        isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
+        isPlaying: !JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')) || 30,
         slides: [
         {
-            headlineFirstLine: "C0d1ng",
-            headlineSecondLine: "Th3 St4rs",
+            headlineFirstLine: "C0D1NG",
+            headlineSecondLine: "TH3 ST4RS",
             sublineFirstLine: "Lead by passion",
             sublineSecondLine: " Zenika",
             bgImg: "./img/sw2.png",
@@ -391,8 +391,10 @@ body {
       left: calc(#{$left-offset-small} + (0.7) * #{$rect-width-small});
     }
     &-text {
-      font-family: "Playfair Display";
+      // font-family: "Playfair Display";
       // font-family: "Open Sans";
+      font-family: 'Dosis', sans-serif;
+
       font-size: 7rem;
       letter-spacing: 0.2rem;
       line-height: 0.87;
