@@ -357,7 +357,7 @@ body {
     overflow: hidden;
   }
   &-bg-text {
-    font-family: "Playfair Display";
+    // font-family: "Playfair Display";
     // font-family: "Open Sans";
     color: #000;
     font-size: 42vh;

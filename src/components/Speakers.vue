@@ -13,12 +13,8 @@
         >
       </div>
       <div class="right">
-        <img
-          class="helmet"
-          src="http://res.cloudinary.com/prvnbist/image/upload/v1508603573/helmet.png"
-          alt="helmet"
-        >
-        <div class="productInfo">
+        <img class="picture" :src="speakers[index].picture" alt="picture">
+        <div class="informations">
           <h1>
             {{speakers[index].firstname}}
             <br>
@@ -71,8 +67,8 @@ export default {
                   firstname: 'Aurélien',
                   lastname: 'LOYER',
                   twitter: 'AurelienLoyer',
+                  picture: 'img/trooper2.png',
                   job: 'CTO | Consultant Web',
-                  picture: 'https://confoo.ca/images/speakers/yul2019/aurelien-loyer-1_l.jpg',
                   talk: 'Tout le monde sait comment utiliser Angular / React / Vue.js ...',
                   talk_description: 'Aujourd’hui tout le monde connait les frameworks Angular, React Vuejs, mais savez-vous utiliser Javascript ? Savez-vous ...',
                   talk_date: '15 mars 2019',
@@ -82,8 +78,8 @@ export default {
                   firstname: 'Anna',
                   lastname: 'FILINA',
                   twitter: 'afilina',
+                  picture: 'img/maul4.png',
                   job: 'IT Project Rescue',
-                  picture: 'https://confoo.ca/images/speakers/yul2019/anna-filina_l.jpg',
                   talk: `Writing Better Gherkin Scenarios`,
                   talk_description: 'Are your feature files gigantic and unreadable? Do they break every time you add a database column or change a completely ...',
                   talk_date: '14 mars 2019',
@@ -230,12 +226,12 @@ button:focus {
     left: -250px;
     transform: translateX(50%);
     border-radius: 23px;
-    .helmet {
+    .picture {
       // @include transPos(50%, null, null, null, -50%, -50%);
       position: absolute;
-      top: 35px;
-      left: -5%;
-      height: 80%;
+      top: 5%;
+      left: -8%;
+      height: 90%;
     }
 
     h1 {
@@ -267,7 +263,7 @@ button:focus {
       }
     }
 
-    .productInfo {
+    .informations {
       @include object(380px, 300px, null);
       margin: 50px 0 0 235px;
       color: #fff;
