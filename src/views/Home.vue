@@ -187,6 +187,8 @@ export default {
           this.currentSlide--;
         }
         this.counter = 0;
+      }else if (event.code === 'Escape') {
+        this.$router.push('settings');
       }
     });
 
@@ -220,15 +222,6 @@ export default {
 </script>
 
 <style lang="scss">
-html,
-body {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
-  overflow: hidden;
-}
-
 
 .timeline-Widget {
   background-color: yellow!important;
