@@ -8,7 +8,7 @@
           <h1>Tee-shirt
             <br>C0d1ng Th3 W0rld
           </h1>
-          <h2>Tentes ta chance et repars avec notre tee-shirt !</h2>
+          <h2>Tente ta chance et repars avec notre tee-shirt !</h2>
           <button>
             <i class="fab fa-wpforms"></i> Formulaire
           </button>
@@ -21,7 +21,7 @@
           <h1>Cadeau Star Wars
             <br>
           </h1>
-          <h2>Un tirage tous les soirs (17h) parmis les tweets contenant:</h2>
+          <h2>Un tirage tous les soirs (17h) parmi les tweets contenant:</h2>
           <h2 class="redznk">@ZenikaMontreal #CodingTheWorld #CodingTheStars @confooca</h2>
           <!-- <button>
             <i class="fab fa-wpforms"></i> Formulaire

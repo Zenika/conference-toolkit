@@ -103,7 +103,7 @@ export default {
         {
             headlineFirstLine: "C0D1NG",
             headlineSecondLine: "TH3 ST4RS",
-            sublineFirstLine: "Lead by passion",
+            sublineFirstLine: "Led by passion",
             sublineSecondLine: " Zenika",
             bgImg: "./img/sw2.png",
             rectImg: "./img/sw2.png",
@@ -130,7 +130,7 @@ export default {
         {
             headlineFirstLine: "zLife",
             headlineSecondLine: "",
-            sublineFirstLine: "Enter in the",
+            sublineFirstLine: "Join the",
             sublineSecondLine: " zLife",
             bgImg: "./img/sw6.jpg",
             rectImg: "./img/sw6.jpg",
