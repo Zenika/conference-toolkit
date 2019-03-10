@@ -1,10 +1,13 @@
 <template>
-    <img class="image" src="img/zenikanard.png" alt="">
+    <img class="image" :src="src" alt="">
 </template>
 
 <script>
 export default {
   name: 'Logo',
+  props: [
+      'src',
+  ],
   data: function() {
       return {}
   },

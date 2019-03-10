@@ -39,7 +39,7 @@
         <div class="slide-custom" v-if="slide.content">
           <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
           <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
-          <c-image v-if="slide.content === 'image'"></c-image>
+          <c-image v-if="slide.content === 'image'" :src="slide.props.src"></c-image>
           <c-speakers :isPlaying="isPlaying" :counter="counter" :timer="timer" v-if="slide.content === 'speakers'"></c-speakers>
           <c-contest v-if="slide.content === 'contest'"></c-contest>
         </div>
@@ -96,9 +96,9 @@ export default {
         isLoopUp: true,
         isPreviousSlide: false,
         isFirstLoad: true,
-        isPlaying: !JSON.parse(window.localStorage.getItem('isPlaying')),
+        isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
-        timer: parseInt(window.localStorage.getItem('timer')) || 30,
+        timer: parseInt(window.localStorage.getItem('timer')),
         slides: [
         {
             headlineFirstLine: "C0D1NG",
@@ -107,7 +107,10 @@ export default {
             sublineSecondLine: " Zenika",
             bgImg: "./img/sw2.png",
             rectImg: "./img/sw2.png",
-            content: 'image'
+            content: "image",
+            props: {
+              src: "img/zenikanard.png",
+            }
         },
         {
             headlineFirstLine: "Zenika",
@@ -149,6 +152,12 @@ export default {
     };
   },
   mounted: function () {
+    console.log(this.timer);
+    if(!this.timer) {
+      this.$router.push('settings');
+      return;
+    }
+
     var productRotatorSlide = document.getElementById("home");
     var startX = 0;
     var endX = 0;

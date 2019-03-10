@@ -4,6 +4,10 @@
 
     <h1>🎉</h1>
 
+    <div class="message">
+      First time on 🎤 📺 Conference Toolkit, take time to configure 🎛 the app and look controls 🤷‍♂️
+    </div>
+
     <router-link to="/" class="link">Slider</router-link>
 
     <h1 title="How to use ?">🤷‍</h1>
@@ -89,6 +93,17 @@ export default {
   overflow-y: scroll;
   padding: 30px 0px;
   font-size: 17px;
+
+  .message {
+    width: 600px;
+    margin: 40px auto;
+    line-height: 2em;
+    font-size: 1.5em;
+    background: #00bed8;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+  }
 
   .link {
     color: #009688;
