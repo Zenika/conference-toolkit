@@ -27,6 +27,11 @@
         Default slide timer :
         <input type="number" name="timer" v-model="timer" @change="save()">
       </label>
+      
+      <label>
+        Slider is playing :
+        <input type="checkbox" name="isPlaying" v-model="isPlaying" @change="save()">
+      </label>
     </form>
 
     <h1 title="Credits">👏</h1>
@@ -55,6 +60,7 @@ export default {
     return {
       timer: window.localStorage.getItem('timer'),
       currentSlide: window.localStorage.getItem('currentSlide'),
+      isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
       keys: [
         { value : '␠ Space', label: 'Play / Pause slider'},
         { value : '␛ Escape', label: 'Go to settings'},
@@ -69,6 +75,7 @@ export default {
     save() {
       window.localStorage.setItem('timer', this.timer);
       window.localStorage.setItem('currentSlide', this.currentSlide);
+      window.localStorage.setItem('isPlaying', this.isPlaying);
       console.log('💾');
     },
   }
