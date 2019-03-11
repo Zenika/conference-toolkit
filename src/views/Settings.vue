@@ -4,7 +4,7 @@
 
     <h1>🎉</h1>
 
-    <div class="message">
+    <div class="message" v-if="!timer">
       First time on 🎤 📺 Conference Toolkit, take time to configure 🎛 the app and look controls 🤷‍♂️
     </div>
 
