@@ -22,10 +22,7 @@
             <br>
           </h1>
           <h2>Un tirage tous les soirs (17h) parmi les tweets contenant:</h2>
-          <h2 class="redznk">@ZenikaMontreal #CodingTheWorld #CodingTheStars @confooca</h2>
-          <!-- <button>
-            <i class="fab fa-wpforms"></i> Formulaire
-          </button>-->
+          <h2 class="redznk">@ZenikaMontreal #ConFoo</h2>
         </div>
       </div>
       <div class="left"></div>
