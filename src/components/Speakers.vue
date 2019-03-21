@@ -58,34 +58,11 @@ export default {
     'timer',
     'counter',
     'isPlaying',
+    'speakers',
   ],
   data: function() {
       return {
         indexBase: 0,
-        speakers: [
-            {
-                  firstname: 'Aurélien',
-                  lastname: 'LOYER',
-                  twitter: 'AurelienLoyer',
-                  picture: 'img/trooper2.png',
-                  job: 'CTO | Consultant Web',
-                  talk: 'Tout le monde sait comment utiliser Angular / React / Vue.js ...',
-                  talk_description: 'Aujourd’hui tout le monde connait les frameworks Angular, React Vuejs, mais savez-vous utiliser Javascript ? Savez-vous ...',
-                  talk_date: '15 mars 2019',
-                  talk_time: '13:00',
-            },
-            {
-                  firstname: 'Anna',
-                  lastname: 'FILINA',
-                  twitter: 'afilina',
-                  picture: 'img/maul4.png',
-                  job: 'IT Project Rescue',
-                  talk: `Writing Better Gherkin Scenarios`,
-                  talk_description: 'Are your feature files gigantic and unreadable? Do they break every time you add a database column or change a completely ...',
-                  talk_date: '14 mars 2019',
-                  talk_time: '15:00',
-            }
-        ],
       }
   },
   computed: {

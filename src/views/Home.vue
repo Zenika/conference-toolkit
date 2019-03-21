@@ -37,10 +37,22 @@
           <span>{{ slide.sublineSecondLine }}</span>
         </h2>
         <div class="slide-custom" v-if="slide.content">
-          <c-twitter v-if="slide.content === 'twitter'"></c-twitter>
-          <c-youtube v-if="slide.content === 'youtube'"></c-youtube>
+          <c-twitter v-if="slide.content === 'twitter'" :twitterName="slide.props.twitterName"></c-twitter>
+
+          <c-youtube v-if="slide.content === 'youtube'" :src="slide.props.src"></c-youtube>
+
+          <c-iframe v-if="slide.content === 'iframe'" :src="slide.props.src"></c-iframe>
+
           <c-image v-if="slide.content === 'image'" :src="slide.props.src"></c-image>
-          <c-speakers :isPlaying="isPlaying" :counter="counter" :timer="timer" v-if="slide.content === 'speakers'"></c-speakers>
+
+          <c-speakers
+            :isPlaying="isPlaying"
+            :counter="counter"
+            :timer="timer"
+            :speakers="slide.props.speakers"
+            v-if="slide.content === 'speakers'"
+          ></c-speakers>
+
           <c-contest v-if="slide.content === 'contest'"></c-contest>
         </div>
       </div>
@@ -71,6 +83,7 @@
 </template>
 
 <script>
+
 import Twitter from './../components/Twitter.vue';
 import Youtube from './../components/Youtube.vue';
 import Logo from './../components/Logo.vue';
@@ -78,6 +91,7 @@ import Image from './../components/Image.vue';
 import Loader from './../components/Loader.vue';
 import Speakers from './../components/Speakers.vue';
 import Contest from './../components/Contest.vue';
+import Iframe from './../components/Iframe.vue';
 
 export default {
   name: 'Home',
@@ -89,6 +103,7 @@ export default {
     'c-loader': Loader,
     'c-speakers': Speakers,
     'c-contest': Contest,
+    'c-iframe': Iframe,
   },
   data: function() {
       return {
@@ -99,10 +114,11 @@ export default {
         isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
-        slides: [
+        slides: [],
+        defaultSlides: [
         {
-            headlineFirstLine: "C0D1NG",
-            headlineSecondLine: "TH3 ST4RS",
+            headlineFirstLine: "Demoooo",
+            headlineSecondLine: "Image",
             sublineFirstLine: "Led by passion",
             sublineSecondLine: " Zenika",
             bgImg: "./img/sw2.png",
@@ -113,17 +129,44 @@ export default {
             }
         },
         {
-            headlineFirstLine: "Zenika",
+            headlineFirstLine: "Demo",
+            headlineSecondLine: "IFRAME",
+            sublineFirstLine: "Led by passion",
+            sublineSecondLine: " Zenika",
+            bgImg: "./img/sw2.png",
+            rectImg: "./img/sw2.png",
+            content: "iframe",
+            props: {
+              src: "https://www.meetup.com/fr-FR/Zenika-Montreal/events/past/",
+            }
+        },
+        {
+            headlineFirstLine: "Demo 2",
+            headlineSecondLine: "IFRAME",
+            sublineFirstLine: "Led by passion",
+            sublineSecondLine: " Zenika",
+            bgImg: "./img/sw2.png",
+            rectImg: "./img/sw2.png",
+            content: "iframe",
+            props: {
+              src: "https://www.welcometothejungle.co/companies/zenika/jobs",
+            }
+        },
+        {
+            headlineFirstLine: "Demo",
             headlineSecondLine: "Twitter",
             sublineFirstLine: "Il n'y a rien de neuf sous",
             sublineSecondLine: " le soleil",
             bgImg: "./img/sw4.jpg",
             rectImg: "./img/sw4.jpg",
             content: "twitter",
+            props: {
+              twitterName: 'AurelienLoyer',
+            }
         },
         {
-            headlineFirstLine: "Contest",
-            headlineSecondLine: "Zenika",
+            headlineFirstLine: "Demo",
+            headlineSecondLine: "Contest",
             sublineFirstLine: "Il n'y a rien de neuf sous",
             sublineSecondLine: "le soleil",
             bgImg: "./img/sw3.jpg",
@@ -131,32 +174,62 @@ export default {
             content: "contest",
         },
         {
-            headlineFirstLine: "zLife",
-            headlineSecondLine: "",
+            headlineFirstLine: "Demo",
+            headlineSecondLine: "Youtube",
             sublineFirstLine: "Join the",
             sublineSecondLine: " zLife",
             bgImg: "./img/sw6.jpg",
             rectImg: "./img/sw6.jpg",
             content: "youtube",
+            props: {
+              src: "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0",
+            }
         },
         {
-            headlineFirstLine: "Zenika",
+            headlineFirstLine: "Demo",
             headlineSecondLine: "Speakers",
             sublineFirstLine: "Aurelien Loyer",
             sublineSecondLine: "Anna Filina",
             bgImg: "./img/sw1.jpg",
             rectImg: "./img/sw1.jpg",
             content: "speakers",
+            props: {
+              speakers: [
+                {
+                  firstname: 'Aurélien',
+                  lastname: 'LOYER',
+                  twitter: 'AurelienLoyer',
+                  picture: 'img/trooper2.png',
+                  job: 'CTO | Consultant Web',
+                  talk: 'Tout le monde sait comment utiliser Angular / React / Vue.js ...',
+                  talk_description: 'Aujourd’hui tout le monde connait les frameworks Angular, React Vuejs, mais savez-vous utiliser Javascript ? Savez-vous ...',
+                  talk_date: '15 mars 2019',
+                  talk_time: '13:00',
+                },
+                {
+                  firstname: 'Anna',
+                  lastname: 'FILINA',
+                  twitter: 'afilina',
+                  picture: 'img/maul4.png',
+                  job: 'IT Project Rescue',
+                  talk: `Writing Better Gherkin Scenarios`,
+                  talk_description: 'Are your feature files gigantic and unreadable? Do they break every time you add a database column or change a completely ...',
+                  talk_date: '14 mars 2019',
+                  talk_time: '15:00',
+                }
+              ]
+            }
         },
       ]
     };
   },
   mounted: function () {
-    console.log(this.timer);
     if(!this.timer) {
       this.$router.push('settings');
       return;
     }
+
+    this.getSlides();
 
     var productRotatorSlide = document.getElementById("home");
     var startX = 0;
@@ -217,23 +290,35 @@ export default {
     
   },
   methods: {
-      updateSlide(index) {
-          index < this.currentSlide ? this.isPreviousSlide = true : this.isPreviousSlide = false;
-          this.currentSlide = index;
-          this.isFirstLoad = false;
-          this.counter = 0;
-      },
-      toggleIsPlaying() {
-        this.isPlaying = !this.isPlaying;
+    updateSlide(index) {
+        index < this.currentSlide ? this.isPreviousSlide = true : this.isPreviousSlide = false;
+        this.currentSlide = index;
+        this.isFirstLoad = false;
+        this.counter = 0;
+    },
+    toggleIsPlaying() {
+      this.isPlaying = !this.isPlaying;
+    },
+    getSlides() {
+      const url = new URL(window.location.href);
+      const jsonUrl = url.searchParams.get('json');
+      if(jsonUrl) {
+        fetch(jsonUrl)
+        .then(resp => resp.json())
+        .then(data => {
+          this.slides = data;
+        })
+      } else {
+        this.slides = this.defaultSlides;
       }
+    }
   }
 }
 </script>
 
 <style lang="scss">
-
 .timeline-Widget {
-  background-color: yellow!important;
+  background-color: yellow !important;
 }
 *,
 *:before,
@@ -395,7 +480,7 @@ body {
     &-text {
       // font-family: "Playfair Display";
       // font-family: "Open Sans";
-      font-family: 'Dosis', sans-serif;
+      font-family: "Dosis", sans-serif;
 
       font-size: 7rem;
       letter-spacing: 0.2rem;
@@ -823,9 +908,9 @@ $text-cut-up: 0.5s;
   .is-previous & {
     &:not(.active) {
       animation: none;
-      .slide-rect {
-        // animation: none;
-      }
+      // .slide-rect {
+      //   // animation: none;
+      // }
     }
     &.active {
       transform: translateX(-100%);

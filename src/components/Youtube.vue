@@ -1,6 +1,6 @@
 <template>
   <div class="youtube">
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+   <iframe width="560" height="315" :src="src" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
   data: function() {
       return {}
   },
+  props: [
+    'src',
+  ]
 }
 </script>
 
