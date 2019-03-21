@@ -1,18 +1,20 @@
 <template>
   <div class="twitter">
-      <a class="twitter-timeline" data-chrome="transparent nofooter noborders noheader noscrollbar" data-lang="fr" data-theme="dark" data-link-color="#cc3843" :href="`https://twitter.com/${twittername}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
+      <a class="twitter-timeline" data-chrome="transparent nofooter noborders noheader noscrollbar" data-lang="fr" data-theme="dark" data-link-color="#cc3843" :href="`https://twitter.com/${twitterName}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Twitter',
-  data: function() {
-      return {
-        twittername: 'ZenikaMontreal',
-        // twittername: 'AurelienLoyer'
-      }
-  },
+  props: [
+    'twitterName',
+  ],
+  mounted() {
+    if(window.twttr != undefined) {
+      window.twttr.widgets.load();
+    }
+  }
 }
 </script>
 
