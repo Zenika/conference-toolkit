@@ -1,19 +1,29 @@
 <template>
-  <div class="twitter">
+  <div class="twitter" :style="`width: ${width};`">
       <a class="twitter-timeline" data-chrome="transparent nofooter noborders noheader noscrollbar" data-lang="fr" data-theme="dark" data-link-color="#cc3843" :href="`https://twitter.com/${twitterName}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
   </div>
 </template>
 
 <script>
+import { setInterval } from 'timers';
 export default {
   name: 'Twitter',
-  props: [
-    'twitterName',
-  ],
+  props: {
+    'twitterName' : {
+      type: String,
+    },
+    'width' : {
+      default: '30vw'
+    },
+  },
   mounted() {
     if(window.twttr != undefined) {
       window.twttr.widgets.load();
     }
+    
+    setInterval(()=> {
+      window.twttr.widgets.load();
+    },5000);
   }
 }
 </script>
