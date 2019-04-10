@@ -1,5 +1,5 @@
 <template>
-    <img class="logo" src="img/znk2.png" alt="">
+    <img class="logo" :src="img" alt="">
 </template>
 
 <script>
@@ -8,6 +8,11 @@ export default {
   data: function() {
       return {}
   },
+  props: {
+      img: {
+          default: 'img/znk2.png',
+      }
+  }
 }
 </script>
 

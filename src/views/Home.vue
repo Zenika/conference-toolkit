@@ -17,12 +17,12 @@
           <p>{{ slide.headlineFirstLine }}</p>
           <p>{{ slide.headlineSecondLine }}</p>
         </div>
-        <div class="slide-rect-filter">
+        <div class="slide-rect-filter" v-if="slide.logoImg">
           <div
             class="slide-rect"
             v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
           >
-            <c-logo></c-logo>
+            <c-logo :img="slide.logoImg"></c-logo>
           </div>
         </div>
         <div class="slide-content">
@@ -32,18 +32,39 @@
           </h1>
           <a v-if="0" class="slide-content-cta">Call To Action</a>
         </div>
-        <h2 class="slide-side-text">
+        <h2 class="slide-side-text" v-if="slide.sublineFirstLine">
           <span>{{ slide.sublineFirstLine }} /</span>
           <span>{{ slide.sublineSecondLine }}</span>
         </h2>
         <div class="slide-custom" v-if="slide.content">
-          <c-twitter v-if="slide.content === 'twitter'" :twitterName="slide.props.twitterName"></c-twitter>
+          <c-twitter
+            v-if="slide.content === 'twitter'"
+            :twitterName="slide.props.twitterName"
+            :width="slide.props.width"
+          ></c-twitter>
 
-          <c-youtube v-if="slide.content === 'youtube'" :src="slide.props.src"></c-youtube>
+          <c-youtube
+            v-if="slide.content === 'youtube'"
+            :src="slide.props.src"
+            :width="slide.props.width"
+          ></c-youtube>
 
-          <c-iframe v-if="slide.content === 'iframe'" :src="slide.props.src"></c-iframe>
+          <c-iframe
+            v-if="slide.content === 'iframe'"
+            :src="slide.props.src"
+            :width="slide.props.width"
+            :height="slide.props.height"
+            :top="slide.props.top"
+            :right="slide.props.right"
+          ></c-iframe>
 
-          <c-image v-if="slide.content === 'image'" :src="slide.props.src"></c-image>
+          <c-image
+            v-if="slide.content === 'image'"
+            :src="slide.props.src"
+            :width="slide.props.width"
+            :top="slide.props.top"
+            :right="slide.props.right"
+          ></c-image>
 
           <c-speakers
             :isPlaying="isPlaying"
@@ -84,6 +105,8 @@
 
 <script>
 
+import Peer from 'simple-peer';
+
 import Twitter from './../components/Twitter.vue';
 import Youtube from './../components/Youtube.vue';
 import Logo from './../components/Logo.vue';
@@ -92,6 +115,7 @@ import Loader from './../components/Loader.vue';
 import Speakers from './../components/Speakers.vue';
 import Contest from './../components/Contest.vue';
 import Iframe from './../components/Iframe.vue';
+import defaultSlides from './../services/slides.service';
 
 export default {
   name: 'Home',
@@ -115,112 +139,7 @@ export default {
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
         slides: [],
-        defaultSlides: [
-        {
-            headlineFirstLine: "Demoooo",
-            headlineSecondLine: "Image",
-            sublineFirstLine: "Led by passion",
-            sublineSecondLine: " Zenika",
-            bgImg: "./img/sw2.png",
-            rectImg: "./img/sw2.png",
-            content: "image",
-            props: {
-              src: "img/zenikanard.png",
-            }
-        },
-        {
-            headlineFirstLine: "Demo",
-            headlineSecondLine: "IFRAME",
-            sublineFirstLine: "Led by passion",
-            sublineSecondLine: " Zenika",
-            bgImg: "./img/sw2.png",
-            rectImg: "./img/sw2.png",
-            content: "iframe",
-            props: {
-              src: "https://www.meetup.com/fr-FR/Zenika-Montreal/events/past/",
-            }
-        },
-        {
-            headlineFirstLine: "Demo 2",
-            headlineSecondLine: "IFRAME",
-            sublineFirstLine: "Led by passion",
-            sublineSecondLine: " Zenika",
-            bgImg: "./img/sw2.png",
-            rectImg: "./img/sw2.png",
-            content: "iframe",
-            props: {
-              src: "https://www.welcometothejungle.co/companies/zenika/jobs",
-            }
-        },
-        {
-            headlineFirstLine: "Demo",
-            headlineSecondLine: "Twitter",
-            sublineFirstLine: "Il n'y a rien de neuf sous",
-            sublineSecondLine: " le soleil",
-            bgImg: "./img/sw4.jpg",
-            rectImg: "./img/sw4.jpg",
-            content: "twitter",
-            props: {
-              twitterName: 'AurelienLoyer',
-            }
-        },
-        {
-            headlineFirstLine: "Demo",
-            headlineSecondLine: "Contest",
-            sublineFirstLine: "Il n'y a rien de neuf sous",
-            sublineSecondLine: "le soleil",
-            bgImg: "./img/sw3.jpg",
-            rectImg: "./img/sw3-1.jpg",
-            content: "contest",
-        },
-        {
-            headlineFirstLine: "Demo",
-            headlineSecondLine: "Youtube",
-            sublineFirstLine: "Join the",
-            sublineSecondLine: " zLife",
-            bgImg: "./img/sw6.jpg",
-            rectImg: "./img/sw6.jpg",
-            content: "youtube",
-            props: {
-              src: "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0",
-            }
-        },
-        {
-            headlineFirstLine: "Demo",
-            headlineSecondLine: "Speakers",
-            sublineFirstLine: "Aurelien Loyer",
-            sublineSecondLine: "Anna Filina",
-            bgImg: "./img/sw1.jpg",
-            rectImg: "./img/sw1.jpg",
-            content: "speakers",
-            props: {
-              speakers: [
-                {
-                  firstname: 'Aurélien',
-                  lastname: 'LOYER',
-                  twitter: 'AurelienLoyer',
-                  picture: 'img/trooper2.png',
-                  job: 'CTO | Consultant Web',
-                  talk: 'Tout le monde sait comment utiliser Angular / React / Vue.js ...',
-                  talk_description: 'Aujourd’hui tout le monde connait les frameworks Angular, React Vuejs, mais savez-vous utiliser Javascript ? Savez-vous ...',
-                  talk_date: '15 mars 2019',
-                  talk_time: '13:00',
-                },
-                {
-                  firstname: 'Anna',
-                  lastname: 'FILINA',
-                  twitter: 'afilina',
-                  picture: 'img/maul4.png',
-                  job: 'IT Project Rescue',
-                  talk: `Writing Better Gherkin Scenarios`,
-                  talk_description: 'Are your feature files gigantic and unreadable? Do they break every time you add a database column or change a completely ...',
-                  talk_date: '14 mars 2019',
-                  talk_time: '15:00',
-                }
-              ]
-            }
-        },
-      ]
+        defaultSlides: defaultSlides,
     };
   },
   mounted: function () {
@@ -287,9 +206,33 @@ export default {
       }
       this.counter++;
     },100);
+
+    this.p = new Peer();
+    this.p.on('error', this.onError);
+    this.p.on('signal', this.onSignal);
+    this.p.on('data', this.onData);
+
+    this.p.on('connect', function () {
+        console.log('CONNECT')
+        this.p.send('whatever' + Math.random())
+    })
+
+    console.log(this.p);
     
   },
   methods: {
+    // WEBRTC
+    onError(err){
+        console.log('error', err)
+    },
+    onSignal(data) {
+        console.log('SIGNAL', JSON.stringify(data))
+    },
+    onData(data) {
+        console.log('data: ' + data)
+    },
+    // END
+
     updateSlide(index) {
         index < this.currentSlide ? this.isPreviousSlide = true : this.isPreviousSlide = false;
         this.currentSlide = index;
@@ -300,8 +243,7 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     getSlides() {
-      const url = new URL(window.location.href);
-      const jsonUrl = url.searchParams.get('json');
+      const jsonUrl = localStorage.getItem('configUrl');
       if(jsonUrl) {
         fetch(jsonUrl)
         .then(resp => resp.json())
