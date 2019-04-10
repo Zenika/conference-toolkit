@@ -1,13 +1,24 @@
 <template>
-    <img class="image" :src="src" alt="">
+    <img class="image" :src="src" alt="image 🦄" :style="`width: ${width}; top: ${top}; right: ${right};`">
 </template>
 
 <script>
 export default {
   name: 'Logo',
-  props: [
-      'src',
-  ],
+  props: {
+      'src':{
+          default: 'https://aurelien-loyer.fr/'
+      },
+      'width': {
+          default: '30vw',
+      },
+      'top': {
+          default: '10vh',
+      },
+      'right': {
+          default: '10vw',
+      },
+  },
   data: function() {
       return {}
   },
@@ -16,11 +27,8 @@ export default {
 
 <style scoped lang="scss">
 .image {
-    width: 30vw;
-    height: 30vw;
+    height: auto;
     position: absolute;
-    top: 7%;
-    right: 13%;
     z-index: 1000;
 }
 </style>

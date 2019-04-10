@@ -1,6 +1,6 @@
 <template>
-  <div class="youtube">
-   <iframe width="560" height="315" :src="src" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="youtube" :style="`width: ${width}; height: calc(${width} / 1.60)`">
+   <iframe :src="src" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </template>
 
@@ -10,16 +10,20 @@ export default {
   data: function() {
       return {}
   },
-  props: [
-    'src',
-  ]
+  props: {
+    src : {
+      default: ''
+    },
+    width: {
+      default: '60vw'
+    }
+  },
 }
 </script>
 
 <style scoped lang="scss">
 .youtube {
-    width: 50vw; 
-    height: calc(50vw / 1.60); 
+    height: calc(60vw / 1.60); 
     overflow: hidden; 
     position: absolute; 
     right: 100px; 

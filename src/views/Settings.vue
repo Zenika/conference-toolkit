@@ -8,20 +8,16 @@
       First time on 🎤 📺 Conference Toolkit, take time to configure 🎛 the app and look controls 🤷‍♂️
     </div>
 
-    <router-link to="/" class="link">Slider</router-link>
-
-    <h1 title="How to use ?">🤷‍</h1>
-
-    <div class="keys">
-      <div class="item" v-for="(key,index) in keys" :key="`key-${index}`">
-        <div class="key">{{key.value}}</div>
-        <label>{{key.label}}</label>
-      </div>
-    </div>
+    <router-link to="/" class="link">Return to slider</router-link>
 
     <h1 title="Settings">🎛</h1>
 
     <form action>
+      <label>
+        Config url (json):
+        <input type="url" name="configUrl" v-model="configUrl" @change="save()">
+      </label>
+      
       <label>
         Default start slide :
         <input type="number" name="currentSlide" v-model="currentSlide" @change="save()">
@@ -38,6 +34,15 @@
       </label>
     </form>
 
+    <h1 title="How to use ?">🤷‍</h1>
+
+    <div class="keys">
+      <div class="item" v-for="(key,index) in keys" :key="`key-${index}`">
+        <div class="key">{{key.value}}</div>
+        <label>{{key.label}}</label>
+      </div>
+    </div>
+
     <h1 title="Credits">👏</h1>
 
     <a
@@ -52,7 +57,7 @@
     >Contribute 🐙</a>
 
     <footer>
-      Made with ❤️by
+      </> with ❤️by
       <a href="https://aurelien-loyer.fr">Aurélien Loyer</a>
     </footer>
   </div>
@@ -63,6 +68,7 @@ export default {
   data() {
     return {
       timer: window.localStorage.getItem('timer'),
+      configUrl: window.localStorage.getItem('configUrl'),
       currentSlide: window.localStorage.getItem('currentSlide'),
       isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
       keys: [
@@ -78,6 +84,7 @@ export default {
   methods: {
     save() {
       window.localStorage.setItem('timer', this.timer);
+      window.localStorage.setItem('configUrl', this.configUrl);
       window.localStorage.setItem('currentSlide', this.currentSlide);
       window.localStorage.setItem('isPlaying', this.isPlaying);
       console.log('💾');
