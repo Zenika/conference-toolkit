@@ -25,7 +25,7 @@
             <c-logo :img="slide.logoImg"></c-logo>
           </div>
         </div>
-        <div class="slide-content">
+        <div class="slide-content" v-if="slide.isHeadlineVisible">
           <h1 class="slide-content-text">
             <p>{{ slide.headlineFirstLine }}</p>
             <p>{{ slide.headlineSecondLine }}</p>
@@ -406,9 +406,9 @@ body {
     color: #fff;
     margin-top: 5rem;
     position: absolute;
-    top: 60%;
-    left: calc(#{$left-offset} + (0.2) * #{$rect-width});
-    transform: translateY(-50%);
+    bottom: 15vh;
+    left: 5vw;
+    text-align: left;
     display: flex;
     flex-direction: column;
     @include media(1000px) {
@@ -557,10 +557,13 @@ body {
     min-width: 15rem;
     transition: 0.25s ease-in-out;
     outline: 0;
+    max-height: 63px;
+
     @include media(730px) {
       padding: 1.2rem 1.4rem;
       min-width: 13rem;
     }
+
     &:not(.active) {
       &:hover {
         color: #000;
@@ -568,6 +571,7 @@ body {
       }
     }
     &.active {
+      max-height: none;
       cursor: default;
       font-weight: 700;
       background-color: #0c1f2c;

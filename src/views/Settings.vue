@@ -57,7 +57,7 @@
     >Contribute 🐙</a>
 
     <footer>
-      </> with ❤️by
+      &lt;/&gt; with ❤️by
       <a href="https://aurelien-loyer.fr">Aurélien Loyer</a>
     </footer>
   </div>
