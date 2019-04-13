@@ -107,14 +107,14 @@
 
 import Peer from 'simple-peer';
 
-import Twitter from './../components/Twitter.vue';
-import Youtube from './../components/Youtube.vue';
-import Logo from './../components/Logo.vue';
-import Image from './../components/Image.vue';
-import Loader from './../components/Loader.vue';
-import Speakers from './../components/Speakers.vue';
-import Contest from './../components/Contest.vue';
-import Iframe from './../components/Iframe.vue';
+import Twitter from './../components/slides/Twitter.vue';
+import Youtube from './../components/slides/Youtube.vue';
+import Logo from './../components/slides/Logo.vue';
+import Image from './../components/slides/Image.vue';
+import Loader from './../components/slides/Loader.vue';
+import Speakers from './../components/slides/Speakers.vue';
+import Contest from './../components/slides/Contest.vue';
+import Iframe from './../components/slides/Iframe.vue';
 import defaultSlides from './../services/slides.service';
 
 export default {
