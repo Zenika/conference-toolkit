@@ -7,15 +7,19 @@ export default {
   name: 'Logo',
   props: {
       'src':{
+          type: String,
           default: 'https://aurelien-loyer.fr/'
       },
       'width': {
+          type: String,
           default: '30vw',
       },
       'top': {
+          type: String,
           default: '10vh',
       },
       'right': {
+          type: String,
           default: '10vw',
       },
   },

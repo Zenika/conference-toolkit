@@ -1,28 +1,25 @@
 <template>
   <div>
-    <div class="card top">
+    <div class="card top" v-if="contest1Title">
       <div class="left"></div>
       <div class="right">
-        <img class="helmet" src="img/teeshirt.png" alt="helmet">
+        <img class="helmet" :src="contest1Image" alt="helmet">
         <div class="productInfo">
-          <h1>Tee-shirt
-            <br>C0d1ng Th3 W0rld
-          </h1>
-          <h2>Tente ta chance et repars avec notre tee-shirt !</h2>
-          <button>
+          <h1 v-html="contest1Title"></h1>
+          <h2>{{ contest1Content }}</h2>
+          <h2 class="redznk">{{ contest1SubContent }}</h2>
+          <button v-if="0">
             <i class="fab fa-wpforms"></i> Formulaire
           </button>
         </div>
       </div>
     </div>
-    <div class="card bottom">
+    <div class="card bottom" v-if="contest2Title">
       <div class="right">
         <div class="productInfo">
-          <h1>Cadeau Star Wars
-            <br>
-          </h1>
-          <h2>Un tirage tous les soirs (17h) parmi les tweets contenant:</h2>
-          <h2 class="redznk">@ZenikaMontreal #ConFoo</h2>
+            <h1 v-html="contest2Title"></h1>
+          <h2>{{ contest2Content }}</h2>
+          <h2 class="redznk">{{ contest2SubContent }}</h2>
         </div>
       </div>
       <div class="left"></div>
@@ -40,6 +37,36 @@ export default {
       }
   },
   mounted: function () {
+  },
+  props: {
+      'contest1Image' : {
+        type: String,
+        default: 'img/teeshirt.png',
+      },
+      'contest1Title': {
+        type: String,
+        default: 'Tee-shirt<br>C0d1ng Th3 W0rld',
+      },
+      'contest1Content': {
+          type: String,
+          default: 'Tente ta chance et repars avec notre tee-shirt !'
+      },
+        'contest1SubContent': {
+            type: String,
+            default: '@AurelienLoyer @Vue.js @JavaScript'
+        },
+      'contest2Title': {
+        type: String,
+        default: 'Un super cadeau !',
+      },
+      'contest2Content': {
+          type: String,
+          default: 'Un tirage tous les soirs (17h) parmi les tweets contenant:'
+      },
+      'contest2SubContent': {
+          type: String,
+          default: '@AurelienLoyer @Vue.js @JavaScript'
+      },
   },
   methods: {
   }

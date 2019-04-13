@@ -10,9 +10,11 @@ export default {
   name: 'Twitter',
   props: {
     'twitterName' : {
+      default: 'AurelienLoyer',
       type: String,
     },
     'width' : {
+      type: String,
       default: '30vw'
     },
   },
