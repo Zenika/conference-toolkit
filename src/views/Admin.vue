@@ -1,5 +1,9 @@
 <template>
   <v-app id="keep">
+    <router-link to="/" class="goback">
+      <p>🚪</p>
+      <span>Go to slides</span>
+    </router-link>
     <v-toolbar color="amber" app absolute class="test">
       <v-spacer></v-spacer>
       <span class="title ml-3 mr-5">🎤 📺 Conference Toolkit Settings</span>
@@ -25,13 +29,15 @@
       </v-tabs>
     </v-content>
     <v-footer class="pa-3" color="amber">
-      &lt;/&gt; with ❤️by&nbsp;
-      <a
-        target="_blank"
-        href="https://twitter.com/AurelienLoyer"
-      >Aurélien Loyer</a>
       <v-spacer></v-spacer>
-      <div>&copy; {{ new Date().getFullYear() }}</div>
+      <div>
+        &lt;/&gt; with ❤️by&nbsp;
+        <a
+          target="_blank"
+          href="https://twitter.com/AurelienLoyer"
+        >Aurélien Loyer</a>
+      </div>
+      <v-spacer></v-spacer>
     </v-footer>
   </v-app>
 </template>
@@ -66,7 +72,32 @@
 
 .v-window {
   overflow-y: scroll;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 150px);
   padding-bottom: 40px;
+}
+.goback {
+  position: absolute;
+  right: 10px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 999;
+  top: 12px;
+  font-size: 2em;
+  display: flex;
+  height: 38px;
+  span {
+    width: 0px;
+    overflow: hidden;
+    font-size: 14px;
+    margin-top: 9px;
+    transition: all 0.2s;
+    height: 20px;
+  }
+  &:hover {
+    span {
+      width: 85px;
+    }
+  }
 }
 </style>
