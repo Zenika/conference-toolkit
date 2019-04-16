@@ -7,18 +7,23 @@ export default {
   name: 'Iframe',
   props: {
       'src':{
+          type: String,
           default: 'https://aurelien-loyer.fr/'
       },
       'height': {
+          type: String,
           default: '80vh',
       },
       'width': {
+          type: String,
           default: '80vh',
       },
       'top': {
+          type: String,
           default: '10vh',
       },
       'right': {
+          type: String,
           default: '10vw',
       },
   },
