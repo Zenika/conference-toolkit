@@ -74,7 +74,15 @@
             v-if="slide.content === 'speakers'"
           ></c-speakers>
 
-          <c-contest v-if="slide.content === 'contest'"></c-contest>
+          <c-contest v-if="slide.content === 'contest'"
+            :contest1Image="slide.props.contest1Image"
+            :contest1Title="slide.props.contest1Title"
+            :contest1Content="slide.props.contest1Content"
+            :contest1SubContent="slide.props.contest1SubContent"
+            :contest2Title="slide.props.contest2Title"
+            :contest2Content="slide.props.contest2Content"
+            :contest2SubContent="slide.props.contest2SubContent"
+          ></c-contest>
         </div>
       </div>
     </div>
@@ -107,14 +115,14 @@
 
 import Peer from 'simple-peer';
 
-import Twitter from './../components/Twitter.vue';
-import Youtube from './../components/Youtube.vue';
-import Logo from './../components/Logo.vue';
-import Image from './../components/Image.vue';
-import Loader from './../components/Loader.vue';
-import Speakers from './../components/Speakers.vue';
-import Contest from './../components/Contest.vue';
-import Iframe from './../components/Iframe.vue';
+import Twitter from './../components/slides/Twitter.vue';
+import Youtube from './../components/slides/Youtube.vue';
+import Logo from './../components/slides/Logo.vue';
+import Image from './../components/slides/Image.vue';
+import Loader from './../components/slides/Loader.vue';
+import Speakers from './../components/slides/Speakers.vue';
+import Contest from './../components/slides/Contest.vue';
+import Iframe from './../components/slides/Iframe.vue';
 import defaultSlides from './../services/slides.service';
 
 export default {
@@ -138,13 +146,13 @@ export default {
         isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
-        slides: [],
+        slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
         defaultSlides: defaultSlides,
     };
   },
   mounted: function () {
     if(!this.timer) {
-      this.$router.push('settings');
+      this.$router.push('admin');
       return;
     }
 
@@ -189,7 +197,7 @@ export default {
         }
         this.counter = 0;
       }else if (event.code === 'Escape') {
-        this.$router.push('settings');
+        this.$router.push('admin');
       }
     });
 
@@ -243,6 +251,9 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     getSlides() {
+      if(this.slides.length) {
+          return;
+      }
       const jsonUrl = localStorage.getItem('configUrl');
       if(jsonUrl) {
         fetch(jsonUrl)

@@ -12,9 +12,11 @@ export default {
   },
   props: {
     src : {
-      default: ''
+      type: String,
+      default: '',
     },
     width: {
+      type: String,
       default: '60vw'
     }
   },
