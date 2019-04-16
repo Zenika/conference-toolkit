@@ -1,8 +1,18 @@
 <template>
   <div class="settings">
+    <v-alert
+      class="mt-5"
+      :value="true"
+      type="info"
+    >First time on Conference Toolkit ? Take time to configure slides 📺, app settings 🎛 and look controls 🤷‍♂️</v-alert>
+
     <h1 title="Slides">📺</h1>
 
     <v-card class="pa-4 mt-4">
+      <v-card-title primary-title class="pa-0">
+        <h4 class="bolder mb-4 pa-0">Slides</h4>
+      </v-card-title>
+
       <v-layout row wrap v-if="!isEditing">
         <v-slide
           v-for="(slide,index) in slides"
@@ -11,28 +21,29 @@
           :index="index"
           @edit="activeEdition(index)"
         ></v-slide>
+
+        <v-btn absolute fab top right small color="amber" class="add-slide" @click="addNewSlide">
+          <v-icon dark>add</v-icon>
+        </v-btn>
       </v-layout>
 
-        <v-form ref="form" v-model="valid" lazy-validation v-if="isEditing">
-          <v-text-field
-            type="text"
-            v-model="editingSlide.headlineFirstLine"
-            label="headlineFirstLine"
-          ></v-text-field>
-
-          <v-text-field
-            type="text"
-            v-model="editingSlide.headlineSecondLine"
-            label="headlineSecondLine"
-          ></v-text-field>
-
-          <v-btn :disabled="!valid" color="success" @click="validate">Validate</v-btn>
-        </v-form>
+      <v-slide-form
+        v-if="isEditing"
+        :isnew="isNew"
+        :slide="editingSlide"
+        @cancel="cancel"
+        @delete="deleteSlide"
+        @validate="validate"
+      ></v-slide-form>
     </v-card>
 
     <h1 title="Settings">🎛</h1>
 
     <v-card class="pa-4">
+      <v-card-title primary-title class="pa-0">
+        <h4 class="bolder mb-4 pa-0">Global settings</h4>
+      </v-card-title>
+
       <v-form ref="form">
         <v-text-field
           type="number"
@@ -55,35 +66,41 @@
           name="isPlaying"
           v-model="isPlaying"
           @change="save()"
-          label="Slider is playing"
+          label="Slider is playing "
         ></v-checkbox>
       </v-form>
     </v-card>
+
+    <c-import-save @onSlidesImport="loadSlides"></c-import-save>
   </div>
 </template>
 
 <script>
 
 import Slide from './Slide'
+import SlideForm from './SlideForm'
+import ImportSave from './ImportSave';
 
 export default {
     components: {
-        'v-slide': Slide
+        'v-slide': Slide,
+        'v-slide-form': SlideForm,
+        'c-import-save': ImportSave,
     },
   data() {
     return {
       timer: window.localStorage.getItem('timer'),
+      slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
       configUrl: window.localStorage.getItem('configUrl'),
       currentSlide: window.localStorage.getItem('currentSlide'),
       isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
       isEditing: false,
-      valid: false,
+      isNew: false,
       editingSlide: {},
-      slides: [],
+      editingSlideIndex: null,
     }
   },
   mounted() {
-      this.fetchData();
   },
   methods: {
     save() {
@@ -93,30 +110,45 @@ export default {
       window.localStorage.setItem('isPlaying', this.isPlaying);
       console.log('💾');
     },
-    fetchData() {
-        const jsonUrl = localStorage.getItem('configUrl');
-        if(jsonUrl) {
-            fetch(jsonUrl)
-            .then(resp => resp.json())
-            .then(data => {
-                this.slides = data;
-            })
-        } else {
-            this.slides = this.defaultSlides;
+    loadSlides() {
+        this.slides = JSON.parse(window.localStorage.getItem('slides') || '[]') || [];
+    },
+    addNewSlide() {
+        this.editingSlide = {
+            props: {},
         }
+        this.isEditing = true;
+        this.isNew = true;
     },
     activeEdition(index) {
-        this.editingSlide = this.slides[index];
+        this.editingSlideIndex = index;
+        this.editingSlide = Object.assign({}, this.slides[index]);
         this.isEditing = true;
     },
-    validate() {
+    cancel() {
         this.isEditing = false;
+        this.isNew = false;
+    },
+    deleteSlide() {
+        this.slides.splice(this.editingSlideIndex, 1);
+        this.isEditing = false;
+        this.isNew = false;
+    },
+    validate(slide) {
+        if (this.isNew) {
+            this.slides.push(slide);
+        } else {
+            this.slides[this.editingSlideIndex] = Object.assign({}, slide);
+        }
+        this.isEditing = false;
+        this.isNew = false;
+        window.localStorage.setItem('slides', JSON.stringify(this.slides));
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 h1 {
   font-size: 2em;
   margin: 50px 0px;
@@ -125,5 +157,11 @@ h1 {
 .settings {
   width: 90%;
   margin: auto;
+}
+.bolder {
+  font-weight: bold;
+}
+
+.add-slide {
 }
 </style>
