@@ -91,13 +91,13 @@
 
           <c-contest
             v-if="slide.content === 'contest'"
-            :contest1image="slide.props.contest1Image"
-            :contest1title="slide.props.contest1Title"
-            :contest1content="slide.props.contest1Content"
-            :contest1sub-content="slide.props.contest1SubContent"
-            :contest2title="slide.props.contest2Title"
-            :contest2content="slide.props.contest2Content"
-            :contest2sub-content="slide.props.contest2SubContent"
+            :contest1-image="slide.props.contest1Image"
+            :contest1-title="slide.props.contest1Title"
+            :contest1-content="slide.props.contest1Content"
+            :contest1-sub-content="slide.props.contest1SubContent"
+            :contest2-title="slide.props.contest2Title"
+            :contest2-content="slide.props.contest2Content"
+            :contest2-sub-content="slide.props.contest2SubContent"
           />
         </div>
       </div>
@@ -179,16 +179,16 @@ export default {
 
     this.getSlides();
 
-    var productRotatorSlide = document.getElementById("home");
-    var startX = 0;
-    var endX = 0;
+    const productRotatorSlide = document.getElementById("home");
+    let startX = 0;
+    let endX = 0;
 
     productRotatorSlide.addEventListener("touchstart", (event) => startX = event.touches[0].pageX);
 
     productRotatorSlide.addEventListener("touchmove", (event) => endX = event.touches[0].pageX);
 
     productRotatorSlide.addEventListener("touchend", () => {
-        var threshold = startX - endX;
+        const threshold = startX - endX;
 
         if (threshold < 150 && 0 < this.currentSlide) {
             this.currentSlide--;
@@ -236,15 +236,15 @@ export default {
       this.counter++;
     },100);
 
-    this.p = new Peer();
+    this.p = new Peer({});
     this.p.on('error', this.onError);
     this.p.on('signal', this.onSignal);
     this.p.on('data', this.onData);
 
-    this.p.on('connect', function () {
-        console.log('CONNECT')
+    this.p.on('connect', () => {
+        console.log('CONNECT');
         this.p.send('whatever' + Math.random())
-    })
+    });
 
     console.log(this.p);
 
@@ -272,13 +272,13 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     getSlides() {
-      const jsonUrl = localStorage.getItem('configUrl');
+      const jsonUrl = JSON.parse(localStorage.getItem('configUrl'));
       if(jsonUrl) {
         fetch(jsonUrl)
-        .then(resp => resp.json())
-        .then(data => {
-          this.slides = data;
-        })
+          .then(resp => resp.json())
+          .then(data => {
+            this.slides = data;
+          });
       } else {
         this.slides = this.defaultSlides;
       }
@@ -329,7 +329,7 @@ $rect-width-small: 16vw;
 $rect-border-width-small: 5vh;
 // ------------- GENERAL ------------- //
 %callout {
-  font-family: "Montserrat";
+  font-family: "Montserrat",serif;
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 0.12rem;

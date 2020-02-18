@@ -78,7 +78,7 @@ export default {
       required: true,
     },
     speakers: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
