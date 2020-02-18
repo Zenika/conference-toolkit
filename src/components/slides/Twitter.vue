@@ -1,6 +1,16 @@
 <template>
-  <div class="twitter" :style="`width: ${width};`">
-      <a class="twitter-timeline" data-chrome="transparent nofooter noborders noheader noscrollbar" data-lang="fr" data-theme="dark" data-link-color="#cc3843" :href="`https://twitter.com/${twitterName}?ref_src=twsrc%5Etfw`">Tweets by ZenikaMontreal</a>
+  <div
+    class="twitter"
+    :style="`width: ${width};`"
+  >
+    <a
+      class="twitter-timeline"
+      data-chrome="transparent nofooter noborders noheader noscrollbar"
+      data-lang="fr"
+      data-theme="dark"
+      data-link-color="#cc3843"
+      :href="`https://twitter.com/${twitterName}?ref_src=twsrc%5Etfw`"
+    >Tweets by ZenikaMontreal</a>
   </div>
 </template>
 

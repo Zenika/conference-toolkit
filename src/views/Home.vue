@@ -1,14 +1,14 @@
 <template>
   <div
+    v-cloak
     id="home"
     class="wrapper"
-    v-cloak
-    v-bind:class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}"
+    :class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}"
   >
     <div
-      class="slide-wrapper"
       v-for="(slide, index) in slides"
       :key="`slide-${index}`"
+      class="slide-wrapper"
       :class="{ active: index === currentSlide }"
       :style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }"
     >
@@ -17,37 +17,52 @@
           <p>{{ slide.headlineFirstLine }}</p>
           <p>{{ slide.headlineSecondLine }}</p>
         </div>
-        <div class="slide-rect-filter" v-if="slide.logoImg">
+        <div
+          v-if="slide.logoImg"
+          class="slide-rect-filter"
+        >
           <div
             class="slide-rect"
-            v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
+            :style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
           >
-            <c-logo :img="slide.logoImg"></c-logo>
+            <c-logo :img="slide.logoImg" />
           </div>
         </div>
-        <div class="slide-content" v-if="slide.isHeadlineVisible">
+        <div
+          v-if="slide.isHeadlineVisible"
+          class="slide-content"
+        >
           <h1 class="slide-content-text">
             <p>{{ slide.headlineFirstLine }}</p>
             <p>{{ slide.headlineSecondLine }}</p>
           </h1>
-          <a v-if="0" class="slide-content-cta">Call To Action</a>
+          <a
+            v-if="0"
+            class="slide-content-cta"
+          >Call To Action</a>
         </div>
-        <h2 class="slide-side-text" v-if="slide.sublineFirstLine">
+        <h2
+          v-if="slide.sublineFirstLine"
+          class="slide-side-text"
+        >
           <span>{{ slide.sublineFirstLine }} /</span>
           <span>{{ slide.sublineSecondLine }}</span>
         </h2>
-        <div class="slide-custom" v-if="slide.content">
+        <div
+          v-if="slide.content"
+          class="slide-custom"
+        >
           <c-twitter
             v-if="slide.content === 'twitter'"
-            :twitterName="slide.props.twitterName"
+            :twitter-name="slide.props.twitterName"
             :width="slide.props.width"
-          ></c-twitter>
+          />
 
           <c-youtube
             v-if="slide.content === 'youtube'"
             :src="slide.props.src"
             :width="slide.props.width"
-          ></c-youtube>
+          />
 
           <c-iframe
             v-if="slide.content === 'iframe'"
@@ -56,7 +71,7 @@
             :height="slide.props.height"
             :top="slide.props.top"
             :right="slide.props.right"
-          ></c-iframe>
+          />
 
           <c-image
             v-if="slide.content === 'image'"
@@ -64,50 +79,56 @@
             :width="slide.props.width"
             :top="slide.props.top"
             :right="slide.props.right"
-          ></c-image>
+          />
 
           <c-speakers
-            :isPlaying="isPlaying"
+            v-if="slide.content === 'speakers'"
+            :is-playing="isPlaying"
             :counter="counter"
             :timer="timer"
             :speakers="slide.props.speakers"
-            v-if="slide.content === 'speakers'"
-          ></c-speakers>
+          />
 
-          <c-contest v-if="slide.content === 'contest'"
-            :contest1Image="slide.props.contest1Image"
-            :contest1Title="slide.props.contest1Title"
-            :contest1Content="slide.props.contest1Content"
-            :contest1SubContent="slide.props.contest1SubContent"
-            :contest2Title="slide.props.contest2Title"
-            :contest2Content="slide.props.contest2Content"
-            :contest2SubContent="slide.props.contest2SubContent"
-          ></c-contest>
+          <c-contest
+            v-if="slide.content === 'contest'"
+            :contest1image="slide.props.contest1Image"
+            :contest1title="slide.props.contest1Title"
+            :contest1content="slide.props.contest1Content"
+            :contest1sub-content="slide.props.contest1SubContent"
+            :contest2title="slide.props.contest2Title"
+            :contest2content="slide.props.contest2Content"
+            :contest2sub-content="slide.props.contest2SubContent"
+          />
         </div>
       </div>
     </div>
 
     <div class="controls-container">
       <button
-        class="controls-button"
         v-for="(slide, index) in slides"
         :key="`controls-${index}`"
-        v-bind:class="{ active: index === currentSlide }"
-        v-on:click="updateSlide(index)"
-      >{{ slide.headlineFirstLine }} {{ slide.headlineSecondLine }}</button>
+        class="controls-button"
+        :class="{ active: index === currentSlide }"
+        @click="updateSlide(index)"
+      >
+        {{ slide.headlineFirstLine }} {{ slide.headlineSecondLine }}
+      </button>
     </div>
 
     <div class="pagination-container">
       <span
-        class="pagination-item"
         v-for="(slide, index) in slides"
         :key="`pagination-${index}`"
-        v-bind:class="{ active: index === currentSlide }"
-        v-on:click="updateSlide(index)"
-      ></span>
+        class="pagination-item"
+        :class="{ active: index === currentSlide }"
+        @click="updateSlide(index)"
+      />
     </div>
 
-    <c-loader :progress="counter" :timer="timer"></c-loader>
+    <c-loader
+      :progress="counter"
+      :timer="timer"
+    />
   </div>
 </template>
 
@@ -152,7 +173,7 @@ export default {
   },
   mounted: function () {
     if(!this.timer) {
-      this.$router.push('admin');
+      this.$router.push('settings');
       return;
     }
 
@@ -192,7 +213,7 @@ export default {
       else if (event.code === 'ArrowLeft') {
         if(this.currentSlide === 0) {
           this.currentSlide = 4;
-        }else { 
+        }else {
           this.currentSlide--;
         }
         this.counter = 0;
@@ -226,7 +247,7 @@ export default {
     })
 
     console.log(this.p);
-    
+
   },
   methods: {
     // WEBRTC
@@ -251,9 +272,6 @@ export default {
       this.isPlaying = !this.isPlaying;
     },
     getSlides() {
-      if(this.slides.length) {
-          return;
-      }
       const jsonUrl = localStorage.getItem('configUrl');
       if(jsonUrl) {
         fetch(jsonUrl)

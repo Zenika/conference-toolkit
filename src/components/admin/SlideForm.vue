@@ -1,58 +1,172 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-layout wrap justify-space-between>
-      <v-flex xs10 md4>
-        <v-text-field type="text" v-model="slide.headlineFirstLine" label="Headline First Line"></v-text-field>
+  <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+  >
+    <v-layout
+      wrap
+      justify-space-between
+    >
+      <v-flex
+        xs10
+        md4
+      >
+        <v-text-field
+          v-model="slide.headlineFirstLine"
+          type="text"
+          label="Headline First Line"
+        />
       </v-flex>
-      <v-flex xs12 md4>
-        <v-text-field type="text" v-model="slide.headlineSecondLine" label="Headline Second Line"></v-text-field>
+      <v-flex
+        xs12
+        md4
+      >
+        <v-text-field
+          v-model="slide.headlineSecondLine"
+          type="text"
+          label="Headline Second Line"
+        />
       </v-flex>
-      <v-flex xs12 md3>
-        <v-checkbox type="checkbox" v-model="slide.isHeadlineVisible" label="Headline Visible ?"></v-checkbox>
+      <v-flex
+        xs12
+        md3
+      >
+        <v-checkbox
+          v-model="slide.isHeadlineVisible"
+          type="checkbox"
+          label="Headline Visible ?"
+        />
       </v-flex>
 
-      <v-flex xs12 md5>
-        <v-text-field type="text" v-model="slide.sublineFirstLine" label="Subline First Line"></v-text-field>
+      <v-flex
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.sublineFirstLine"
+          type="text"
+          label="Subline First Line"
+        />
       </v-flex>
-      <v-flex xs12 md5>
-        <v-text-field type="text" v-model="slide.sublineSecondLine" label="Subline Second Line"></v-text-field>
-      </v-flex>
-
-      <v-flex xs12 md12 mt-4></v-flex>
-      
-      <v-flex xs12 md5>
-        <v-text-field type="text" v-model="slide.bgImg" label="Background Image"></v-text-field>
-      </v-flex>
-      <v-flex xs12 md5>
-        <v-text-field type="text" v-model="slide.rectImg" label="Rect Image"></v-text-field>
-      </v-flex>
-      <v-flex xs12 md5>
-        <v-text-field type="text" v-model="slide.logoImg" label="Logo Image"></v-text-field>
-      </v-flex>
-
-      <v-flex xs12 md3>
-        <v-checkbox type="checkbox" v-model="slide.isDisabled" label="Disable Slide ?"></v-checkbox>
+      <v-flex
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.sublineSecondLine"
+          type="text"
+          label="Subline Second Line"
+        />
       </v-flex>
 
-      <v-flex xs12 md12 mt-4></v-flex>
+      <v-flex
+        xs12
+        md12
+        mt-4
+      />
 
-      <v-flex xs12 md12>
-        <v-select @change="loadProps" :clearable="true" v-model="slide.content" :items="contents" label="Content type"></v-select>
+      <v-flex
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.bgImg"
+          type="text"
+          label="Background Image"
+        />
+      </v-flex>
+      <v-flex
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.rectImg"
+          type="text"
+          label="Rect Image"
+        />
+      </v-flex>
+      <v-flex
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.logoImg"
+          type="text"
+          label="Logo Image"
+        />
       </v-flex>
 
-      <v-flex xs12 md12 mt-4></v-flex>
-
-      <v-flex xs12 md5 v-for="(prop,index) in props" :key="`prop-${index}`">
-        <v-text-field type="prop.type" v-model="slide.props[prop.key]" :label="`(${prop.label})`"></v-text-field>
+      <v-flex
+        xs12
+        md3
+      >
+        <v-checkbox
+          v-model="slide.isDisabled"
+          type="checkbox"
+          label="Disable Slide ?"
+        />
       </v-flex>
-      
+
+      <v-flex
+        xs12
+        md12
+        mt-4
+      />
+
+      <v-flex
+        xs12
+        md12
+      >
+        <v-select
+          v-model="slide.content"
+          :clearable="true"
+          :items="contents"
+          label="Content type"
+          @change="loadProps"
+        />
+      </v-flex>
+
+      <v-flex
+        xs12
+        md12
+        mt-4
+      />
+
+      <v-flex
+        v-for="(prop,index) in props"
+        :key="`prop-${index}`"
+        xs12
+        md5
+      >
+        <v-text-field
+          v-model="slide.props[prop.key]"
+          type="prop.type"
+          :label="`(${prop.label})`"
+        />
+      </v-flex>
     </v-layout>
 
-    <v-btn color="red" @click="$emit('delete')" v-if="!isnew">
+    <v-btn
+      v-if="!isnew"
+      color="red"
+      @click="$emit('delete')"
+    >
       <v-icon>delete</v-icon>
     </v-btn>
-    <v-btn color="amber" @click="$emit('cancel')">Cancel</v-btn>
-    <v-btn :disabled="!valid" color="blue" @click="validate">Validate</v-btn>
+    <v-btn
+      color="amber"
+      @click="$emit('cancel')"
+    >
+      Cancel
+    </v-btn>
+    <v-btn
+      :disabled="!valid"
+      color="blue"
+      @click="validate"
+    >
+      Validate
+    </v-btn>
   </v-form>
 </template>
 
@@ -66,6 +180,16 @@ import Twitter from '../slides/Twitter';
 import Youtube from '../slides/Youtube';
 
 export default {
+    props: {
+      isnew: {
+        type: Boolean,
+        required: true,
+      },
+      slide: {
+        type: Object,
+        required: true,
+      },
+    },
     data() {
         return {
             valid: false,
@@ -79,12 +203,11 @@ export default {
                 youtube: Youtube.props,
             },
             props: [],
-        } 
+        }
     },
-    props: [
-        'isnew',
-        'slide',
-    ],
+    mounted() {
+        this.loadProps()
+    },
     methods: {
         validate(){
             this.$emit('validate',this.slide);
@@ -104,9 +227,6 @@ export default {
             });
             console.log(this.props);
         }
-    },
-    mounted() {
-        this.loadProps()
     }
 }
 </script>

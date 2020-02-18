@@ -1,5 +1,8 @@
 <template>
-  <iframe :src="src" :style="`width: ${width}; height: ${height}; top: ${top}; right: ${right};`"></iframe>
+  <iframe
+    :src="src"
+    :style="`width: ${width}; height: ${height}; top: ${top}; right: ${right};`"
+  />
 </template>
 
 <script>

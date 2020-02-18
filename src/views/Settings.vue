@@ -4,46 +4,86 @@
 
     <h1>🎉</h1>
 
-    <div class="message" v-if="!timer">
+    <div
+      v-if="!timer"
+      class="message"
+    >
       First time on 🎤 📺 Conference Toolkit, take time to configure 🎛 the app and look controls 🤷‍♂️
     </div>
 
-    <router-link to="/" class="link">Return to slider</router-link>
+    <router-link
+      to="/"
+      class="link"
+    >
+      Return to slider
+    </router-link>
 
-    <h1 title="Settings">🎛</h1>
+    <h1 title="Settings">
+      🎛
+    </h1>
 
     <form action>
       <label>
         Config url (json):
-        <input type="url" name="configUrl" v-model="configUrl" @change="save()">
+        <input
+          v-model="configUrl"
+          type="url"
+          name="configUrl"
+          @change="save()"
+        >
       </label>
 
       <label>
         Default start slide :
-        <input type="number" name="currentSlide" v-model="currentSlide" @change="save()">
+        <input
+          v-model="currentSlide"
+          type="number"
+          name="currentSlide"
+          @change="save()"
+        >
       </label>
 
       <label>
         Default slide timer :
-        <input type="number" name="timer" v-model="timer" @change="save()">
+        <input
+          v-model="timer"
+          type="number"
+          name="timer"
+          @change="save()"
+        >
       </label>
 
       <label>
         Slider is playing :
-        <input type="checkbox" name="isPlaying" v-model="isPlaying" @change="save()">
+        <input
+          v-model="isPlaying"
+          type="checkbox"
+          name="isPlaying"
+          @change="save()"
+        >
       </label>
     </form>
 
-    <h1 title="How to use ?">🤷‍</h1>
+    <h1 title="How to use ?">
+      🤷‍
+    </h1>
 
     <div class="keys">
-      <div class="item" v-for="(key,index) in keys" :key="`key-${index}`">
-        <div class="key">{{key.value}}</div>
-        <label>{{key.label}}</label>
+      <div
+        v-for="(key,index) in keys"
+        :key="`key-${index}`"
+        class="item"
+      >
+        <div class="key">
+          {{ key.value }}
+        </div>
+        <label>{{ key.label }}</label>
       </div>
     </div>
 
-    <h1 title="Credits">👏</h1>
+    <h1 title="Credits">
+      👏
+    </h1>
 
     <a
       class="link"

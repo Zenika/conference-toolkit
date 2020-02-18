@@ -4,26 +4,50 @@
       class="mt-5"
       :value="true"
       type="info"
-    >First time on Conference Toolkit ? Take time to configure slides 📺, app settings 🎛 and look controls 🤷‍♂️</v-alert>
+    >
+      First time on Conference Toolkit ? Take time to configure slides 📺, app settings 🎛 and look controls 🤷‍♂️
+    </v-alert>
 
-    <h1 title="Slides">📺</h1>
+    <h1 title="Slides">
+      📺
+    </h1>
 
     <v-card class="pa-4 mt-4">
-      <v-card-title primary-title class="pa-0">
-        <h4 class="bolder mb-4 pa-0">Slides</h4>
+      <v-card-title
+        primary-title
+        class="pa-0"
+      >
+        <h4 class="bolder mb-4 pa-0">
+          Slides
+        </h4>
       </v-card-title>
 
-      <v-layout row wrap v-if="!isEditing">
+      <v-layout
+        v-if="!isEditing"
+        row
+        wrap
+      >
         <v-slide
           v-for="(slide,index) in slides"
           :key="`slide-${index}`"
           :slide="slide"
           :index="index"
           @edit="activeEdition(index)"
-        ></v-slide>
+        />
 
-        <v-btn absolute fab top right small color="amber" class="add-slide" @click="addNewSlide">
-          <v-icon dark>add</v-icon>
+        <v-btn
+          absolute
+          fab
+          top
+          right
+          small
+          color="amber"
+          class="add-slide"
+          @click="addNewSlide"
+        >
+          <v-icon dark>
+            add
+          </v-icon>
         </v-btn>
       </v-layout>
 
@@ -34,44 +58,51 @@
         @cancel="cancel"
         @delete="deleteSlide"
         @validate="validate"
-      ></v-slide-form>
+      />
     </v-card>
 
-    <h1 title="Settings">🎛</h1>
+    <h1 title="Settings">
+      🎛
+    </h1>
 
     <v-card class="pa-4">
-      <v-card-title primary-title class="pa-0">
-        <h4 class="bolder mb-4 pa-0">Global settings</h4>
+      <v-card-title
+        primary-title
+        class="pa-0"
+      >
+        <h4 class="bolder mb-4 pa-0">
+          Global settings
+        </h4>
       </v-card-title>
 
       <v-form ref="form">
         <v-text-field
+          v-model="currentSlide"
           type="number"
           name="currentSlide"
-          v-model="currentSlide"
-          @change="save()"
           label="Default start slide (start at 0)"
-        ></v-text-field>
+          @change="save()"
+        />
 
         <v-text-field
+          v-model="timer"
           type="number"
           name="timer"
-          v-model="timer"
-          @change="save()"
           label="Default slide timer (seconde)"
-        ></v-text-field>
+          @change="save()"
+        />
 
         <v-checkbox
+          v-model="isPlaying"
           type="checkbox"
           name="isPlaying"
-          v-model="isPlaying"
-          @change="save()"
           label="Slider is playing "
-        ></v-checkbox>
+          @change="save()"
+        />
       </v-form>
     </v-card>
 
-    <c-import-save @onSlidesImport="loadSlides"></c-import-save>
+    <c-import-save @onSlidesImport="loadSlides" />
   </div>
 </template>
 
@@ -151,7 +182,7 @@ export default {
 <style lang="scss">
 h1 {
   font-size: 2em;
-  margin: 50px 0px;
+  margin: 50px0;
 }
 
 .settings {

@@ -2,31 +2,41 @@
   <div>
     <div class="card speakers">
       <div class="left">
-        <div class="slider slider-left" v-on:click="prevSpeaker()">
+        <div
+          class="slider slider-left"
+          @click="prevSpeaker()"
+        >
           <i class="material-icons">arrow_back</i>
         </div>
         <img
+          v-if="0"
           class="wordmark"
           src="http://res.cloudinary.com/prvnbist/image/upload/v1508603572/starwars.png"
           alt="star wars"
-          v-if="0"
         >
       </div>
       <div class="right">
-        <img class="picture" :src="speakers[index].picture" alt="picture">
+        <img
+          class="picture"
+          :src="speakers[index].picture"
+          alt="picture"
+        >
         <div class="informations">
           <h1>
-            {{speakers[index].firstname}}
+            {{ speakers[index].firstname }}
             <br>
-            {{speakers[index].lastname}}
+            {{ speakers[index].lastname }}
           </h1>
-          <h2>{{speakers[index].job}}</h2>
+          <h2>{{ speakers[index].job }}</h2>
           <button>
-            <i class="fab fa-twitter"></i>
-            {{speakers[index].twitter}}
+            <i class="fab fa-twitter" />
+            {{ speakers[index].twitter }}
           </button>
 
-          <div class="slider" v-on:click="nextSpeaker()">
+          <div
+            class="slider"
+            @click="nextSpeaker()"
+          >
             <i class="material-icons">arrow_forward</i>
           </div>
         </div>
@@ -35,18 +45,18 @@
     <div class="card talks">
       <div class="right">
         <div class="content">
-          <h2>{{speakers[index].talk}}</h2>
+          <h2>{{ speakers[index].talk }}</h2>
           <button>
-            <i class="far fa-calendar-alt"></i>
-            {{speakers[index].talk_date}}
+            <i class="far fa-calendar-alt" />
+            {{ speakers[index].talk_date }}
           </button>
           <button>
-            <i class="far fa-clock"></i>
-            {{speakers[index].talk_time}}
+            <i class="far fa-clock" />
+            {{ speakers[index].talk_time }}
           </button>
         </div>
       </div>
-      <div class="left"></div>
+      <div class="left" />
     </div>
   </div>
 </template>
@@ -54,12 +64,24 @@
 <script>
 export default {
   name: 'Speakers',
-  props: [
-    'timer',
-    'counter',
-    'isPlaying',
-    'speakers',
-  ],
+  props: {
+    timer: {
+      type: Number,
+      required: true,
+    },
+    counter: {
+      type: Number,
+      required: true,
+    },
+    isPlaying: {
+      type: Boolean,
+      required: true,
+    },
+    speakers: {
+      type: Object,
+      required: true,
+    },
+  },
   data: function() {
       return {
         indexBase: 0,
@@ -339,7 +361,7 @@ button:focus {
   top: calc(50% - 30px);
   &.slider-left {
     right: auto;
-    left: 0px;
+    left:0;
     z-index: 10;
   }
   &:nth-of-type(2) {

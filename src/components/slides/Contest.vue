@@ -1,28 +1,42 @@
 <template>
   <div>
-    <div class="card top" v-if="contest1Title">
-      <div class="left"></div>
+    <div
+      v-if="contest1Title"
+      class="card top"
+    >
+      <div class="left" />
       <div class="right">
-        <img class="helmet" :src="contest1Image" alt="helmet">
+        <img
+          class="helmet"
+          :src="contest1Image"
+          alt="helmet"
+        >
         <div class="productInfo">
-          <h1 v-html="contest1Title"></h1>
+          <h1 v-html="contest1Title" />
           <h2>{{ contest1Content }}</h2>
-          <h2 class="redznk">{{ contest1SubContent }}</h2>
+          <h2 class="redznk">
+            {{ contest1SubContent }}
+          </h2>
           <button v-if="0">
-            <i class="fab fa-wpforms"></i> Formulaire
+            <i class="fab fa-wpforms" /> Formulaire
           </button>
         </div>
       </div>
     </div>
-    <div class="card bottom" v-if="contest2Title">
+    <div
+      v-if="contest2Title"
+      class="card bottom"
+    >
       <div class="right">
         <div class="productInfo">
-            <h1 v-html="contest2Title"></h1>
+          <h1 v-html="contest2Title" />
           <h2>{{ contest2Content }}</h2>
-          <h2 class="redznk">{{ contest2SubContent }}</h2>
+          <h2 class="redznk">
+            {{ contest2SubContent }}
+          </h2>
         </div>
       </div>
-      <div class="left"></div>
+      <div class="left" />
     </div>
   </div>
 </template>
@@ -30,14 +44,6 @@
 <script>
 export default {
   name: 'Contest',
-  data: function() {
-      return {
-        contests: [
-        ],
-      }
-  },
-  mounted: function () {
-  },
   props: {
       'contest1Image' : {
         type: String,
@@ -67,6 +73,14 @@ export default {
           type: String,
           default: '@AurelienLoyer @Vue.js @JavaScript'
       },
+  },
+  data: function() {
+      return {
+        contests: [
+        ],
+      }
+  },
+  mounted: function () {
   },
   methods: {
   }
@@ -279,9 +293,8 @@ button:focus {
       p {
         @include object(30px, 30px, null);
         display: inline-block;
-        line-height: normal;
         text-align: center;
-        font-weight: 300px;
+        font-weight: 300;
         line-height: 28px;
         font-size: 14px;
         border-radius: 50%;
@@ -313,7 +326,7 @@ button:focus {
   top: calc(50% - 30px);
   &.slider-left {
     right: auto;
-    left: 0px;
+    left: 0;
     z-index: 10;
   }
   &:nth-of-type(2) {

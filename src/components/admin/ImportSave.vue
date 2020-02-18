@@ -1,32 +1,70 @@
 <template>
   <div>
-    <h1 title="Import / Save">🚜 / 💾</h1>
+    <h1 title="Import / Save">
+      🚜 / 💾
+    </h1>
 
     <v-card class="pa-4 mt-4">
-      <v-card-title primary-title class="pa-0">
-        <h4 class="bolder mb-4 pa-0">Import</h4>
+      <v-card-title
+        primary-title
+        class="pa-0"
+      >
+        <h4 class="bolder mb-4 pa-0">
+          Import
+        </h4>
       </v-card-title>
 
       <v-text-field
-        type="file"
         id="file"
+        type="file"
         accept=".json"
         label="Import json configuration from file"
-      ></v-text-field>
+      />
 
-      <v-btn color="info" :disabled="!!!json" @click="importFromFile">Import from file</v-btn>
+      <v-btn
+        color="info"
+        :disabled="!!!json"
+        @click="importFromFile"
+      >
+        Import from file
+      </v-btn>
 
-      <v-text-field type="text" v-model="slideUrl" label="Import json configuration from url"></v-text-field>
+      <v-text-field
+        v-model="slideUrl"
+        type="text"
+        label="Import json configuration from url"
+      />
 
-      <v-btn color="info" :disabled="!!!slideUrl" @click="importFromUrl">Import from url</v-btn>
+      <v-btn
+        color="info"
+        :disabled="!!!slideUrl"
+        @click="importFromUrl"
+      >
+        Import from url
+      </v-btn>
 
-      <v-card-title primary-title class="mt-4 pa-0">
-        <h4 class="bolder mb-4 pa-0">Export</h4>
+      <v-card-title
+        primary-title
+        class="mt-4 pa-0"
+      >
+        <h4 class="bolder mb-4 pa-0">
+          Export
+        </h4>
       </v-card-title>
 
-      <v-text-field type="text" v-model="saveName" label="Configuration name"></v-text-field>
+      <v-text-field
+        v-model="saveName"
+        type="text"
+        label="Configuration name"
+      />
 
-      <v-btn :disabled="!saveName" color="info" @click="exportConf">Export</v-btn>
+      <v-btn
+        :disabled="!saveName"
+        color="info"
+        @click="exportConf"
+      >
+        Export
+      </v-btn>
     </v-card>
   </div>
 </template>
@@ -97,7 +135,7 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 2em;
-  margin: 50px 0px;
+  margin: 50px0;
 }
 </style>
 

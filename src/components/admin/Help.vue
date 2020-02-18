@@ -1,6 +1,8 @@
 <template>
   <div class="help">
-    <h1 title="Credits">👏</h1>
+    <h1 title="Credits">
+      👏
+    </h1>
 
     <v-card class="pa-4 mt-4">
       <a
@@ -20,7 +22,7 @@
 <style lang="scss" scoped>
 h1 {
   font-size: 2em;
-  margin: 50px 0px;
+  margin: 50px0;
 }
 
 .help {

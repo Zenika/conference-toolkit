@@ -1,7 +1,9 @@
 <template>
   <div class="remote">
-      <p>WebRTC support: {{this.supported}}</p>
-      <button @click="sendData('LEFT')">LEFT</button>
+    <p>WebRTC support: {{ supported }}</p>
+    <button @click="sendData('LEFT')">
+      LEFT
+    </button>
   </div>
 </template>
 
@@ -51,7 +53,7 @@ export default {
 .remote {
   height: 100%;
   overflow-y: scroll;
-  padding: 30px 0px;
+  padding: 30px0;
   font-size: 17px;
 }
 </style>

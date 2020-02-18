@@ -1,5 +1,10 @@
 <template>
-    <img class="image" :src="src" alt="image 🦄" :style="`width: ${width}; top: ${top}; right: ${right};`">
+  <img
+    class="image"
+    :src="src"
+    alt="image 🦄"
+    :style="`width: ${width}; top: ${top}; right: ${right};`"
+  >
 </template>
 
 <script>

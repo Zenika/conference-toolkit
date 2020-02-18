@@ -1,12 +1,20 @@
 <template>
   <div class="howtouse">
-    <h1 title="How to use ?">🤷‍</h1>
+    <h1 title="How to use ?">
+      🤷‍
+    </h1>
 
     <v-card class="pa-4 mt-4">
       <div class="keys">
-        <div class="item" v-for="(key,index) in keys" :key="`key-${index}`">
-          <div class="key">{{key.value}}</div>
-          <label>{{key.label}}</label>
+        <div
+          v-for="(key,index) in keys"
+          :key="`key-${index}`"
+          class="item"
+        >
+          <div class="key">
+            {{ key.value }}
+          </div>
+          <label>{{ key.label }}</label>
         </div>
       </div>
     </v-card>

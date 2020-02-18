@@ -1,19 +1,26 @@
 <template>
   <div class="loader">
-      <div v-if="progress != 1" class="progress" :style="{width: `${(progress * 10 )/ timer }%`}"></div>
+    <div
+      v-if="progress != 1"
+      class="progress"
+      :style="{width: `${(progress * 10 )/ timer }%`}"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Loader',
-  data: function() {
-    return {}
+  props: {
+    progress: {
+      type: Number,
+      required: true,
+    },
+    timer: {
+      type: Number,
+      required: true,
+    },
   },
-  props: [
-      'progress',
-      'timer',
-  ]
 }
 </script>
 

@@ -1,15 +1,20 @@
 <template>
-  <div class="youtube" :style="`width: ${width}; height: calc(${width} / 1.60)`">
-   <iframe :src="src" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div
+    class="youtube"
+    :style="`width: ${width}; height: calc(${width} / 1.60)`"
+  >
+    <iframe
+      :src="src"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Youtube',
-  data: function() {
-      return {}
-  },
   props: {
     src : {
       type: String,
@@ -19,6 +24,9 @@ export default {
       type: String,
       default: '60vw'
     }
+  },
+  data: function() {
+      return {}
   },
 }
 </script>
