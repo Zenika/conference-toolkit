@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 h1 {
   font-size: 2em;
-  margin: 50px 0px;
+  margin: 50px 0;
 }
 
 .howtouse {
@@ -44,7 +44,7 @@ h1 {
 .keys {
   display: flex;
   justify-content: space-around;
-  align-items: start;
+  align-items: flex-start;
   .item {
     width: 160px;
     .key {
@@ -53,8 +53,7 @@ h1 {
       text-align: center;
       width: 120px;
       padding: 15px 10px;
-      margin: auto;
-      margin-bottom: 20px;
+      margin: auto auto 20px;
       border-radius: 5px;
       font-weight: bold;
     }

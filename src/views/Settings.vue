@@ -17,17 +17,17 @@
         Config url (json):
         <input type="url" name="configUrl" v-model="configUrl" @change="save()">
       </label>
-      
+
       <label>
         Default start slide :
         <input type="number" name="currentSlide" v-model="currentSlide" @change="save()">
       </label>
-      
+
       <label>
         Default slide timer :
         <input type="number" name="timer" v-model="timer" @change="save()">
       </label>
-      
+
       <label>
         Slider is playing :
         <input type="checkbox" name="isPlaying" v-model="isPlaying" @change="save()">
@@ -98,7 +98,7 @@ export default {
 .settings {
   height: 100%;
   overflow-y: scroll;
-  padding: 30px 0px;
+  padding: 30px 0;
   font-size: 17px;
 
   .message {
@@ -116,11 +116,9 @@ export default {
     color: #009688;
     font-size: 1.5em;
     text-decoration: none;
-    margin-bottom: 5px;
     display: block;
     width: 200px;
-    margin: auto;
-    margin-bottom: 25px;
+    margin: auto auto 25px;
     transition: all .5s;
     &:hover {
       text-decoration: underline overline dotted;
@@ -130,13 +128,13 @@ export default {
 
   h1 {
     font-size: 2em;
-    margin: 50px 0px;
+    margin: 50px 0;
   }
 
   .keys {
     display: flex;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
     .item {
       width: 160px;
       .key {
@@ -145,8 +143,7 @@ export default {
         text-align: center;
         width: 120px;
         padding: 15px 10px;
-        margin: auto;
-        margin-bottom: 20px;
+        margin: auto auto 20px;
         border-radius: 5px;
         font-weight: bold;
       }
