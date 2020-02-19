@@ -53,7 +53,7 @@
   .remote {
     height: 100%;
     overflow-y: scroll;
-    padding: 30 px0;
+    padding: 30px 0;
     font-size: 17px;
   }
 </style>

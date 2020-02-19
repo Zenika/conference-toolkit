@@ -22,7 +22,7 @@
 <style lang="scss" scoped>
   h1 {
     font-size: 2em;
-    margin: 50 px0;
+    margin: 50px 0;
   }
 
   .help {
