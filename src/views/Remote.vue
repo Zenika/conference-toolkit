@@ -9,52 +9,52 @@
 
 <script>
 
-import Peer from 'simple-peer';
+  import Peer from 'simple-peer';
 
-export default {
-  data() {
-    return {
+  export default {
+    data() {
+      return {
         p: null,
         supported: Peer.WEBRTC_SUPPORT
-    }
-  },
-  mounted() {
+      }
+    },
+    mounted() {
 
-    this.p = new Peer({ initiator: true });
-    this.p.on('error', this.onError);
-    this.p.on('signal', this.onSignal);
-    this.p.on('data', this.onData);
+      this.p = new Peer({initiator: true});
+      this.p.on('error', this.onError);
+      this.p.on('signal', this.onSignal);
+      this.p.on('data', this.onData);
 
-    this.p.on('connect', function () {
+      this.p.on('connect', function () {
         console.log('SOMEONE CONNECT')
         this.p.send('whatever' + Math.random())
-    })
-  },
-  methods: {
-    onError(err){
+      })
+    },
+    methods: {
+      onError(err) {
         console.log('error', err)
-    },
-    onSignal(data) {
+      },
+      onSignal(data) {
         console.log('SIGNAL', JSON.stringify(data))
-    },
-    onData(data) {
+      },
+      onData(data) {
         console.log('data: ' + data)
-    },
-    sendData(data) {
-        if(this.p.connected) this.p.send(data);
+      },
+      sendData(data) {
+        if (this.p.connected) this.p.send(data);
         else console.log('☢️ Not connected');
+      }
     }
   }
-}
 </script>
 
 
 <style lang="scss" scoped>
-.remote {
-  height: 100%;
-  overflow-y: scroll;
-  padding: 30px0;
-  font-size: 17px;
-}
+  .remote {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 30 px0;
+    font-size: 17px;
+  }
 </style>
 

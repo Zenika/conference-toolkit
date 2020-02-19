@@ -70,72 +70,72 @@
 </template>
 
 <script>
-export default {
+  export default {
     data() {
-        return {
-            slideUrl: null,
-            json: null,
-            saveName: null,
-            slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
-        }
+      return {
+        slideUrl: null,
+        json: null,
+        saveName: null,
+        slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
+      }
     },
     mounted() {
-        document.getElementById('file').addEventListener('change', this.onChange);
+      document.getElementById('file').addEventListener('change', this.onChange);
     },
     methods: {
-        onChange(event) {
-            var reader = new FileReader();
-            reader.onload = this.onReaderLoad;
-            if(event.target.files[0]) {
-                reader.readAsText(event.target.files[0]);
-            }
-        },
-        onReaderLoad(event){
-            this.json = JSON.parse(event.target.result);
-        },
-        importFromFile(){
-            if(this.json) {
-                localStorage.setItem('slides', JSON.stringify(this.json));
-                console.log('💾 save json');
-                this.$emit('onSlidesImport');
-                this.json = null;
-            }
-       },
-       importFromUrl() {
-           if(this.slideUrl) {
-               fetch(this.slideUrl)
-                .then(resp => resp.json())
-                .then(data => {
-                    this.slides = data;
-                    localStorage.setItem('slides', JSON.stringify(data));
-                    this.$emit('onSlidesImport');
-                    this.slideUrl = null;
-                });
-            }
-       },
-       exportConf() {
-           this.slides = JSON.parse(window.localStorage.getItem('slides') || '[]') || [];
-           if(this.saveName && this.slides.length){
-               this.downloadObjectAsJson(this.slides,this.saveName);
-           }
-       },
-       downloadObjectAsJson(exportObj, exportName){
-            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
-            var downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href",     dataStr);
-            downloadAnchorNode.setAttribute("download", exportName + ".json");
-            document.body.appendChild(downloadAnchorNode); // required for firefox
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
+      onChange(event) {
+        var reader = new FileReader();
+        reader.onload = this.onReaderLoad;
+        if (event.target.files[0]) {
+          reader.readAsText(event.target.files[0]);
         }
+      },
+      onReaderLoad(event) {
+        this.json = JSON.parse(event.target.result);
+      },
+      importFromFile() {
+        if (this.json) {
+          localStorage.setItem('slides', JSON.stringify(this.json));
+          console.log('💾 save json');
+          this.$emit('onSlidesImport');
+          this.json = null;
+        }
+      },
+      importFromUrl() {
+        if (this.slideUrl) {
+          fetch(this.slideUrl)
+            .then(resp => resp.json())
+            .then(data => {
+              this.slides = data;
+              localStorage.setItem('slides', JSON.stringify(data));
+              this.$emit('onSlidesImport');
+              this.slideUrl = null;
+            });
+        }
+      },
+      exportConf() {
+        this.slides = JSON.parse(window.localStorage.getItem('slides') || '[]') || [];
+        if (this.saveName && this.slides.length) {
+          this.downloadObjectAsJson(this.slides, this.saveName);
+        }
+      },
+      downloadObjectAsJson(exportObj, exportName) {
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", exportName + ".json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+      }
     }
-}
+  }
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 2em;
-  margin: 50px0;
-}
+  h1 {
+    font-size: 2em;
+    margin: 50 px0;
+  }
 </style>
 

@@ -28,7 +28,7 @@
           key="setting"
           ripple
         >
-          🎛 Settins
+          🎛 Settings
         </v-tab>
         <v-tab
           key="howtouse"
@@ -75,15 +75,15 @@
 
 <script>
 
-    import HowToUse from '../components/admin/HowToUse';
-    import Settings from '../components/admin/Settings';
-    import Help from '../components/admin/Help';
+  import HowToUse from '../components/admin/HowToUse';
+  import Settings from '../components/admin/Settings';
+  import Help from '../components/admin/Help';
 
   export default {
     components: {
-        'c-howtouse': HowToUse,
-        'c-settings': Settings,
-        'c-help': Help,
+      'c-howtouse': HowToUse,
+      'c-settings': Settings,
+      'c-help': Help,
     },
     props: {
       source: {
@@ -92,46 +92,49 @@
       }
     },
     data: () => ({
-        active: '',
+      active: '',
     })
   }
 </script>
 
 <style lang="scss">
-#keep {
-  .v-navigation-drawer__border {
-    display: none;
-  }
-}
-
-.v-window {
-  overflow-y: scroll;
-  height: calc(100vh - 150px);
-  padding-bottom: 40px;
-}
-.goback {
-  position: absolute;
-  right: 10px;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  z-index: 999;
-  top: 12px;
-  font-size: 2em;
-  display: flex;
-  height: 38px;
-  span {
-    width:0;
-    overflow: hidden;
-    font-size: 14px;
-    margin-top: 9px;
-    transition: all 0.2s;
-    height: 20px;
-  }
-  &:hover {
-    span {
-      width: 85px;
+  #keep {
+    .v-navigation-drawer__border {
+      display: none;
     }
   }
-}
+
+  .v-window {
+    overflow-y: scroll;
+    height: calc(100vh - 150px);
+    padding-bottom: 40px;
+  }
+
+  .goback {
+    position: absolute;
+    right: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+    top: 12px;
+    font-size: 2em;
+    display: flex;
+    height: 38px;
+
+    span {
+      width: 0;
+      overflow: hidden;
+      font-size: 14px;
+      margin-top: 9px;
+      transition: all 0.2s;
+      height: 20px;
+    }
+
+    &:hover {
+      span {
+        width: 85px;
+      }
+    }
+  }
 </style>

@@ -20,13 +20,13 @@
 </template>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 2em;
-  margin: 50px0;
-}
+  h1 {
+    font-size: 2em;
+    margin: 50 px0;
+  }
 
-.help {
-  width: 90%;
-  margin: auto;
-}
+  .help {
+    width: 90%;
+    margin: auto;
+  }
 </style>

@@ -15,33 +15,34 @@
 </template>
 
 <script>
-import { setInterval } from 'timers';
-export default {
-  name: 'Twitter',
-  props: {
-    'twitterName' : {
-      default: 'AurelienLoyer',
-      type: String,
+  import {setInterval} from 'timers';
+
+  export default {
+    name: 'Twitter',
+    props: {
+      'twitterName': {
+        default: 'AurelienLoyer',
+        type: String,
+      },
+      'width': {
+        type: String,
+        default: '30vw'
+      },
     },
-    'width' : {
-      type: String,
-      default: '30vw'
-    },
-  },
-  mounted() {
-    if(window.twttr != undefined) {
-      window.twttr.widgets.load();
+    mounted() {
+      if (window.twttr != undefined) {
+        window.twttr.widgets.load();
+      }
+
+      setInterval(() => {
+        window.twttr.widgets.load();
+      }, 5000);
     }
-    
-    setInterval(()=> {
-      window.twttr.widgets.load();
-    },5000);
   }
-}
 </script>
 
 <style scoped lang="scss">
-.twitter {
+  .twitter {
     width: 30vw;
     height: calc(100vh - 150px);
     overflow: hidden;
@@ -50,5 +51,5 @@ export default {
     top: 40px;
     background: #0c1f2c;
     border-radius: 10px;
-}
+  }
 </style>

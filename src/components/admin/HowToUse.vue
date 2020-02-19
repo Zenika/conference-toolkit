@@ -22,50 +22,52 @@
 </template>
 
 <script>
-export default {
-    data(){
-        return {
-            keys: [
-                { value : '␠ Space', label: 'Play / Pause slider'},
-                { value : '␛ Escape', label: 'Go to settings'},
-                { value : '👉 Right', label: 'Next slide'},
-                { value : '👈 Left', label: 'Previous slide'},
-                { value : '👆 Up', label: 'Next slide content'},
-                { value : '👇 Down', label: 'Previous slide content'},
-            ]
-        }
+  export default {
+    data() {
+      return {
+        keys: [
+          {value: '␠ Space', label: 'Play / Pause slider'},
+          {value: '␛ Escape', label: 'Go to settings'},
+          {value: '👉 Right', label: 'Next slide'},
+          {value: '👈 Left', label: 'Previous slide'},
+          {value: '👆 Up', label: 'Next slide content'},
+          {value: '👇 Down', label: 'Previous slide content'},
+        ]
+      }
     }
-}
+  }
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-size: 2em;
-  margin: 50px 0;
-}
+  h1 {
+    font-size: 2em;
+    margin: 50px 0;
+  }
 
-.howtouse {
-  width: 90%;
-  margin: auto;
-}
+  .howtouse {
+    width: 90%;
+    margin: auto;
+  }
 
-.keys {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  .item {
-    width: 160px;
-    .key {
-      background: #00bcd4;
-      border: 2px solid #1c6fb1;
-      text-align: center;
-      width: 120px;
-      padding: 15px 10px;
-      margin: auto auto 20px;
-      border-radius: 5px;
-      font-weight: bold;
+  .keys {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    .item {
+      width: 160px;
+
+      .key {
+        background: #00bcd4;
+        border: 2px solid #1c6fb1;
+        text-align: center;
+        width: 120px;
+        padding: 15px 10px;
+        margin: auto auto 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
     }
   }
-}
 </style>
 

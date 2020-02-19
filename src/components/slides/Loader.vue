@@ -9,33 +9,34 @@
 </template>
 
 <script>
-export default {
-  name: 'Loader',
-  props: {
-    progress: {
-      type: Number,
-      required: true,
+  export default {
+    name: 'Loader',
+    props: {
+      progress: {
+        type: Number,
+        required: true,
+      },
+      timer: {
+        type: Number,
+        required: true,
+      },
     },
-    timer: {
-      type: Number,
-      required: true,
-    },
-  },
-}
+  }
 </script>
 
 <style scoped lang="scss">
-.loader {
+  .loader {
     width: 100%;
     height: 5px;
     background: white;
     position: absolute;
     bottom: -5px;
     z-index: 10;
+
     .progress {
-        height: 20px;
-        background-color: #cc3843;
-        transition: all .1s;
+      height: 20px;
+      background-color: #cc3843;
+      transition: all .1s;
     }
-}
+  }
 </style>

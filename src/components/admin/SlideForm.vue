@@ -172,14 +172,14 @@
 
 <script>
 
-import Image from '../slides/Image';
-import Iframe from '../slides/Iframe';
-import Contest from '../slides/Contest';
-import Speakers from '../slides/Speakers';
-import Twitter from '../slides/Twitter';
-import Youtube from '../slides/Youtube';
+  import Image from '../slides/Image';
+  import Iframe from '../slides/Iframe';
+  import Contest from '../slides/Contest';
+  import Speakers from '../slides/Speakers';
+  import Twitter from '../slides/Twitter';
+  import Youtube from '../slides/Youtube';
 
-export default {
+  export default {
     props: {
       isnew: {
         type: Boolean,
@@ -191,44 +191,44 @@ export default {
       },
     },
     data() {
-        return {
-            valid: false,
-            contents: ['image', 'iframe', 'contest', 'speaker', 'twitter','youtube'],
-            propsByContent: {
-                image: Image.props,
-                iframe: Iframe.props,
-                contest: Contest.props,
-                speaker: Speakers.props,
-                twitter: Twitter.props,
-                youtube: Youtube.props,
-            },
-            props: [],
-        }
+      return {
+        valid: false,
+        contents: ['image', 'iframe', 'contest', 'speaker', 'twitter', 'youtube'],
+        propsByContent: {
+          image: Image.props,
+          iframe: Iframe.props,
+          contest: Contest.props,
+          speaker: Speakers.props,
+          twitter: Twitter.props,
+          youtube: Youtube.props,
+        },
+        props: [],
+      }
     },
     mounted() {
-        this.loadProps()
+      this.loadProps()
     },
     methods: {
-        validate(){
-            this.$emit('validate',this.slide);
-        },
-        loadProps() {
-            this.props = [];
-            if (!Object.keys(this.propsByContent[this.slide.content])) {
-                return;
-            }
-            Object.keys(this.propsByContent[this.slide.content]).forEach(key => {
-                this.props.push({
-                    key,
-                    label: `Key : ${key} /  : ${this.propsByContent[this.slide.content][key].default}`,
-                    type: this.propsByContent[this.slide.content][key].type.name.toLowerCase(),
-                    value: this.propsByContent[this.slide.content][key].default,
-                })
-            });
-            console.log(this.props);
+      validate() {
+        this.$emit('validate', this.slide);
+      },
+      loadProps() {
+        this.props = [];
+        if (!Object.keys(this.propsByContent[this.slide.content])) {
+          return;
         }
+        Object.keys(this.propsByContent[this.slide.content]).forEach(key => {
+          this.props.push({
+            key,
+            label: `Key : ${key} /  : ${this.propsByContent[this.slide.content][key].default}`,
+            type: this.propsByContent[this.slide.content][key].type.name.toLowerCase(),
+            value: this.propsByContent[this.slide.content][key].default,
+          })
+        });
+        console.log(this.props);
+      }
     }
-}
+  }
 </script>
 
 

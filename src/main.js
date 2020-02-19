@@ -7,19 +7,19 @@ import router from './router'
 
 
 Vue.use(Vuetify, {
-  // theme: {
-  //   primary: "#cddc39",
-  //   secondary: "#2196f3",
-  //   accent: "#3f51b5",
-  //   error: "#ff5722",
-  //   warning: "#ffc107",
-  //   info: "#00bcd4",
-  //   success: "#009688"
-  // }
+    // theme: {
+    //   primary: "#cddc39",
+    //   secondary: "#2196f3",
+    //   accent: "#3f51b5",
+    //   error: "#ff5722",
+    //   warning: "#ffc107",
+    //   info: "#00bcd4",
+    //   success: "#009688"
+    // }
 })
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app')
