@@ -25,6 +25,7 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/variables";
   .loader {
     width: 100%;
     height: 5px;
@@ -35,7 +36,7 @@
 
     .progress {
       height: 20px;
-      background-color: #cc3843;
+      background-color: $main-color;
       transition: all .1s;
     }
   }

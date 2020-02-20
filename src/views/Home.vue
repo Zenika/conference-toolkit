@@ -144,7 +144,7 @@
   import Speakers from './../components/slides/Speakers.vue';
   import Contest from './../components/slides/Contest.vue';
   import Iframe from './../components/slides/Iframe.vue';
-  import defaultSlides from './../services/slides.service';
+  import confoo2020Slides from './../config/confoo-2020.slides';
 
   export default {
     name: 'Home',
@@ -168,7 +168,7 @@
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
         slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
-        defaultSlides: defaultSlides,
+        defaultSlides: confoo2020Slides,
       };
     },
     mounted: function () {
