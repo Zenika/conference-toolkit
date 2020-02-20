@@ -1,23 +1,28 @@
 <template>
-    <img class="logo" :src="img" alt="">
+  <img
+    class="logo"
+    :src="img"
+    alt=""
+  >
 </template>
 
 <script>
-export default {
-  name: 'Logo',
-  data: function() {
-      return {}
-  },
-  props: {
+  export default {
+    name: 'Logo',
+    props: {
       img: {
-          default: 'img/znk2.png',
+        type: String,
+        default: 'img/znk2.png',
       }
+    },
+    data: function () {
+      return {}
+    }
   }
-}
 </script>
 
 <style scoped lang="scss">
-.logo {
+  .logo {
     width: 78%;
     overflow: hidden;
     position: absolute;
@@ -25,5 +30,5 @@ export default {
     left: 10%;
     z-index: 1000;
     opacity: 0.6;
-}
+  }
 </style>

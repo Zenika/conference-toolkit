@@ -63,6 +63,7 @@ const defaultSlides = [
         bgImg: "./img/sw3.jpg",
         rectImg: "./img/sw3-1.jpg",
         content: "contest",
+        props: {}
     },
     {
         headlineFirstLine: "Demo",
