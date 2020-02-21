@@ -1,113 +1,155 @@
 const confoo2020Slides = [
     {
-        "headlineFirstLine": "",
-        "headlineSecondLine": "Zlife",
-        "isHeadlineVisible": true,
-        "sublineFirstLine": "",
-        "sublineSecondLine": "",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "logoImg": "https://www.zenika.com/static/logos/logo.png",
-        "content": "youtube",
-        "props": {
-            "width": "60vw",
-            "src": "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0"
+        headlineFirstLine: "",
+        headlineSecondLine: "Zlife",
+        isHeadlineVisible: true,
+        sublineFirstLine: "",
+        sublineSecondLine: "",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        content: "youtube",
+        props: {
+            width: "60vw",
+            src: "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0"
         }
     },
     {
-        "headlineFirstLine": "Si tu rejoins",
-        "headlineSecondLine": "Zenika",
-        "isHeadlineVisible": true,
-        "sublineFirstLine": "",
-        "sublineSecondLine": "",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "logoImg": "https://www.zenika.com/static/logos/logo.png",
-        "content": "image",
-        "props": {
-            "width": "60vw",
-            "top": "9vh",
-            "right": "9vh",
-            "src": "https://i.ibb.co/wCTHHZF/Plaquette-AVANTAGES-BLC-1.jpg"
+        headlineFirstLine: "Si tu rejoins",
+        headlineSecondLine: "Zenika",
+        isHeadlineVisible: true,
+        sublineFirstLine: "",
+        sublineSecondLine: "",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        content: "image",
+        props: {
+            width: "60vw",
+            top: "9vh",
+            right: "9vh",
+            src: "https://i.ibb.co/wCTHHZF/Plaquette-AVANTAGES-BLC-1.jpg"
         },
-        "isDisabled": true
+        isDisabled: true
     },
     {
-        "headlineFirstLine": "",
-        "headlineSecondLine": "Twitter",
-        "isHeadlineVisible": true,
-        "sublineFirstLine": "",
-        "sublineSecondLine": "",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "logoImg": "https://www.zenika.com/static/logos/logo.png",
-        "content": "twitter",
-        "props": {
-            "width": "40vw",
-            "twitterName": "ZenikaMontreal"
+        headlineFirstLine: "",
+        headlineSecondLine: "Twitter",
+        isHeadlineVisible: true,
+        sublineFirstLine: "",
+        sublineSecondLine: "",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        content: "twitter",
+        props: {
+            width: "40vw",
+            twitterName: "ZenikaMontreal"
         },
-        "isDisabled": false
+        isDisabled: false
     },
     {
-        "headlineFirstLine": "Formations",
-        "isHeadlineVisible": true,
-        "sublineFirstLine": "",
-        "sublineSecondLine": "",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "logoImg": "https://www.zenika.com/static/logos/logo.png",
-        "content": "image",
-        "props": {
-            "width": "55vw",
-            "top": "20vh",
-            "right": "9vh",
-            "src": "https://svgshare.com/i/CRQ.svg"
+        headlineFirstLine: "Les meetups",
+        headlineSecondLine: "qu'on sponsorise",
+        isHeadlineVisible: true,
+        sublineFirstLine: "",
+        sublineSecondLine: "",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "https://www.stickpng.com/assets/images/584c57c01fc21103bb375bae.png",
+        content: "meetups",
+        props: {
+            meetups: [
+                {
+                    name: 'Software Crafters Montréal',
+                    logo: './img/meetup_software-craft.jpeg',
+                    next: {
+                       title: 'Monthly community meetup',
+                       date: 'Mercredi 4 mars',
+                        time: '18:30'
+                    }
+                },
+                {
+                    name: 'P.O.S.S - Le Product Owner Safe Space',
+                    logo: './img/meetup_poss.jpeg',
+                },
+                {
+                    name: 'MTL React & React Native Monthly Meetup',
+                    logo: './img/meetup_reactjs-mtl.png',
+                },
+            ],
+            partners: [
+                {
+                    logo: 'https://logos-download.com/wp-content/uploads/2016/10/Red_Hat_logo_RedHat.png',
+                    name: 'Red Hat',
+                },
+                {
+                    logo: 'https://www.btelligent.com/fileadmin/_processed_/d/8/csm_confluent-partner_9de1dbf103.png',
+                    name: 'Confluent',
+                },
+                {
+                    logo: 'https://logos-download.com/wp-content/uploads/2016/09/Elastic_logo.png',
+                    name: 'Elastic',
+                },
+                {
+                    logo: 'https://iqm7l1pa7bn3d42rc278rat5-wpengine.netdna-ssl.com/wp-content/uploads/2017/04/pivotal-logo.png',
+                    name: 'Pivotal',
+                },
+            ]
+        },
+        isDisabled: false
+    },
+    {
+        headlineFirstLine: "Formations",
+        isHeadlineVisible: true,
+        sublineFirstLine: "",
+        sublineSecondLine: "",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        content: "image",
+        props: {
+            width: "55vw",
+            top: "20vh",
+            right: "9vh",
+            src: "https://svgshare.com/i/CRQ.svg"
         }
     },
     {
-        "headlineFirstLine": "Design",
-        "headlineSecondLine": "Sprint",
-        "isHeadlineVisible": false,
-        "sublineFirstLine": "",
-        "sublineSecondLine": " ",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "logoImg": "",
-        "content": "iframe",
-        "props": {
-            "height": "80vh",
-            "width": "80vw",
-            "top": "5vh",
-            "right": "10vw",
-            "src": "https://docs.google.com/presentation/d/1ayHL5rMXfEMuLwNZc5p2pX0GGjOFTM-LN7Wka0XELO0/preview?slide=id.g33bfd5ce23_0_1"
+        headlineFirstLine: "Design",
+        headlineSecondLine: "Sprint",
+        isHeadlineVisible: false,
+        sublineFirstLine: "",
+        sublineSecondLine: " ",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "",
+        content: "iframe",
+        props: {
+            height: "80vh",
+            width: "80vw",
+            top: "5vh",
+            right: "10vw",
+            src: "https://docs.google.com/presentation/d/1ayHL5rMXfEMuLwNZc5p2pX0GGjOFTM-LN7Wka0XELO0/preview?slide=id.g33bfd5ce23_0_1"
         }
     },
     {
-        "props": {
-            "contest1Title": "Rabais de Formation",
-            "contest1Image": "http://jardindeinnovacion.org/images/element/dd2.png",
-            "contest2Title": "Prestation gratuite",
-            "contest1Content": "Jusqu’à 50% de réduction sur une formation Zenika au catalogue",
-            "contest1SubContent": "",
-            "contest2SubContent": "@ZenikaMontreal",
-            "contest2Content": "Gagner 1jour de prestation gratuite d’un collaborateur Zenika."
-        },
-        "content": "contest",
-        "bgImg": "./img/background-2-confoo-2020.png",
-        "rectImg": "./img/background-2-confoo-2020.png",
-        "headlineFirstLine": "Jeu Concours",
-        "isHeadlineVisible": true,
-        "logoImg": "https://www.zenika.com/static/logos/logo.png",
-    },
-    {
-        headlineFirstLine: "Demo",
-        headlineSecondLine: "Contest",
+        headlineFirstLine: "Jeu Concours",
         sublineFirstLine: "Il n'y a rien de neuf sous",
         sublineSecondLine: "le soleil",
+        logoImg: "./img/zenikanard-confoo-2020.png",
         bgImg: "./img/background-2-confoo-2020.png",
         rectImg: "./img/background-2-confoo-2020.png",
         content: "contest",
-        props: {}
+        props: {
+            contest1Title: "Rabais de Formation",
+            contest1Image: "http://jardindeinnovacion.org/images/element/dd2.png",
+            contest2Title: "Prestation gratuite",
+            contest1Content: "Jusqu’à 50% de réduction sur une formation Zenika au catalogue",
+            contest1SubContent: "",
+            contest2SubContent: "@ZenikaMontreal",
+            contest2Content: "Gagner 1jour de prestation gratuite d’un collaborateur Zenika."
+        },
     },
     {
         headlineFirstLine: "Confoo",

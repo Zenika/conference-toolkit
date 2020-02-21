@@ -25,7 +25,7 @@
             class="slide-rect"
             :style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
           >
-            <c-logo :img="slide.logoImg" />
+            <c-logo :img="slide.logoImg"/>
           </div>
         </div>
         <div
@@ -99,6 +99,12 @@
             :contest2-content="slide.props.contest2Content"
             :contest2-sub-content="slide.props.contest2SubContent"
           />
+
+          <c-meetups
+            v-if="slide.content === 'meetups'"
+            :meetups="slide.props.meetups"
+            :partners="slide.props.partners"
+          />
         </div>
       </div>
     </div>
@@ -144,6 +150,7 @@
   import Speakers from './../components/slides/Speakers.vue';
   import Contest from './../components/slides/Contest.vue';
   import Iframe from './../components/slides/Iframe.vue';
+  import Meetups from "../components/slides/Meetups";
   import confoo2020Slides from './../config/confoo-2020.slides';
 
   export default {
@@ -157,6 +164,7 @@
       'c-speakers': Speakers,
       'c-contest': Contest,
       'c-iframe': Iframe,
+      'c-meetups': Meetups,
     },
     data: function () {
       return {
@@ -286,6 +294,8 @@
 </script>
 
 <style lang="scss">
+  @import "../assets/variables";
+
   .timeline-Widget {
     background-color: yellow !important;
   }
@@ -373,42 +383,11 @@
       position: absolute;
       width: 100%;
       background-blend-mode: darken;
+        .slide-content-text p{
 
-      &:nth-child(1) {
-        background-color: rgba(115, 129, 153, 0.4);
 
-        &:before {
-          background-color: rgba(115, 129, 153, 0.25);
         }
 
-        .slide-content-text {
-          text-shadow: 2px 5px 45px rgba(85, 96, 113, 0.25);
-        }
-      }
-
-      &:nth-child(2) {
-        background-color: rgba(144, 171, 184, 0.7);
-
-        &:before {
-          background-color: rgba(144, 171, 184, 0.3);
-        }
-
-        .slide-content-text {
-          text-shadow: 2px 5px 45px rgba(121, 142, 152, 0.2);
-        }
-      }
-
-      &:nth-child(3) {
-        background-color: rgba(86, 125, 156, 0.5);
-
-        &:before {
-          background-color: rgba(86, 125, 156, 0.2);
-        }
-
-        .slide-content-text {
-          text-shadow: 2px 5px 55px rgba(57, 83, 103, 0.4);
-        }
-      }
 
       &:before {
         content: "";
@@ -467,7 +446,7 @@
       &-text {
         // font-family: "Playfair Display";
         // font-family: "Open Sans";
-        font-family: "Dosis", sans-serif;
+        font-family: "Lato", sans-serif;
 
         font-size: 7rem;
         letter-spacing: 0.2rem;
@@ -605,7 +584,7 @@
       cursor: pointer;
       background-color: rgba(208, 206, 204, 0.32);
       border: 0;
-      padding: $control-btn-padding 2.2rem;
+      height: 5rem;
       flex-basis: 0;
       flex-grow: 1;
       min-width: 15rem;
@@ -643,7 +622,7 @@
         &:after {
           content: "";
           background-color: #e3e3e3;
-          height: 5px;
+          /*height: 5px;*/
           width: calc(100% - 8px);
           position: absolute;
           top: 100%;
@@ -747,19 +726,11 @@
   @keyframes cutTextDown {
     from {
       clip-path: inset(100% 0 0 0);
+      filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.1));
     }
     to {
       clip-path: inset(-10% 0 -20% 0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes cutTextDownFromTop {
-    from {
-      clip-path: inset(0 0 100% 0);
-    }
-    to {
-      clip-path: inset(0 0 -30% 0);
+      filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.1));
       opacity: 1;
     }
   }
@@ -859,9 +830,11 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
+
     }
     to {
       opacity: 1;
+
     }
   }
 
@@ -884,6 +857,8 @@
         animation-name: cutTextUp;
         animation-duration: $text-cut-up;
         animation-timing-function: ease-out;
+        text-shadow: none;
+
       }
 
       .slide-rect {
@@ -905,6 +880,8 @@
         animation-duration: $text-cut-up;
         animation-timing-function: ease;
         animation-fill-mode: forwards;
+
+
       }
 
       .slide-rect {
