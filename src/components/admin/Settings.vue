@@ -135,10 +135,10 @@
     },
     methods: {
       save() {
-        window.localStorage.setItem('timer', this.timer);
-        window.localStorage.setItem('configUrl', this.configUrl);
-        window.localStorage.setItem('currentSlide', this.currentSlide);
-        window.localStorage.setItem('isPlaying', this.isPlaying);
+        if (this.timer) window.localStorage.setItem('timer', this.timer);
+        if (this.configUrl) window.localStorage.setItem('configUrl', this.configUrl);
+        if (this.currentSlide) window.localStorage.setItem('currentSlide', this.currentSlide);
+        if (this.isPlaying) window.localStorage.setItem('isPlaying', this.isPlaying);
         console.log('💾');
       },
       loadSlides() {
