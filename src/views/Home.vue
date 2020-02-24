@@ -290,6 +290,7 @@
             });
         } else {
           this.slides = this.defaultSlides;
+          window.localStorage.setItem('slides', JSON.stringify(this.slides));
         }
       }
     }
