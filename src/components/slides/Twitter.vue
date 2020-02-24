@@ -8,7 +8,7 @@
       data-chrome="transparent nofooter noborders noheader noscrollbar"
       data-lang="fr"
       data-theme="dark"
-      data-link-color="#cc3843"
+      data-link-color="$main-color"
       :href="`https://twitter.com/${twitterName}?ref_src=twsrc%5Etfw`"
     >Tweets by ZenikaMontreal</a>
   </div>

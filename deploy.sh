@@ -6,8 +6,12 @@ set -e
 # build
 npm run build
 
+cd dist
+
+git init
 git add dist
 git commit -m 'deploy ✨🚀'
 
-git subtree push --prefix dist origin gh-pages
-git push
+git push -f git@github.com:Zenika/conference-kit.git master:gh-pages
+
+cd -

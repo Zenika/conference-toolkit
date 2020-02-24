@@ -133,6 +133,7 @@
 <style scoped lang="scss">
   @import url("https://fonts.googleapis.com/css?family=Open+Sans");
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:800");
+  @import "../../assets/variables";
 
   @mixin object($width, $height, $bg) {
     width: $width;
@@ -210,7 +211,7 @@
     }
 
     .left {
-      @include object(390px, 350px, #cc3843);
+      @include object(390px, 350px, $main-color);
       border-radius: 23px;
       display: flex;
       align-items: center;
@@ -224,7 +225,7 @@
     }
 
     .right {
-      @include object(654px, 300px, #0c1f2c);
+      @include object(654px, 300px, $secondary-color);
       position: absolute;
       left: -250px;
       transform: translateX(50%);
@@ -245,6 +246,8 @@
         margin-bottom: 15px;
         text-align: left;
         text-transform: uppercase;
+        text-shadow: 0 0 10px #FCB4F8, 0 0 20px #FCB4F8, 0 0 30px $main-color, 0 0 40px $main-color, 0 0 50px $main-color, 0 0 60px $main-color, 0 0 70px $main-color;
+
       }
 
       h2 {
@@ -256,7 +259,7 @@
 
       button {
         height: 48px;
-        background: #cb2140;
+        background: $main-color;
         border-radius: 90px;
         font-weight: 300;
         line-height: 35px;
@@ -286,7 +289,7 @@
           }
 
           .size {
-            border-right: 1px solid #cb1f40;
+            border-right: 1px solid $main-color;
             padding: 30px 0;
           }
 
@@ -303,7 +306,7 @@
         i.fav {
           font-size: 12px;
           margin: 0 12px 0 24px;
-          color: #cb2140;
+          color: $main-color;
         }
 
         a {
@@ -326,7 +329,7 @@
             position: absolute;
             @include object(80px, 80px, null);
             border-radius: 50%;
-            border: 2px solid #cb1f40;
+            border: 2px solid $main-color;
             border-top-color: transparent;
             transform: rotate(-45deg) translate(-50%, -50%);
           }
@@ -343,9 +346,8 @@
         p {
           @include object(30px, 30px, null);
           display: inline-block;
-          line-height: normal;
           text-align: center;
-          font-weight: 300px;
+          font-weight: 300;
           line-height: 28px;
           font-size: 14px;
           border-radius: 50%;
@@ -354,11 +356,11 @@
           cursor: pointer;
 
           &:hover {
-            border: 1px solid #cb1f40;
+            border: 1px solid $main-color;
           }
 
           &:nth-of-type(1) {
-            border: 1px solid #cb1f40;
+            border: 1px solid $main-color;
           }
         }
       }
@@ -372,7 +374,7 @@
     text-align: center;
     margin-left: -30px;
     box-shadow: 0 0 60px rgba(#000, 0.2);
-    color: #cb1f40;
+    color: $main-color;
     cursor: pointer;
     position: absolute;
     right: -30px;

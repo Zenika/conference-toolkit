@@ -19,14 +19,9 @@
         </div>
         <div
           v-if="slide.logoImg"
-          class="slide-rect-filter"
+          class="slide-rect"
         >
-          <div
-            class="slide-rect"
-            :style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
-          >
-            <c-logo :img="slide.logoImg" />
-          </div>
+          <c-logo :img="slide.logoImg" />
         </div>
         <div
           v-if="slide.isHeadlineVisible"
@@ -99,6 +94,17 @@
             :contest2-content="slide.props.contest2Content"
             :contest2-sub-content="slide.props.contest2SubContent"
           />
+
+          <c-meetups
+            v-if="slide.content === 'meetups'"
+            :meetups="slide.props.meetups"
+          />
+
+          <c-trainings
+            v-if="slide.content === 'trainings'"
+            :trainings="slide.props.trainings"
+            :partners="slide.props.partners"
+          />
         </div>
       </div>
     </div>
@@ -144,7 +150,9 @@
   import Speakers from './../components/slides/Speakers.vue';
   import Contest from './../components/slides/Contest.vue';
   import Iframe from './../components/slides/Iframe.vue';
-  import defaultSlides from './../services/slides.service';
+  import Meetups from "../components/slides/Meetups";
+  import Trainings from "../components/slides/Trainings";
+  import confoo2020Slides from './../config/confoo-2020.slides';
 
   export default {
     name: 'Home',
@@ -157,6 +165,8 @@
       'c-speakers': Speakers,
       'c-contest': Contest,
       'c-iframe': Iframe,
+      'c-meetups': Meetups,
+      'c-trainings': Trainings,
     },
     data: function () {
       return {
@@ -168,7 +178,7 @@
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
         slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
-        defaultSlides: defaultSlides,
+        defaultSlides: confoo2020Slides,
       };
     },
     mounted: function () {
@@ -286,6 +296,8 @@
 </script>
 
 <style lang="scss">
+  @import "../assets/variables";
+
   .timeline-Widget {
     background-color: yellow !important;
   }
@@ -373,42 +385,11 @@
       position: absolute;
       width: 100%;
       background-blend-mode: darken;
+        .slide-content-text p{
 
-      &:nth-child(1) {
-        background-color: rgba(115, 129, 153, 0.4);
 
-        &:before {
-          background-color: rgba(115, 129, 153, 0.25);
         }
 
-        .slide-content-text {
-          text-shadow: 2px 5px 45px rgba(85, 96, 113, 0.25);
-        }
-      }
-
-      &:nth-child(2) {
-        background-color: rgba(144, 171, 184, 0.7);
-
-        &:before {
-          background-color: rgba(144, 171, 184, 0.3);
-        }
-
-        .slide-content-text {
-          text-shadow: 2px 5px 45px rgba(121, 142, 152, 0.2);
-        }
-      }
-
-      &:nth-child(3) {
-        background-color: rgba(86, 125, 156, 0.5);
-
-        &:before {
-          background-color: rgba(86, 125, 156, 0.2);
-        }
-
-        .slide-content-text {
-          text-shadow: 2px 5px 55px rgba(57, 83, 103, 0.4);
-        }
-      }
 
       &:before {
         content: "";
@@ -467,7 +448,7 @@
       &-text {
         // font-family: "Playfair Display";
         // font-family: "Open Sans";
-        font-family: "Dosis", sans-serif;
+        font-family: "Lato", sans-serif;
 
         font-size: 7rem;
         letter-spacing: 0.2rem;
@@ -525,29 +506,20 @@
     &-rect {
       height: $rect-height;
       width: $rect-width;
-      border-image-slice: 10%;
       position: absolute;
       top: 40px;
       transform: translateY(-30%);
       left: $left-offset;
-      border-width: $rect-border-width;
-      border-style: solid;
-      box-shadow: 2px 2px 90px 30px rgba(41, 50, 61, 0.22);
-      will-change: auto;
       @include media-height(790px) {
         left: $left-offset-small;
         height: $rect-height-small;
         width: $rect-width-small;
-        border-width: $rect-border-width-small;
       }
       @include media-height(730px) {
         top: 30%;
         transform: translateY(-30%);
       }
 
-      &-filter {
-        filter: brightness(110%) contrast(110%) saturate(110%);
-      }
     }
 
     &-side-text {
@@ -605,7 +577,7 @@
       cursor: pointer;
       background-color: rgba(208, 206, 204, 0.32);
       border: 0;
-      padding: $control-btn-padding 2.2rem;
+      height: 5rem;
       flex-basis: 0;
       flex-grow: 1;
       min-width: 15rem;
@@ -643,7 +615,7 @@
         &:after {
           content: "";
           background-color: #e3e3e3;
-          height: 5px;
+          /*height: 5px;*/
           width: calc(100% - 8px);
           position: absolute;
           top: 100%;
@@ -747,19 +719,11 @@
   @keyframes cutTextDown {
     from {
       clip-path: inset(100% 0 0 0);
+      filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.1));
     }
     to {
       clip-path: inset(-10% 0 -20% 0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes cutTextDownFromTop {
-    from {
-      clip-path: inset(0 0 100% 0);
-    }
-    to {
-      clip-path: inset(0 0 -30% 0);
+      filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.1));
       opacity: 1;
     }
   }
@@ -859,9 +823,11 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
+
     }
     to {
       opacity: 1;
+
     }
   }
 
@@ -884,6 +850,8 @@
         animation-name: cutTextUp;
         animation-duration: $text-cut-up;
         animation-timing-function: ease-out;
+        text-shadow: none;
+
       }
 
       .slide-rect {
@@ -905,6 +873,8 @@
         animation-duration: $text-cut-up;
         animation-timing-function: ease;
         animation-fill-mode: forwards;
+
+
       }
 
       .slide-rect {
