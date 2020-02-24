@@ -7,6 +7,7 @@
       <div class="left" />
       <div class="right">
         <img
+          v-if="contest1Image"
           class="helmet"
           :src="contest1Image"
           alt="helmet"
@@ -25,15 +26,15 @@
     </div>
     <div
       v-if="contest2Title"
-      class="card bottom"
+      class="card bottom contest2"
     >
       <div class="right">
         <div class="productInfo">
-          <h1 v-html="contest2Title" />
-          <h2>{{ contest2Content }}</h2>
-          <h2 class="redznk">
-            {{ contest2SubContent }}
-          </h2>
+          <img
+            class="contest-img"
+            :src="contest2Image"
+            alt="helmet"
+          >
         </div>
       </div>
       <div class="left" />
@@ -47,7 +48,7 @@
     props: {
       contest1Image: {
         type: String,
-        default: 'img/teeshirt.png',
+        default: null,
       },
       contest1Title: {
         type: String,
@@ -72,6 +73,10 @@
       contest2SubContent: {
         type: String,
         default: '@AurelienLoyer @Vue.js @JavaScript'
+      },
+      contest2Image: {
+        type: String,
+        default: 'img/teeshirt.png',
       },
     },
     data: function () {
@@ -189,6 +194,13 @@
       }
     }
 
+    &.contest2 .productInfo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 !important;
+    }
+
     .right {
       @include object(654px, 300px, #0c1f2c);
       position: absolute;
@@ -240,6 +252,10 @@
         color: #fff;
         font-family: "Open Sans", sans-serif;
         text-align: left;
+
+        .contest-img {
+          height: 65%;
+        }
 
         .details {
           height: 145px;
