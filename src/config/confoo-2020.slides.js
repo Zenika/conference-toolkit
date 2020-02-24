@@ -112,6 +112,10 @@ const confoo2020Slides = [
                     name: 'Sensibilisation au Software Craftsmanship',
                     logo: './img/craft_250x230.png',
                 },
+                {
+                    name: 'Trouvez en plus sur notre site',
+                    logo: './img/nos-formations-qr-code.png',
+                },
             ],
             partners: [
                 {

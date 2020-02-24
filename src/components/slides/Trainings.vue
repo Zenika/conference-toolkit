@@ -93,7 +93,7 @@
     align-items: center;
     color: white;
     position: relative;
-    margin: 5px 0;
+    margin: 10px 0;
     flex-basis: 33%;
   }
 
@@ -103,6 +103,7 @@
     font-weight: 800;
     line-height: 30px;
     font-size: 24px;
+    margin-top: 15px;
     margin-bottom: 15px;
     text-transform: uppercase;
     text-shadow: 0 0 10px #FCB4F8, 0 0 20px #FCB4F8, 0 0 30px $main-color, 0 0 40px $main-color, 0 0 50px $main-color, 0 0 60px $main-color, 0 0 70px $main-color;
