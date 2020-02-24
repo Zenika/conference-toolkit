@@ -6,7 +6,7 @@
         :key="meetup.name"
         class="meetup"
       >
-        <div class="left">
+        <div class="top">
           <img
             class="image"
             :src="meetup.logo"
@@ -14,34 +14,24 @@
             :style="`width: ${width};`"
           >
         </div>
-        <div class="right">
+        <div class="bottom">
           <h2>{{ meetup.name }}</h2>
 
-          <div v-if="meetup.next" class="content">
+          <div
+            v-if="meetup.next"
+            class="content"
+          >
             <h3>{{ meetup.next.title }}</h3>
             <button>
-              <i class="far fa-calendar-alt"/>
+              <i class="far fa-calendar-alt" />
               {{ meetup.next.date }}
             </button>
             <button>
-              <i class="far fa-clock"/>
+              <i class="far fa-clock" />
               {{ meetup.next.time }}
             </button>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="partners">
-      <div
-        v-for="partner in partners"
-        :key="partner.name"
-        class="partner"
-      >
-        <img
-          class="image"
-          :src="partner.logo"
-          :alt="`${partner.name} logo`"
-        >
       </div>
     </div>
   </div>
@@ -52,10 +42,6 @@
     name: 'Meetups',
     props: {
       meetups: {
-        type: Array,
-        required: true,
-      },
-      partners: {
         type: Array,
         required: true,
       },
@@ -90,8 +76,7 @@
 
   }
 
-  .meetups,
-  .partners {
+  .meetups {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -102,7 +87,6 @@
     }
   }
 
-
   .meetup {
     display: flex;
     flex-direction: column;
@@ -110,7 +94,7 @@
     color: white;
     position: relative;
 
-    .left {
+    .top {
 
       .image {
         border-radius: 23px;
@@ -119,7 +103,7 @@
       }
     }
 
-    .right {
+    .bottom {
       @include object(15vw, auto, rgba(0, 0, 0, 0));
       padding: 10px;
       border-radius: 23px;
@@ -136,7 +120,7 @@
 
       h3 {
         font-weight: 300;
-        font-size: 32px;
+        font-size: 24px;
         letter-spacing: 1.6px;
         margin-bottom: 30px;
       }
@@ -146,7 +130,7 @@
         border-radius: 90px;
         font-weight: 300;
         line-height: 35px;
-        font-size: 1.3em;
+        font-size: 1.2em;
         padding: 0 18px;
         color: #fff;
         margin: 5px;
@@ -157,12 +141,6 @@
       }
 
 
-    }
-  }
-
-  .partner {
-    .image {
-      width: 8vw;
     }
   }
 

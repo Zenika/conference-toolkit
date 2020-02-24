@@ -19,14 +19,9 @@
         </div>
         <div
           v-if="slide.logoImg"
-          class="slide-rect-filter"
+          class="slide-rect"
         >
-          <div
-            class="slide-rect"
-            :style="{'border-image-source': 'url(' + slide.rectImg + ')'}"
-          >
-            <c-logo :img="slide.logoImg"/>
-          </div>
+          <c-logo :img="slide.logoImg" />
         </div>
         <div
           v-if="slide.isHeadlineVisible"
@@ -103,6 +98,11 @@
           <c-meetups
             v-if="slide.content === 'meetups'"
             :meetups="slide.props.meetups"
+          />
+
+          <c-trainings
+            v-if="slide.content === 'trainings'"
+            :trainings="slide.props.trainings"
             :partners="slide.props.partners"
           />
         </div>
@@ -151,6 +151,7 @@
   import Contest from './../components/slides/Contest.vue';
   import Iframe from './../components/slides/Iframe.vue';
   import Meetups from "../components/slides/Meetups";
+  import Trainings from "../components/slides/Trainings";
   import confoo2020Slides from './../config/confoo-2020.slides';
 
   export default {
@@ -165,6 +166,7 @@
       'c-contest': Contest,
       'c-iframe': Iframe,
       'c-meetups': Meetups,
+      'c-trainings': Trainings,
     },
     data: function () {
       return {
@@ -504,29 +506,20 @@
     &-rect {
       height: $rect-height;
       width: $rect-width;
-      border-image-slice: 10%;
       position: absolute;
       top: 40px;
       transform: translateY(-30%);
       left: $left-offset;
-      border-width: $rect-border-width;
-      border-style: solid;
-      box-shadow: 2px 2px 90px 30px rgba(41, 50, 61, 0.22);
-      will-change: auto;
       @include media-height(790px) {
         left: $left-offset-small;
         height: $rect-height-small;
         width: $rect-width-small;
-        border-width: $rect-border-width-small;
       }
       @include media-height(730px) {
         top: 30%;
         transform: translateY(-30%);
       }
 
-      &-filter {
-        filter: brightness(110%) contrast(110%) saturate(110%);
-      }
     }
 
     &-side-text {

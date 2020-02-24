@@ -29,6 +29,5 @@
     top: 32%;
     left: 10%;
     z-index: 1000;
-    opacity: 0.6;
   }
 </style>

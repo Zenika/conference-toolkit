@@ -78,24 +78,6 @@ const confoo2020Slides = [
                     logo: './img/meetup_reactjs-mtl.png',
                 },
             ],
-            partners: [
-                {
-                    logo: 'https://logos-download.com/wp-content/uploads/2016/10/Red_Hat_logo_RedHat.png',
-                    name: 'Red Hat',
-                },
-                {
-                    logo: 'https://www.btelligent.com/fileadmin/_processed_/d/8/csm_confluent-partner_9de1dbf103.png',
-                    name: 'Confluent',
-                },
-                {
-                    logo: 'https://logos-download.com/wp-content/uploads/2016/09/Elastic_logo.png',
-                    name: 'Elastic',
-                },
-                {
-                    logo: 'https://iqm7l1pa7bn3d42rc278rat5-wpengine.netdna-ssl.com/wp-content/uploads/2017/04/pivotal-logo.png',
-                    name: 'Pivotal',
-                },
-            ]
         },
         isDisabled: false
     },
@@ -107,12 +89,48 @@ const confoo2020Slides = [
         bgImg: "./img/background-2-confoo-2020.png",
         rectImg: "./img/background-2-confoo-2020.png",
         logoImg: "./img/zenikanard-confoo-2020.png",
-        content: "image",
+        content: "trainings",
         props: {
-            width: "55vw",
-            top: "20vh",
-            right: "9vh",
-            src: "https://svgshare.com/i/CRQ.svg"
+            trainings: [
+                {
+                    name: 'Vue.js',
+                    logo: './img/vue_250x230.png',
+                },
+                {
+                    name: 'ReactJS',
+                    logo: './img/react_250x230.png',
+                },
+                {
+                    name: 'Flutter',
+                    logo: './img/flutter_250x230.png',
+                },
+                {
+                    name: 'Node JS',
+                    logo: './img/node_300x200.png',
+                },
+                {
+                    name: 'Sensibilisation au Software Craftsmanship',
+                    logo: './img/craft_250x230.png',
+                },
+            ],
+            partners: [
+                {
+                    logo: 'https://logos-download.com/wp-content/uploads/2016/10/Red_Hat_logo_RedHat.png',
+                    name: 'Red Hat',
+                },
+                {
+                    logo: 'https://www.btelligent.com/fileadmin/_processed_/d/8/csm_confluent-partner_9de1dbf103.png',
+                    name: 'Confluent',
+                },
+                {
+                    logo: 'https://iqm7l1pa7bn3d42rc278rat5-wpengine.netdna-ssl.com/wp-content/uploads/2017/04/pivotal-logo.png',
+                    name: 'Pivotal',
+                },
+                {
+                    logo: 'https://logos-download.com/wp-content/uploads/2016/09/Elastic_logo.png',
+                    name: 'Elastic',
+                },
+            ]
         }
     },
     {
@@ -134,9 +152,8 @@ const confoo2020Slides = [
         }
     },
     {
-        headlineFirstLine: "Jeu Concours",
-        sublineFirstLine: "Il n'y a rien de neuf sous",
-        sublineSecondLine: "le soleil",
+        headlineFirstLine: "Photo Booth",
+        isHeadlineVisible: true,
         logoImg: "./img/zenikanard-confoo-2020.png",
         bgImg: "./img/background-2-confoo-2020.png",
         rectImg: "./img/background-2-confoo-2020.png",
@@ -156,8 +173,9 @@ const confoo2020Slides = [
         headlineSecondLine: "Speakers",
         sublineFirstLine: "Nicolas Cuillery",
         sublineSecondLine: "Anna Filina",
-        bgImg: "./img/background-1-confoo-2020.jpg",
-        rectImg: "./img/background-1-confoo-2020.jpg",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
         content: "speakers",
         props: {
             speakers: [
