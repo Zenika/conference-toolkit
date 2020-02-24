@@ -159,13 +159,10 @@ const confoo2020Slides = [
         rectImg: "./img/background-2-confoo-2020.png",
         content: "contest",
         props: {
-            contest1Title: "Rabais de Formation",
-            contest1Image: "http://jardindeinnovacion.org/images/element/dd2.png",
-            contest2Title: "Prestation gratuite",
-            contest1Content: "Jusqu’à 50% de réduction sur une formation Zenika au catalogue",
-            contest1SubContent: "",
-            contest2SubContent: "@ZenikaMontreal",
-            contest2Content: "Gagner 1jour de prestation gratuite d’un collaborateur Zenika."
+            contest1Title: "Concourez pour gagner une console",
+            contest1Content: "",
+            contest1SubContent: "@ZenikaMontreal #confo2020",
+            contest2Image: "./img/concours_photobooth.png",
         },
     },
     {

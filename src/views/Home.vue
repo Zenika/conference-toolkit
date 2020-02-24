@@ -93,6 +93,7 @@
             :contest2-title="slide.props.contest2Title"
             :contest2-content="slide.props.contest2Content"
             :contest2-sub-content="slide.props.contest2SubContent"
+            :contest2-image="slide.props.contest2Image"
           />
 
           <c-meetups
