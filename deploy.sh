@@ -3,10 +3,10 @@
 # abort on errors
 set -e
 
-cd dist
-
 # build
 npm run build
+
+cd dist
 
 git init
 git add dist
