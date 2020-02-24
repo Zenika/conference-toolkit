@@ -48,7 +48,7 @@
     props: {
       contest1Image: {
         type: String,
-        default: null,
+        default: '',
       },
       contest1Title: {
         type: String,
