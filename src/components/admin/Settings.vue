@@ -147,7 +147,7 @@
       addNewSlide() {
         this.editingSlide = {
           props: {},
-        }
+        };
         this.isEditing = true;
         this.isNew = true;
       },

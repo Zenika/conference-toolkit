@@ -25,10 +25,10 @@ const confoo2020Slides = [
         logoImg: "./img/zenikanard-confoo-2020.png",
         content: "image",
         props: {
-            width: "60vw",
+            width: "55vw",
             top: "9vh",
             right: "9vh",
-            src: "https://i.ibb.co/wCTHHZF/Plaquette-AVANTAGES-BLC-1.jpg"
+            src: "./img/nous-rejoindre.jpeg"
         },
         isDisabled: true
     },
@@ -138,24 +138,6 @@ const confoo2020Slides = [
         }
     },
     {
-        headlineFirstLine: "Design",
-        headlineSecondLine: "Sprint",
-        isHeadlineVisible: false,
-        sublineFirstLine: "",
-        sublineSecondLine: " ",
-        bgImg: "./img/background-2-confoo-2020.png",
-        rectImg: "./img/background-2-confoo-2020.png",
-        logoImg: "",
-        content: "iframe",
-        props: {
-            height: "80vh",
-            width: "80vw",
-            top: "5vh",
-            right: "10vw",
-            src: "https://docs.google.com/presentation/d/1ayHL5rMXfEMuLwNZc5p2pX0GGjOFTM-LN7Wka0XELO0/preview?slide=id.g33bfd5ce23_0_1"
-        }
-    },
-    {
         headlineFirstLine: "Photo Booth",
         isHeadlineVisible: true,
         logoImg: "./img/zenikanard-confoo-2020.png",
@@ -168,6 +150,24 @@ const confoo2020Slides = [
             contest1SubContent: "@ZenikaMontreal #confo2020",
             contest2Image: "./img/concours_photobooth.png",
         },
+    },
+    {
+        headlineFirstLine: "Scan and",
+        headlineSecondLine: "Give",
+        isHeadlineVisible: true,
+        sublineFirstLine: "La Maison Bleue",
+        sublineSecondLine: "Carbone Boréal",
+        bgImg: "./img/background-2-confoo-2020.png",
+        rectImg: "./img/background-2-confoo-2020.png",
+        logoImg: "./img/zenikanard-confoo-2020.png",
+        content: "image",
+        props: {
+            width: "55vw",
+            top: "9vh",
+            right: "9vh",
+            src: "./img/scan_and_give.png"
+        },
+        isDisabled: true
     },
     {
         headlineFirstLine: "Confoo",
