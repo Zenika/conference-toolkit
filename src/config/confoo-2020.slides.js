@@ -82,60 +82,20 @@ const confoo2020Slides = [
         isDisabled: false
     },
     {
-        headlineFirstLine: "Formations",
+        headlineFirstLine: "Formations &",
+        headlineSecondLine: "Expertises",
         isHeadlineVisible: true,
-        sublineFirstLine: "",
-        sublineSecondLine: "",
         bgImg: "./img/background-2-confoo-2020.png",
         rectImg: "./img/background-2-confoo-2020.png",
         logoImg: "./img/zenikanard-confoo-2020.png",
-        content: "trainings",
+        content: "image",
         props: {
-            trainings: [
-                {
-                    name: 'Vue.js',
-                    logo: './img/vue_250x230.png',
-                },
-                {
-                    name: 'ReactJS',
-                    logo: './img/react_250x230.png',
-                },
-                {
-                    name: 'Flutter',
-                    logo: './img/flutter_250x230.png',
-                },
-                {
-                    name: 'Node JS',
-                    logo: './img/node_300x200.png',
-                },
-                {
-                    name: 'Sensibilisation au Software Craftsmanship',
-                    logo: './img/craft_250x230.png',
-                },
-                {
-                    name: 'Trouvez en plus sur notre site',
-                    logo: './img/nos-formations-qr-code.png',
-                },
-            ],
-            partners: [
-                {
-                    logo: 'https://logos-download.com/wp-content/uploads/2016/10/Red_Hat_logo_RedHat.png',
-                    name: 'Red Hat',
-                },
-                {
-                    logo: 'https://www.btelligent.com/fileadmin/_processed_/d/8/csm_confluent-partner_9de1dbf103.png',
-                    name: 'Confluent',
-                },
-                {
-                    logo: 'https://iqm7l1pa7bn3d42rc278rat5-wpengine.netdna-ssl.com/wp-content/uploads/2017/04/pivotal-logo.png',
-                    name: 'Pivotal',
-                },
-                {
-                    logo: 'https://logos-download.com/wp-content/uploads/2016/09/Elastic_logo.png',
-                    name: 'Elastic',
-                },
-            ]
-        }
+            width: "55vw",
+            top: "6vh",
+            right: "9vh",
+            src: "./img/formations.png"
+        },
+        isDisabled: true
     },
     {
         headlineFirstLine: "Photo Booth",
