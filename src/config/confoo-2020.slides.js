@@ -107,7 +107,7 @@ const confoo2020Slides = [
         props: {
             contest1Title: "Concourez pour gagner une console",
             contest1Content: "",
-            contest1SubContent: "@ZenikaMontreal #confo2020",
+            contest1SubContent: "@ZenikaMontreal #ConFoo",
             contest2Image: "./img/concours_photobooth.png",
         },
     },
