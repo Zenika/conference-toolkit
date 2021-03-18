@@ -5,9 +5,9 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "rectImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "logoImg": "./img/montreal-agency/zenikanard-confoo-2020.png",
+    "bgImg": "./img/montreal-agency/sw1.jpg",
+    "rectImg": "./img/montreal-agency/sw1.jpg",
+    "logoImg": "./img/montreal-agency/zenikanard.png",
     "content": "youtube",
     "props": {
       "width": "60vw",
@@ -20,9 +20,9 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "rectImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "logoImg": "./img/montreal-agency/zenikanard-confoo-2020.png",
+    "bgImg": "./img/montreal-agency/sw2.png",
+    "rectImg": "./img/montreal-agency/sw2.png",
+    "logoImg": "./img/montreal-agency/zenikanard.png",
     "content": "image",
     "props": {
       "width": "55vw",
@@ -38,9 +38,9 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "rectImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "logoImg": "./img/montreal-agency/zenikanard-confoo-2020.png",
+    "bgImg": "./img/montreal-agency/sw3.jpg",
+    "rectImg": "./img/montreal-agency/sw3.jpg",
+    "logoImg": "./img/montreal-agency/zenikanard.png",
     "content": "twitter",
     "props": {
       "width": "40vw",
@@ -54,8 +54,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "rectImg": "./img/montreal-agency/background-2-confoo-2020.png",
+    "bgImg": "./img/montreal-agency/sw4.jpg",
+    "rectImg": "./img/montreal-agency/sw4.jpg",
     "logoImg": "https://www.stickpng.com/assets/images/584c57c01fc21103bb375bae.png",
     "content": "meetups",
     "props": {
@@ -71,21 +71,5 @@
       ]
     },
     "isDisabled": false
-  },
-  {
-    "headlineFirstLine": "Formations &",
-    "headlineSecondLine": "Expertises",
-    "isHeadlineVisible": true,
-    "bgImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "rectImg": "./img/montreal-agency/background-2-confoo-2020.png",
-    "logoImg": "./img/montreal-agency/zenikanard-confoo-2020.png",
-    "content": "image",
-    "props": {
-      "width": "55vw",
-      "top": "6vh",
-      "right": "9vh",
-      "src": "./img/montreal-agency/formations.png"
-    },
-    "isDisabled": true
   }
 ]
