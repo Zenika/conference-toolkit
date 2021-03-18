@@ -7,7 +7,7 @@
       <p>🚪</p>
       <span>Go to slides</span>
     </router-link>
-    <v-toolbar
+    <v-app-bar
       color="amber"
       app
       absolute
@@ -16,8 +16,8 @@
       <v-spacer />
       <span class="title ml-3 mr-5">🎤 📺 Conference Toolkit Settings</span>
       <v-spacer />
-    </v-toolbar>
-    <v-content>
+    </v-app-bar>
+    <v-main>
       <v-tabs
         v-model="active"
         color="dark"
@@ -55,7 +55,7 @@
           <c-help />
         </v-tab-item>
       </v-tabs>
-    </v-content>
+    </v-main>
     <v-footer
       class="pa-3"
       color="amber"
@@ -84,12 +84,6 @@
       'c-howtouse': HowToUse,
       'c-settings': Settings,
       'c-help': Help,
-    },
-    props: {
-      source: {
-        type: String,
-        required: true,
-      }
     },
     data: () => ({
       active: '',

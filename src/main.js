@@ -5,8 +5,7 @@ import 'vuetify/dist/vuetify.min.css'
 import App from './App.vue'
 import router from './router'
 
-
-Vue.use(Vuetify, {
+const vuetifyOptions = {
     // theme: {
     //   primary: "#cddc39",
     //   secondary: "#2196f3",
@@ -16,10 +15,12 @@ Vue.use(Vuetify, {
     //   info: "#00bcd4",
     //   success: "#009688"
     // }
-})
-Vue.config.productionTip = false
+};
+Vue.use(Vuetify);
+Vue.config.productionTip = false;
 
 new Vue({
     router,
-    render: h => h(App)
-}).$mount('#app')
+    render: h => h(App),
+    vuetify: new Vuetify(vuetifyOptions)
+}).$mount('#app');
