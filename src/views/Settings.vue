@@ -29,6 +29,7 @@
           v-model="configUrl"
           type="url"
           name="configUrl"
+          placeholder="./config/some-file.json"
           @change="save()"
         >
       </label>
@@ -39,6 +40,7 @@
           v-model="currentSlide"
           type="number"
           name="currentSlide"
+          placeholder="0"
           @change="save()"
         >
       </label>
@@ -49,6 +51,7 @@
           v-model="timer"
           type="number"
           name="timer"
+          placeholder="30"
           @change="save()"
         >
       </label>
@@ -84,21 +87,17 @@
     <h1 title="Credits">
       👏
     </h1>
-
-    <a
-      class="link"
-      target="_blank"
-      href="https://github.com/T3kstiil3/conference-toolkit/issues"
-    >Problem ? 🛠</a>
-    <a
-      class="link"
-      target="_blank"
-      href="https://github.com/T3kstiil3/conference-toolkit/"
-    >Contribute 🐙</a>
-
     <footer>
-      &lt;/&gt; with ❤️by
-      <a href="https://aurelien-loyer.fr">Aurélien Loyer</a>
+      <a
+        class="link"
+        target="_blank"
+        href="https://github.com/Zenika/conference-toolkit/issues"
+      >Problem ? 🛠</a>
+      <a
+        class="link"
+        target="_blank"
+        href="https://github.com/Zenika/conference-toolkit/"
+      >Contribute 🐙</a>
     </footer>
   </div>
 </template>
@@ -138,7 +137,7 @@
   .settings {
     height: 100%;
     overflow-y: scroll;
-    padding: 30px 0;
+    padding-top: 30px;
     font-size: 17px;
 
     .message {
@@ -156,9 +155,8 @@
       color: #009688;
       font-size: 1.5em;
       text-decoration: none;
-      display: block;
       width: 200px;
-      margin: auto auto 25px;
+      margin: 25px;
       transition: all .5s;
 
       &:hover {
@@ -227,7 +225,6 @@
 
     footer {
       background: #ffc107;
-      position: absolute;
       width: 100%;
       bottom: 0;
       padding: 10px;

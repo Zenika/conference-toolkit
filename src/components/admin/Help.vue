@@ -7,13 +7,13 @@
     <v-card class="pa-4 mt-4">
       <a
         target="_blank"
-        href="https://github.com/T3kstiil3/conference-toolkit/issues"
+        href="https://github.com/Zenika/conference-toolkit/issues"
       >Problem ? 🛠</a>
 
       <br>
       <a
         target="_blank"
-        href="https://github.com/T3kstiil3/conference-toolkit/"
+        href="https://github.com/Zenika/conference-toolkit/"
       >Contribute 🐙</a>
     </v-card>
   </div>

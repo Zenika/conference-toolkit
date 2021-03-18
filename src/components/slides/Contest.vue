@@ -76,7 +76,7 @@
       },
       contest2Image: {
         type: String,
-        default: 'img/teeshirt.png',
+        default: 'img/demo/teeshirt.png',
       },
     },
     data: function () {

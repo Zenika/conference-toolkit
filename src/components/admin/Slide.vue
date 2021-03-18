@@ -42,7 +42,7 @@
       <pre class="config">{{ slide.props }}</pre>
       <v-card-actions>
         <v-btn
-          flat
+          text
           color="blue"
           @click="edit()"
         >
