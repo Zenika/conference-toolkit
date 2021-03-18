@@ -153,7 +153,7 @@
   import Iframe from './../components/slides/Iframe.vue';
   import Meetups from "../components/slides/Meetups";
   import Trainings from "../components/slides/Trainings";
-  import confoo2020Slides from './../config/confoo-2020.slides';
+  import defaultSlides from './../services/slides.service';
 
   export default {
     name: 'Home',
@@ -179,7 +179,7 @@
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
         slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
-        defaultSlides: confoo2020Slides,
+        defaultSlides: defaultSlides,
       };
     },
     mounted: function () {
@@ -253,10 +253,8 @@
       this.p.on('connect', () => {
         console.log('CONNECT');
         this.p.send('whatever' + Math.random())
+        console.log(this.p);
       });
-
-      console.log(this.p);
-
     },
     methods: {
       // WEBRTC
@@ -281,17 +279,19 @@
         this.isPlaying = !this.isPlaying;
       },
       getSlides() {
-        const jsonUrl = JSON.parse(localStorage.getItem('configUrl'));
+        const jsonUrl = localStorage.getItem('configUrl');
         if (jsonUrl) {
+          console.log('Will fetch configuration from ' + jsonUrl);
           fetch(jsonUrl)
             .then(resp => resp.json())
             .then(data => {
+              console.log('data', data);
               this.slides = data;
             });
         } else {
           this.slides = this.defaultSlides;
-          window.localStorage.setItem('slides', JSON.stringify(this.slides));
         }
+        window.localStorage.setItem('slides', JSON.stringify(this.slides));
       }
     }
   }

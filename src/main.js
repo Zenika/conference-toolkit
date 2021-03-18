@@ -17,7 +17,6 @@ const vuetifyOptions = {
     // }
 };
 Vue.use(Vuetify);
-Vue.config.productionTip = false;
 
 new Vue({
     router,
