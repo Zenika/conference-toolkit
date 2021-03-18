@@ -13,6 +13,6 @@ module.exports = {
     'vue/no-v-html': 'off',
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@babel/eslint-parser'
   }
 }
