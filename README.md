@@ -25,14 +25,14 @@ npm run test
 npm run lint
 ```
 
-### Run your end-to-end tests
+### Run your tests
 ```
-npm run test:e2e
+npm test
 ```
 
-### Run your unit tests
+### Deploy to production
 ```
-npm run test:unit
+npm run deploy
 ```
 
 ### Customize configuration
