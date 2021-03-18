@@ -29,7 +29,7 @@
           v-model="configUrl"
           type="url"
           name="configUrl"
-          placeholder="./config/confoo-2020.json"
+          placeholder="./config/some-file.json"
           @change="save()"
         >
       </label>

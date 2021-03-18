@@ -86,8 +86,8 @@
     "isHeadlineVisible": false,
     "sublineFirstLine": "",
     "sublineSecondLine": " ",
-    "bgImg": "./img/sw2.png",
-    "rectImg": "./img/sw2.png",
+    "bgImg": "./img/salon-connexion/sw2.png",
+    "rectImg": "./img/salon-connexion/sw2.png",
     "logoImg": "",
     "content": "iframe",
     "props": {

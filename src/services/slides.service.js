@@ -4,11 +4,11 @@ const defaultSlides = [
         headlineSecondLine: "Image",
         sublineFirstLine: "Led by passion",
         sublineSecondLine: " Zenika",
-        bgImg: "./img/sw2.png",
-        rectImg: "./img/sw2.png",
+        bgImg: "./img/demo/sw2.png",
+        rectImg: "./img/demo/sw2.png",
         content: "image",
         props: {
-            src: "img/zenikanard.png",
+            src: "img/demo/zenikanard.png",
         }
     },
     {
@@ -16,8 +16,8 @@ const defaultSlides = [
         headlineSecondLine: "IFRAME",
         sublineFirstLine: "Led by passion",
         sublineSecondLine: " Zenika",
-        bgImg: "./img/sw2.png",
-        rectImg: "./img/sw2.png",
+        bgImg: "./img/demo/sw2.png",
+        rectImg: "./img/demo/sw2.png",
         content: "iframe",
         props: {
             height: '50vh',
@@ -32,8 +32,8 @@ const defaultSlides = [
         headlineSecondLine: "Sprint",
         sublineFirstLine: "Sprint",
         sublineSecondLine: " Zenika",
-        bgImg: "./img/sw2.png",
-        rectImg: "./img/sw2.png",
+        bgImg: "./img/demo/sw2.png",
+        rectImg: "./img/demo/sw2.png",
         content: "iframe",
         props: {
             height: '50vh',
@@ -48,8 +48,8 @@ const defaultSlides = [
         headlineSecondLine: "Twitter",
         sublineFirstLine: "Il n'y a rien de neuf sous",
         sublineSecondLine: " le soleil",
-        bgImg: "./img/sw4.jpg",
-        rectImg: "./img/sw4.jpg",
+        bgImg: "./img/demo/sw4.jpg",
+        rectImg: "./img/demo/sw4.jpg",
         content: "twitter",
         props: {
             twitterName: 'AurelienLoyer',
@@ -60,8 +60,8 @@ const defaultSlides = [
         headlineSecondLine: "Contest",
         sublineFirstLine: "Il n'y a rien de neuf sous",
         sublineSecondLine: "le soleil",
-        bgImg: "./img/sw3.jpg",
-        rectImg: "./img/sw3-1.jpg",
+        bgImg: "./img/demo/sw3.jpg",
+        rectImg: "./img/demo/sw3-1.jpg",
         content: "contest",
         props: {}
     },
@@ -70,8 +70,8 @@ const defaultSlides = [
         headlineSecondLine: "Youtube",
         sublineFirstLine: "Join the",
         sublineSecondLine: " zLife",
-        bgImg: "./img/sw6.jpg",
-        rectImg: "./img/sw6.jpg",
+        bgImg: "./img/demo/sw6.jpg",
+        rectImg: "./img/demo/sw6.jpg",
         content: "youtube",
         props: {
             src: "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0",
@@ -82,8 +82,8 @@ const defaultSlides = [
         headlineSecondLine: "Speakers",
         sublineFirstLine: "Aurelien Loyer",
         sublineSecondLine: "Anna Filina",
-        bgImg: "./img/sw1.jpg",
-        rectImg: "./img/sw1.jpg",
+        bgImg: "./img/demo/sw1.jpg",
+        rectImg: "./img/demo/sw1.jpg",
         content: "speakers",
         props: {
             speakers: [
@@ -91,7 +91,7 @@ const defaultSlides = [
                     firstname: 'Aurélien',
                     lastname: 'LOYER',
                     twitter: 'AurelienLoyer',
-                    picture: 'img/trooper2.png',
+                    picture: 'img/demo/trooper2.png',
                     job: 'CTO | Consultant Web',
                     talk: 'Tout le monde sait comment utiliser Angular / React / Vue.js ...',
                     talk_description: 'Aujourd’hui tout le monde connait les frameworks Angular, React Vuejs, mais savez-vous utiliser Javascript ? Savez-vous ...',
@@ -102,7 +102,7 @@ const defaultSlides = [
                     firstname: 'Anna',
                     lastname: 'FILINA',
                     twitter: 'afilina',
-                    picture: 'img/maul4.png',
+                    picture: 'img/demo/maul4.png',
                     job: 'IT Project Rescue',
                     talk: `Writing Better Gherkin Scenarios`,
                     talk_description: 'Are your feature files gigantic and unreadable? Do they break every time you add a database column or change a completely ...',

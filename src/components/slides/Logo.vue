@@ -12,7 +12,7 @@
     props: {
       img: {
         type: String,
-        default: 'img/znk2.png',
+        default: 'img/demo/znk2.png',
       }
     },
     data: function () {
