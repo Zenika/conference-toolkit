@@ -71,7 +71,7 @@
         md5
       >
         <v-text-field
-          v-model="slide.bgImg"
+          :v-model="`${prependPublicPathIfNecessary(slide.bgImg)}`"
           type="text"
           label="Background Image"
         />
@@ -81,7 +81,7 @@
         md5
       >
         <v-text-field
-          v-model="slide.rectImg"
+          :v-model="`${prependPublicPathIfNecessary(slide.rectImg)}`"
           type="text"
           label="Rect Image"
         />
@@ -91,7 +91,7 @@
         md5
       >
         <v-text-field
-          v-model="slide.logoImg"
+          :v-model="`${prependPublicPathIfNecessary(slide.logoImg)}`"
           type="text"
           label="Logo Image"
         />
@@ -178,6 +178,7 @@
   import Speakers from '../slides/Speakers';
   import Twitter from '../slides/Twitter';
   import Youtube from '../slides/Youtube';
+  import SlidesService from '../../services/slides.service';
 
   export default {
     props: {
@@ -226,6 +227,9 @@
           })
         });
         console.log(this.props);
+      },
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
       }
     }
   }

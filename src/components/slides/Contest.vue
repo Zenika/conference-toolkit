@@ -9,7 +9,7 @@
         <img
           v-if="contest1Image"
           class="helmet"
-          :src="contest1Image"
+          :src="`${prependPublicPathIfNecessary(contest1Image)}`"
           alt="helmet"
         >
         <div class="productInfo">
@@ -32,7 +32,7 @@
         <div class="productInfo">
           <img
             class="contest-img"
-            :src="contest2Image"
+            :src="`${prependPublicPathIfNecessary(contest2Image)}`"
             alt="helmet"
           >
         </div>
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+  import SlidesService from "../../services/slides.service";
+
   export default {
     name: 'Contest',
     props: {
@@ -84,9 +86,11 @@
         contests: [],
       }
     },
-    mounted: function () {
-    },
-    methods: {}
+    methods: {
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
+      }
+    }
   }
 </script>
 

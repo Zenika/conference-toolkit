@@ -38,8 +38,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/sw3.jpg",
-    "rectImg": "./img/montreal-agency/sw3.jpg",
+    "bgImg": "./img/montreal-agency/sw5.jpg",
+    "rectImg": "./img/montreal-agency/sw5.jpg",
     "logoImg": "./img/montreal-agency/zenikanard.png",
     "content": "twitter",
     "props": {
@@ -65,7 +65,7 @@
           "logo": "./img/montreal-agency/meetup_software-craft.jpeg"
         },
         {
-          "name": "MTL React & React Native Monthly Meetup",
+          "name": "Let's React MTL",
           "logo": "./img/montreal-agency/meetup_reactjs-mtl.png"
         }
       ]

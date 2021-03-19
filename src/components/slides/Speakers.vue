@@ -18,7 +18,7 @@
       <div class="right">
         <img
           class="picture"
-          :src="speakers[index].picture"
+          :src="`${prependPublicPathIfNecessary(speakers[index].picture)}`"
           alt="picture"
         >
         <div class="informations">
@@ -62,6 +62,8 @@
 </template>
 
 <script>
+  import SlidesService from "../../services/slides.service";
+
   export default {
     name: 'Speakers',
     props: {
@@ -118,13 +120,15 @@
           this.indexBase++;
         }
       },
-
       prevSpeaker() {
         if (this.indexBase - 1 < 0) {
           this.indexBase = this.speakers.length - 1
         } else {
           this.indexBase--;
         }
+      },
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
       }
     }
   }

@@ -10,7 +10,7 @@
       :key="`slide-${index}`"
       class="slide-wrapper"
       :class="{ active: index === currentSlide }"
-      :style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }"
+      :style="{ 'z-index': (slides.length - index), 'background-image': `url(${prependPublicPathIfNecessary(slide.bgImg)})` }"
     >
       <div class="slide-inner">
         <div class="slide-bg-text">
@@ -21,7 +21,7 @@
           v-if="slide.logoImg"
           class="slide-rect"
         >
-          <c-logo :img="slide.logoImg" />
+          <c-logo :img="`${prependPublicPathIfNecessary(slide.logoImg)}`" />
         </div>
         <div
           v-if="slide.isHeadlineVisible"
@@ -70,7 +70,7 @@
 
           <c-image
             v-if="slide.content === 'image'"
-            :src="slide.props.src"
+            :src="`${prependPublicPathIfNecessary(slide.props.src)}`"
             :width="slide.props.width"
             :top="slide.props.top"
             :right="slide.props.right"
@@ -153,7 +153,7 @@
   import Iframe from './../components/slides/Iframe.vue';
   import Meetups from "../components/slides/Meetups";
   import Trainings from "../components/slides/Trainings";
-  import defaultSlides from './../services/slides.service';
+  import SlidesService from "../services/slides.service";
 
   export default {
     name: 'Home',
@@ -179,7 +179,7 @@
         counter: 0,
         timer: parseInt(window.localStorage.getItem('timer')),
         slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
-        defaultSlides: defaultSlides,
+        defaultSlides: SlidesService.defaultSlides,
       };
     },
     mounted: function () {
@@ -279,19 +279,21 @@
         this.isPlaying = !this.isPlaying;
       },
       getSlides() {
-        const jsonUrl = localStorage.getItem('configUrl');
+        const jsonUrl = this.prependPublicPathIfNecessary(localStorage.getItem('configUrl'));
         if (jsonUrl) {
           console.log('Will fetch configuration from ' + jsonUrl);
           fetch(jsonUrl)
             .then(resp => resp.json())
             .then(data => {
-              console.log('data', data);
               this.slides = data;
             });
         } else {
           this.slides = this.defaultSlides;
         }
         window.localStorage.setItem('slides', JSON.stringify(this.slides));
+      },
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
       }
     }
   }
