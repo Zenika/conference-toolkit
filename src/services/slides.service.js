@@ -118,7 +118,7 @@ export default {
     ],
 
     prependPublicPathIfNecessary: (url) => {
-        if (publicPath.length > 1) {
+        if (publicPath && publicPath.length > 1) {
             if (url && !url.startsWith('http')) {
                 return `${publicPath}${url}`;
             }
