@@ -12,7 +12,7 @@
       <v-img
         class="white--text image"
         height="200px"
-        :src="slide.bgImg"
+        :src="`${prependPublicPathIfNecessary(slide.bgImg)}`"
       >
         <v-container
           fill-height
@@ -54,7 +54,9 @@
 </template>
 
 <script>
-  export default {
+import SlidesService from '../../services/slides.service';
+
+export default {
     props: {
       slide: {
         type: Object,
@@ -68,6 +70,9 @@
     methods: {
       edit() {
         this.$emit('edit', this.index);
+      },
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
       }
     }
   }

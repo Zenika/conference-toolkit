@@ -9,7 +9,7 @@
         <div class="top">
           <img
             class="image"
-            :src="meetup.logo"
+            :src="`${prependPublicPathIfNecessary(meetup.logo)}`"
             :alt="`${meetup.name} logo`"
             :style="`width: ${width};`"
           >
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+  import SlidesService from "../../services/slides.service";
+
   export default {
     name: 'Meetups',
     props: {
@@ -49,6 +51,11 @@
         type: String,
         default: '15vw',
       },
+    },
+    methods: {
+      prependPublicPathIfNecessary(url) {
+        return SlidesService.prependPublicPathIfNecessary(url);
+      }
     },
   }
 </script>
