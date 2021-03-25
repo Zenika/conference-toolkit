@@ -2,9 +2,10 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
-export default new Router({
+const router = new Router({
+    mode: 'history',
     base: process.env.BASE_URL,
     routes: [
         {
@@ -38,3 +39,17 @@ export default new Router({
         }
     ]
 })
+
+const hasQueryParams = (route) => {
+    return !!Object.keys(route.query).length
+}
+
+router.beforeEach((to, from, next) => {
+    if(!hasQueryParams(to) && hasQueryParams(from)){
+        next({name: to.name, query: from.query});
+    } else {
+        next()
+    }
+})
+
+export default router;

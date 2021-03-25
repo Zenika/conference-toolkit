@@ -177,7 +177,7 @@
         isFirstLoad: true,
         isPlaying: JSON.parse(window.localStorage.getItem('isPlaying')),
         counter: 0,
-        timer: parseInt(window.localStorage.getItem('timer')),
+        timer: parseInt(window.localStorage.getItem('timer'), 10),
         slides: JSON.parse(window.localStorage.getItem('slides') || '[]') || [],
         defaultSlides: SlidesService.defaultSlides,
       };

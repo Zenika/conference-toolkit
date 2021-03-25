@@ -29,7 +29,7 @@
           v-model="configUrl"
           type="url"
           name="configUrl"
-          placeholder="./config/some-file.json"
+          placeholder="ex: ./config/montreal-agency.json"
           @change="save()"
         >
       </label>
@@ -40,7 +40,7 @@
           v-model="currentSlide"
           type="number"
           name="currentSlide"
-          placeholder="0"
+          placeholder="ex: 0"
           @change="save()"
         >
       </label>
@@ -51,7 +51,7 @@
           v-model="timer"
           type="number"
           name="timer"
-          placeholder="30"
+          placeholder="ex: 30"
           @change="save()"
         >
       </label>
@@ -118,6 +118,24 @@
           {value: '👆 Up', label: 'Next slide content'},
           {value: '👇 Down', label: 'Previous slide content'},
         ],
+      }
+    },
+    mounted: function () {
+      if (this.$route.query.timer) {
+        this.timer = this.$route.query.timer;
+      }
+      if (this.$route.query.configUrl) {
+        this.configUrl = this.$route.query.configUrl;
+      }
+      if (this.$route.query.currentSlide) {
+        this.currentSlide = this.$route.query.currentSlide;
+      }
+      if (this.$route.query.isPlaying) {
+        this.isPlaying = this.$route.query.isPlaying;
+      }
+      this.save();
+      if (this.timer && this.configUrl && this.currentSlide && this.isPlaying) {
+        this.$router.push('/');
       }
     },
     methods: {
