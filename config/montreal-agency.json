@@ -11,7 +11,7 @@
     "content": "youtube",
     "props": {
       "width": "60vw",
-      "src": "https://www.youtube.com/embed/b_Gh5YIzs9o?list=PLQBUm8bePdvYOBJ_vyUVNeRPThdEECiqr&autoplay=1&mute=1&loop=1&controls=0"
+      "src": "https://www.youtube.com/embed/b_Gh5YIzs9o?autoplay=1&controls=0&showinfo=0&loop=1&mute=1&playlist=b_Gh5YIzs9o"
     }
   },
   {
@@ -31,6 +31,22 @@
       "src": "./img/montreal-agency/nous-rejoindre.jpeg"
     },
     "isDisabled": true
+  },
+  {
+    "headlineFirstLine": "Les",
+    "headlineSecondLine": "agences",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/montreal-agency/sw3.jpg",
+    "rectImg": "./img/montreal-agency/sw3.jpg",
+    "content": "iframe",
+    "props": {
+      "height": "65vh",
+      "width": "110vh",
+      "top": "10vh",
+      "src": "https://weather.zenika.com/"
+    }
   },
   {
     "headlineFirstLine": "",
