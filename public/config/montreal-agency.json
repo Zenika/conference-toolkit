@@ -33,6 +33,22 @@
     "isDisabled": true
   },
   {
+    "headlineFirstLine": "Les agences",
+    "headlineSecondLine": "Zenika",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/montreal-agency/sw3.jpg",
+    "rectImg": "./img/montreal-agency/sw3.jpg",
+    "content": "iframe",
+    "props": {
+      "height": "65vh",
+      "width": "110vh",
+      "top": "10vh",
+      "src": "https://weather.zenika.com/"
+    }
+  },
+  {
     "headlineFirstLine": "",
     "headlineSecondLine": "Twitter",
     "isHeadlineVisible": true,
