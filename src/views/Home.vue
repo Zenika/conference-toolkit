@@ -255,6 +255,8 @@
         this.p.send('whatever' + Math.random())
         console.log(this.p);
       });
+
+      window.setTimeout(() => window.location.reload(), 60 * 60 * 1000)
     },
     methods: {
       // WEBRTC
