@@ -37,4 +37,8 @@
       }
     }
   }
+
+  p {
+    font-size: 6rem;
+  }
 </style>
