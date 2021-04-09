@@ -1,7 +1,8 @@
 <template>
   <iframe
+    scrolling="no"
     :src="src"
-    :style="`width: ${width}; height: ${height}; top: ${top}; right: ${right};`"
+    :style="(!!width ? `width: ${width};` : '') + (!!height ? `height: ${height};` : '') + (!!top ? `top: ${top};` : '') + (!!right ? `right: ${right};` : '')"
   />
 </template>
 
@@ -11,23 +12,23 @@
     props: {
       'src': {
         type: String,
-        default: 'https://aurelien-loyer.fr/'
+        default: 'https://zenika.ca/'
       },
       'height': {
         type: String,
-        default: '80vh',
+        default: '',
       },
       'width': {
         type: String,
-        default: '80vh',
+        default: '',
       },
       'top': {
         type: String,
-        default: '10vh',
+        default: '',
       },
       'right': {
         type: String,
-        default: '10vw',
+        default: '',
       },
     },
     data: function () {
@@ -38,12 +39,12 @@
 
 <style scoped lang="scss">
   iframe {
-    width: 50vw;
-    height: calc(100vh - 150px);
+    width: 60%;
+    height: 80%;
     overflow: hidden;
     position: absolute;
-    right: 200px;
-    top: 40px;
+    right: 50px;
+    top: 50px;
     background: #0c1f2c;
     border-radius: 10px;
   }

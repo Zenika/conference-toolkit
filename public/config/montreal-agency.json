@@ -42,9 +42,6 @@
     "rectImg": "./img/montreal-agency/sw3.jpg",
     "content": "iframe",
     "props": {
-      "height": "65vh",
-      "width": "110vh",
-      "top": "10vh",
       "src": "https://weather.zenika.com/"
     }
   },
