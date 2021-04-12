@@ -1,6 +1,7 @@
 <template>
   <iframe
     scrolling="no"
+    frameborder="0"
     :src="src"
     :style="(!!width ? `width: ${width};` : '') + (!!height ? `height: ${height};` : '') + (!!top ? `top: ${top};` : '') + (!!right ? `right: ${right};` : '')"
   />
