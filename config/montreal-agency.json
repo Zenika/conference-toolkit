@@ -24,7 +24,7 @@
     "rectImg": "./img/montreal-agency/sw3.jpg",
     "content": "iframe",
     "props": {
-      "src": "https://docs.google.com/presentation/d/e/2PACX-1vTJk9it6ZG_HhMztOAfQyUnHVtrvQIiL4zxP8G8ukbqinSBey47xMGPI75h7tQ12xM2vpV1fK2OqKN5/embed?start=true&loop=true&delayms=15000"
+      "src": "https://docs.google.com/presentation/d/e/2PACX-1vTJk9it6ZG_HhMztOAfQyUnHVtrvQIiL4zxP8G8ukbqinSBey47xMGPI75h7tQ12xM2vpV1fK2OqKN5/embed?start=true&loop=true&delayms=15000&rm=minimal"
     }
   },
   {
