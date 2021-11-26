@@ -97,18 +97,5 @@
       ]
     },
     "isDisabled": false
-  },
-  {
-    "headlineFirstLine": "JAZ",
-    "headlineSecondLine": "board",
-    "isHeadlineVisible": true,
-    "sublineFirstLine": "",
-    "sublineSecondLine": "",
-    "bgImg": "./img/montreal-agency/sw1.jpg",
-    "rectImg": "./img/montreal-agency/sw1.jpg",
-    "content": "iframe",
-    "props": {
-      "src": "https://docs.google.com/presentation/d/e/2PACX-1vR5-ZIFbrGPZ8F_RZ4mtP23i9Liu_s7211rJ7kuOFCZ9s_8xdc-qfMaAj9vAsAgq-B2zYPnyFxWBT9A/embed?start=true&loop=true&delayms=15000&rm=minimal"
-    }
   }
 ]
