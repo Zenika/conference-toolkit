@@ -1,0 +1,72 @@
+[
+  {
+    "headlineFirstLine": "Code",
+    "headlineSecondLine": "the world",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/agile-tour-montreal-2022/sw1.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/sw1.jpg",
+    "logoImg": "./img/agile-tour-montreal-2022/zenikanard.png",
+    "content": "youtube",
+    "props": {
+      "width": "60vw",
+      "src": "https://www.youtube.com/embed/SWHK2MkU_xE?autoplay=1&controls=0&showinfo=0&loop=1&mute=1"
+    }
+  },
+  {
+    "headlineFirstLine": "Notre",
+    "headlineSecondLine": "vision",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/agile-tour-montreal-2022/sw2.png",
+    "rectImg": "./img/agile-tour-montreal-2022/sw2.png",
+    "content": "iframe",
+    "props": {
+      "src": "https://docs.google.com/presentation/d/e/2PACX-1vRPoJba_HyEEQyYeI34xFdf9bTd-6xNKIn1tvOdVg0ZmsBkTO1c9tzPHM91JaFL3Ub-sjrh3OHatdof/embed?start=true&loop=true&delayms=15000&rm=minimal"
+    }
+  },
+  {
+    "headlineFirstLine": "Conférences",
+    "headlineSecondLine": "",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/agile-tour-montreal-2022/sw3.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/sw3.jpg",
+    "content": "iframe",
+    "props": {
+      "src": "https://docs.google.com/presentation/d/e/2PACX-1vRGN4hnXQNqFT8T7lBRg-brsB9aEzG12Z4GZczKHYW9XvytFD4j0zNK8APi1HRWyxr95qJhyUr_k5Cb/embed?start=true&loop=true&delayms=15000&rm=minimal"
+    }
+  },
+  {
+    "headlineFirstLine": "Offres",
+    "headlineSecondLine": "d'emploi",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/agile-tour-montreal-2022/sw6.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/sw6.jpg",
+    "content": "iframe",
+    "props": {
+      "src": "https://docs.google.com/presentation/d/e/2PACX-1vTJk9it6ZG_HhMztOAfQyUnHVtrvQIiL4zxP8G8ukbqinSBey47xMGPI75h7tQ12xM2vpV1fK2OqKN5/embed?start=true&loop=true&delayms=15000&rm=minimal"
+    }
+  },
+  {
+    "headlineFirstLine": "",
+    "headlineSecondLine": "Twitter",
+    "isHeadlineVisible": true,
+    "sublineFirstLine": "",
+    "sublineSecondLine": "",
+    "bgImg": "./img/agile-tour-montreal-2022/sw5.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/sw5.jpg",
+    "logoImg": "./img/agile-tour-montreal-2022/zenikanard.png",
+    "content": "twitter",
+    "props": {
+      "width": "40vw",
+      "twitterName": "ZenikaIT"
+    },
+    "isDisabled": false
+  }
+]
