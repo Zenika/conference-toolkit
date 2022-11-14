@@ -5,8 +5,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/agile-tour-montreal-2022/sw1.jpg",
-    "rectImg": "./img/agile-tour-montreal-2022/sw1.jpg",
+    "bgImg": "./img/agile-tour-montreal-2022/canada1.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/canada1.jpg",
     "logoImg": "./img/agile-tour-montreal-2022/zenikanard.png",
     "content": "youtube",
     "props": {
@@ -20,8 +20,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/agile-tour-montreal-2022/sw2.png",
-    "rectImg": "./img/agile-tour-montreal-2022/sw2.png",
+    "bgImg": "./img/agile-tour-montreal-2022/canada2.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/canada2.jpg",
     "content": "iframe",
     "props": {
       "src": "https://docs.google.com/presentation/d/e/2PACX-1vRPoJba_HyEEQyYeI34xFdf9bTd-6xNKIn1tvOdVg0ZmsBkTO1c9tzPHM91JaFL3Ub-sjrh3OHatdof/embed?start=true&loop=true&delayms=15000&rm=minimal"
@@ -33,8 +33,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/agile-tour-montreal-2022/sw3.jpg",
-    "rectImg": "./img/agile-tour-montreal-2022/sw3.jpg",
+    "bgImg": "./img/agile-tour-montreal-2022/canada3.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/canada3.jpg",
     "content": "iframe",
     "props": {
       "src": "https://docs.google.com/presentation/d/e/2PACX-1vRGN4hnXQNqFT8T7lBRg-brsB9aEzG12Z4GZczKHYW9XvytFD4j0zNK8APi1HRWyxr95qJhyUr_k5Cb/embed?start=true&loop=true&delayms=15000&rm=minimal"
@@ -46,8 +46,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/agile-tour-montreal-2022/sw6.jpg",
-    "rectImg": "./img/agile-tour-montreal-2022/sw6.jpg",
+    "bgImg": "./img/agile-tour-montreal-2022/canada4.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/canada4.jpg",
     "content": "iframe",
     "props": {
       "src": "https://docs.google.com/presentation/d/e/2PACX-1vTJk9it6ZG_HhMztOAfQyUnHVtrvQIiL4zxP8G8ukbqinSBey47xMGPI75h7tQ12xM2vpV1fK2OqKN5/embed?start=true&loop=true&delayms=15000&rm=minimal"
@@ -59,8 +59,8 @@
     "isHeadlineVisible": true,
     "sublineFirstLine": "",
     "sublineSecondLine": "",
-    "bgImg": "./img/agile-tour-montreal-2022/sw5.jpg",
-    "rectImg": "./img/agile-tour-montreal-2022/sw5.jpg",
+    "bgImg": "./img/agile-tour-montreal-2022/canada5.jpg",
+    "rectImg": "./img/agile-tour-montreal-2022/canada5.jpg",
     "logoImg": "./img/agile-tour-montreal-2022/zenikanard.png",
     "content": "twitter",
     "props": {
